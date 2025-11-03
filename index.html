@@ -1388,7 +1388,7 @@
         <div class="container">
             <div class="hero-content">
                 <h1>Senior IT Professional with 8+ Years of Excellence</h1>
-                <p> Specialising in Software Development, Data Analysis, Network Administration and System Management to drive organisational success through innovative technology solutions.</p>
+                <p>Specializing in Network Administration, System Management, and Data Analysis to drive organizational success through innovative technology solutions.</p>
                 <div class="hero-btns">
                     <a href="#contact" class="btn">
                         <i class="fas fa-paper-plane"></i> Get In Touch
@@ -2435,7 +2435,7 @@
         });
         
         // Fixed PDF Download Functionality
-        document.getElementById('downloadPdf').addEventListener('click', function(e) {
+        document.getElementById('downloadResume').addEventListener('click', function(e) {
             e.preventDefault();
             
             // Create a proper resume element for PDF generation
@@ -2552,12 +2552,6 @@
             html2pdf().set(opt).from(resumeElement).save();
         });
 
-        // Also make the download button in hero work
-        document.getElementById('downloadResume').addEventListener('click', function(e) {
-            e.preventDefault();
-            document.getElementById('downloadPdf').click();
-        });
-
         // Add animation on scroll
         const observerOptions = {
             threshold: 0.1,
@@ -2582,5 +2576,4 @@
         });
     </script>
 </body>
-
 </html>
