@@ -711,48 +711,35 @@
             transform: scale(1.2);
         }
         
-        /* Enhanced Projects Section */
+        /* Enhanced Projects Section with Slider */
         .projects {
             background-color: #f8fafc;
         }
         
-        .project-filters {
+        .project-slider {
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+            max-width: 1000px;
+        }
+        
+        .project-track {
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 40px;
+            transition: transform 0.5s ease;
         }
         
-        .filter-btn {
-            padding: 8px 20px;
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-        
-        .filter-btn.active, .filter-btn:hover {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-        
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
+        .project-slide {
+            min-width: 100%;
+            padding: 0 15px;
+            box-sizing: border-box;
         }
         
         .project-card {
             overflow: hidden;
             transition: transform 0.3s ease;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-8px);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
         
         .project-img {
@@ -800,6 +787,9 @@
         
         .project-content {
             padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
         
         .project-content h3 {
@@ -823,6 +813,33 @@
             font-weight: 500;
         }
         
+        .project-features {
+            margin: 20px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            flex-grow: 1;
+        }
+        
+        .project-features h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .project-features ul {
+            padding-left: 20px;
+        }
+        
+        .project-features li {
+            margin-bottom: 10px;
+            color: var(--secondary);
+            line-height: 1.6;
+        }
+        
         .project-link {
             color: var(--primary);
             text-decoration: none;
@@ -831,6 +848,7 @@
             align-items: center;
             gap: 5px;
             transition: gap 0.3s ease;
+            margin-top: auto;
         }
         
         .project-link:hover {
@@ -1228,10 +1246,6 @@
                 gap: 10px;
             }
             
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-            
             .dashboard-features {
                 grid-template-columns: 1fr;
             }
@@ -1556,7 +1570,7 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Enhanced Projects Section with Slider -->
     <section id="projects" class="projects">
         <div class="container">
             <div class="section-title">
@@ -1564,126 +1578,205 @@
             </div>
             <p class="section-subtitle">A showcase of my technical implementations, system deployments, and IT solutions across various organizational contexts.</p>
             
-            <div class="project-filters">
-                <button class="filter-btn active" data-filter="all">All Projects</button>
-                <button class="filter-btn" data-filter="web">Web Development</button>
-                <button class="filter-btn" data-filter="data">Data Analysis</button>
-                <button class="filter-btn" data-filter="system">System Solutions</button>
-            </div>
-            
-            <div class="projects-grid">
-                <div class="project-card card" data-category="web">
-                    <div class="project-img" style="background: linear-gradient(135deg, #4f46e5, #7c3aed);">
-                        <div class="project-overlay">
-                            <a href="https://rajesh01-droid.github.io/WhatsAppLocation/" target="_blank" class="btn">View Live Project</a>
+            <div class="project-slider">
+                <div class="project-track" id="projectTrack">
+                    <!-- Project Slide 1 -->
+                    <div class="project-slide">
+                        <div class="project-card card">
+                            <div class="project-img" style="background: linear-gradient(135deg, #4f46e5, #7c3aed);">
+                                <div class="project-overlay">
+                                    <a href="https://rajesh01-droid.github.io/WhatsAppLocation/" target="_blank" class="btn">View Live Project</a>
+                                </div>
+                                <i class="fas fa-map-marker-alt" style="color: white; font-size: 3rem;"></i>
+                            </div>
+                            <div class="project-content">
+                                <h3>WhatsApp Location Sharing</h3>
+                                <div class="project-tags">
+                                    <span class="project-tag">JavaScript</span>
+                                    <span class="project-tag">HTML/CSS</span>
+                                    <span class="project-tag">Geolocation API</span>
+                                </div>
+                                <p>A web application that simulates WhatsApp's location sharing feature with interactive maps and real-time location tracking capabilities.</p>
+                                <div class="project-features">
+                                    <h4><i class="fas fa-star"></i> Key Features</h4>
+                                    <ul>
+                                        <li>Interactive map integration with real-time location tracking</li>
+                                        <li>Responsive design compatible with all devices</li>
+                                        <li>Share location via multiple platforms</li>
+                                        <li>User-friendly interface with intuitive controls</li>
+                                    </ul>
+                                </div>
+                                <a href="https://rajesh01-droid.github.io/WhatsAppLocation/" target="_blank" class="project-link">View Project <i class="fas fa-external-link-alt"></i></a>
+                            </div>
                         </div>
-                        <i class="fas fa-map-marker-alt" style="color: white; font-size: 3rem;"></i>
                     </div>
-                    <div class="project-content">
-                        <h3>WhatsApp Location Sharing</h3>
-                        <div class="project-tags">
-                            <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">HTML/CSS</span>
-                            <span class="project-tag">Geolocation API</span>
+                    
+                    <!-- Project Slide 2 -->
+                    <div class="project-slide">
+                        <div class="project-card card">
+                            <div class="project-img" style="background: linear-gradient(135deg, #059669, #10b981);">
+                                <div class="project-overlay">
+                                    <a href="https://rajesh01-droid.github.io/SmartOutlierDashboard/" target="_blank" class="btn">View Live Project</a>
+                                </div>
+                                <i class="fas fa-chart-bar" style="color: white; font-size: 3rem;"></i>
+                            </div>
+                            <div class="project-content">
+                                <h3>Smart Outlier Dashboard</h3>
+                                <div class="project-tags">
+                                    <span class="project-tag">Data Visualization</span>
+                                    <span class="project-tag">JavaScript</span>
+                                    <span class="project-tag">Analytics</span>
+                                </div>
+                                <p>An intelligent dashboard for detecting and visualizing outliers in datasets with interactive charts and statistical analysis capabilities.</p>
+                                <div class="project-features">
+                                    <h4><i class="fas fa-star"></i> Key Features</h4>
+                                    <ul>
+                                        <li>Advanced outlier detection algorithms</li>
+                                        <li>Interactive data visualization with multiple chart types</li>
+                                        <li>Real-time data processing and analysis</li>
+                                        <li>Export functionality for reports and insights</li>
+                                    </ul>
+                                </div>
+                                <a href="https://rajesh01-droid.github.io/SmartOutlierDashboard/" target="_blank" class="project-link">View Project <i class="fas fa-external-link-alt"></i></a>
+                            </div>
                         </div>
-                        <p>A web application that simulates WhatsApp's location sharing feature with interactive maps and real-time location tracking capabilities.</p>
-                        <a href="https://rajesh01-droid.github.io/WhatsAppLocation/" target="_blank" class="project-link">View Project <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    
+                    <!-- Project Slide 3 -->
+                    <div class="project-slide">
+                        <div class="project-card card">
+                            <div class="project-img" style="background: linear-gradient(135deg, #dc2626, #ef4444);">
+                                <div class="project-overlay">
+                                    <a href="https://ssswf.org.pk/" target="_blank" class="btn">View Live Project</a>
+                                </div>
+                                <i class="fas fa-graduation-cap" style="color: white; font-size: 3rem;"></i>
+                            </div>
+                            <div class="project-content">
+                                <h3>Sindh School System Website</h3>
+                                <div class="project-tags">
+                                    <span class="project-tag">PHP</span>
+                                    <span class="project-tag">MySQL</span>
+                                    <span class="project-tag">CMS</span>
+                                </div>
+                                <p>Official website for Sindh School System Welfare Foundation with student portals, attendance tracking, and administrative management.</p>
+                                <div class="project-features">
+                                    <h4><i class="fas fa-star"></i> Key Features</h4>
+                                    <ul>
+                                        <li>Complete student information management system</li>
+                                        <li>Automated attendance tracking and reporting</li>
+                                        <li>Secure admin panel with role-based access</li>
+                                        <li>Parent and teacher communication portal</li>
+                                    </ul>
+                                </div>
+                                <a href="https://ssswf.org.pk/" target="_blank" class="project-link">View Project <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Slide 4 -->
+                    <div class="project-slide">
+                        <div class="project-card card">
+                            <div class="project-img" style="background: linear-gradient(135deg, #7c3aed, #a855f7);">
+                                <div class="project-overlay">
+                                    <a href="https://buyfacts.com/" target="_blank" class="btn">View Live Project</a>
+                                </div>
+                                <i class="fas fa-shopping-cart" style="color: white; font-size: 3rem;"></i>
+                            </div>
+                            <div class="project-content">
+                                <h3>BuyFacts E-commerce Platform</h3>
+                                <div class="project-tags">
+                                    <span class="project-tag">E-commerce</span>
+                                    <span class="project-tag">PHP</span>
+                                    <span class="project-tag">MySQL</span>
+                                </div>
+                                <p>Complete e-commerce solution with product management, shopping cart, payment integration, and order processing system.</p>
+                                <div class="project-features">
+                                    <h4><i class="fas fa-star"></i> Key Features</h4>
+                                    <ul>
+                                        <li>Complete product catalog with search and filtering</li>
+                                        <li>Secure payment gateway integration</li>
+                                        <li>Order management and tracking system</li>
+                                        <li>Customer account management and order history</li>
+                                    </ul>
+                                </div>
+                                <a href="https://buyfacts.com/" target="_blank" class="project-link">View Project <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Slide 5 -->
+                    <div class="project-slide">
+                        <div class="project-card card">
+                            <div class="project-img" style="background: linear-gradient(135deg, #2563eb, #3b82f6);">
+                                <div class="project-overlay">
+                                    <a href="https://njv.edu.pk/" target="_blank" class="btn">View Live Project</a>
+                                </div>
+                                <i class="fas fa-school" style="color: white; font-size: 3rem;"></i>
+                            </div>
+                            <div class="project-content">
+                                <h3>NJV Educational Portal</h3>
+                                <div class="project-tags">
+                                    <span class="project-tag">LMS</span>
+                                    <span class="project-tag">PHP</span>
+                                    <span class="project-tag">Database</span>
+                                </div>
+                                <p>Comprehensive educational portal for NJV School with student management, academic records, and communication systems.</p>
+                                <div class="project-features">
+                                    <h4><i class="fas fa-star"></i> Key Features</h4>
+                                    <ul>
+                                        <li>Complete learning management system</li>
+                                        <li>Student performance tracking and analytics</li>
+                                        <li>Teacher-student communication portal</li>
+                                        <li>Automated grading and report generation</li>
+                                    </ul>
+                                </div>
+                                <a href="https://njv.edu.pk/" target="_blank" class="project-link">View Project <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Slide 6 -->
+                    <div class="project-slide">
+                        <div class="project-card card">
+                            <div class="project-img" style="background: linear-gradient(135deg, #f59e0b, #fbbf24);">
+                                <div class="project-overlay">
+                                    <a href="#" class="btn">View Details</a>
+                                </div>
+                                <i class="fas fa-laptop-code" style="color: white; font-size: 3rem;"></i>
+                            </div>
+                            <div class="project-content">
+                                <h3>School Management System</h3>
+                                <div class="project-tags">
+                                    <span class="project-tag">PHP</span>
+                                    <span class="project-tag">MySQL</span>
+                                    <span class="project-tag">LMS</span>
+                                </div>
+                                <p>Created a comprehensive Learning Management System with student portals, attendance tracking, and grade management for 1,000+ users.</p>
+                                <div class="project-features">
+                                    <h4><i class="fas fa-star"></i> Key Features</h4>
+                                    <ul>
+                                        <li>Centralized student information management</li>
+                                        <li>Automated attendance and grade tracking</li>
+                                        <li>Parent and teacher communication system</li>
+                                        <li>Academic calendar and event management</li>
+                                    </ul>
+                                </div>
+                                <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="project-card card" data-category="data system">
-                    <div class="project-img" style="background: linear-gradient(135deg, #059669, #10b981);">
-                        <div class="project-overlay">
-                            <a href="https://rajesh01-droid.github.io/SmartOutlierDashboard/" target="_blank" class="btn">View Live Project</a>
-                        </div>
-                        <i class="fas fa-chart-bar" style="color: white; font-size: 3rem;"></i>
+                <div class="slider-controls">
+                    <button class="slider-btn" id="projectPrevBtn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="slider-dots" id="projectSliderDots">
+                        <!-- Dots will be generated by JavaScript -->
                     </div>
-                    <div class="project-content">
-                        <h3>Smart Outlier Dashboard</h3>
-                        <div class="project-tags">
-                            <span class="project-tag">Data Visualization</span>
-                            <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">Analytics</span>
-                        </div>
-                        <p>An intelligent dashboard for detecting and visualizing outliers in datasets with interactive charts and statistical analysis capabilities.</p>
-                        <a href="https://rajesh01-droid.github.io/SmartOutlierDashboard/" target="_blank" class="project-link">View Project <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-                
-                <div class="project-card card" data-category="web system">
-                    <div class="project-img" style="background: linear-gradient(135deg, #dc2626, #ef4444);">
-                        <div class="project-overlay">
-                            <a href="https://ssswf.org.pk/" target="_blank" class="btn">View Live Project</a>
-                        </div>
-                        <i class="fas fa-graduation-cap" style="color: white; font-size: 3rem;"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Sindh School System Website</h3>
-                        <div class="project-tags">
-                            <span class="project-tag">PHP</span>
-                            <span class="project-tag">MySQL</span>
-                            <span class="project-tag">CMS</span>
-                        </div>
-                        <p>Official website for Sindh School System Welfare Foundation with student portals, attendance tracking, and administrative management.</p>
-                        <a href="https://ssswf.org.pk/" target="_blank" class="project-link">View Project <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-                
-                <div class="project-card card" data-category="web">
-                    <div class="project-img" style="background: linear-gradient(135deg, #7c3aed, #a855f7);">
-                        <div class="project-overlay">
-                            <a href="https://buyfacts.com/" target="_blank" class="btn">View Live Project</a>
-                        </div>
-                        <i class="fas fa-shopping-cart" style="color: white; font-size: 3rem;"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>BuyFacts E-commerce Platform</h3>
-                        <div class="project-tags">
-                            <span class="project-tag">E-commerce</span>
-                            <span class="project-tag">PHP</span>
-                            <span class="project-tag">MySQL</span>
-                        </div>
-                        <p>Complete e-commerce solution with product management, shopping cart, payment integration, and order processing system.</p>
-                        <a href="https://buyfacts.com/" target="_blank" class="project-link">View Project <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-                
-                <div class="project-card card" data-category="web system">
-                    <div class="project-img" style="background: linear-gradient(135deg, #2563eb, #3b82f6);">
-                        <div class="project-overlay">
-                            <a href="https://njv.edu.pk/" target="_blank" class="btn">View Live Project</a>
-                        </div>
-                        <i class="fas fa-school" style="color: white; font-size: 3rem;"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>NJV Educational Portal</h3>
-                        <div class="project-tags">
-                            <span class="project-tag">LMS</span>
-                            <span class="project-tag">PHP</span>
-                            <span class="project-tag">Database</span>
-                        </div>
-                        <p>Comprehensive educational portal for NJV School with student management, academic records, and communication systems.</p>
-                        <a href="https://njv.edu.pk/" target="_blank" class="project-link">View Project <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-                
-                <div class="project-card card" data-category="system">
-                    <div class="project-img" style="background: linear-gradient(135deg, #f59e0b, #fbbf24);">
-                        <div class="project-overlay">
-                            <a href="#" class="btn">View Details</a>
-                        </div>
-                        <i class="fas fa-laptop-code" style="color: white; font-size: 3rem;"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>School Management System</h3>
-                        <div class="project-tags">
-                            <span class="project-tag">PHP</span>
-                            <span class="project-tag">MySQL</span>
-                            <span class="project-tag">LMS</span>
-                        </div>
-                        <p>Created a comprehensive Learning Management System with student portals, attendance tracking, and grade management for 1,000+ users.</p>
-                        <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
-                    </div>
+                    <button class="slider-btn" id="projectNextBtn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
             </div>
         </div>
@@ -2035,30 +2128,6 @@
             });
         });
 
-        // Project filtering
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const projectCards = document.querySelectorAll('.project-card');
-        
-        filterButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                // Remove active class from all buttons
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                
-                // Add active class to clicked button
-                this.classList.add('active');
-                
-                const filterValue = this.getAttribute('data-filter');
-                
-                projectCards.forEach(card => {
-                    if (filterValue === 'all' || card.getAttribute('data-category').includes(filterValue)) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-
         // Chatbot functionality
         const chatbotToggle = document.getElementById('chatbotToggle');
         const chatbotWindow = document.getElementById('chatbotWindow');
@@ -2202,6 +2271,60 @@
         
         // Auto-advance slides every 10 seconds
         setInterval(nextSlide, 10000);
+
+        // Project Slider Functionality
+        const projectTrack = document.getElementById('projectTrack');
+        const projectSlides = document.querySelectorAll('.project-slide');
+        const projectPrevBtn = document.getElementById('projectPrevBtn');
+        const projectNextBtn = document.getElementById('projectNextBtn');
+        const projectSliderDots = document.getElementById('projectSliderDots');
+        
+        let currentProjectSlide = 0;
+        const totalProjectSlides = projectSlides.length;
+        
+        // Create dots for project slider
+        for (let i = 0; i < totalProjectSlides; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'slider-dot';
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToProjectSlide(i));
+            projectSliderDots.appendChild(dot);
+        }
+        
+        // Update project slider position
+        function updateProjectSlider() {
+            projectTrack.style.transform = `translateX(-${currentProjectSlide * 100}%)`;
+            
+            // Update active dot
+            document.querySelectorAll('#projectSliderDots .slider-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentProjectSlide);
+            });
+        }
+        
+        // Go to specific project slide
+        function goToProjectSlide(slideIndex) {
+            currentProjectSlide = slideIndex;
+            updateProjectSlider();
+        }
+        
+        // Next project slide
+        function nextProjectSlide() {
+            currentProjectSlide = (currentProjectSlide + 1) % totalProjectSlides;
+            updateProjectSlider();
+        }
+        
+        // Previous project slide
+        function prevProjectSlide() {
+            currentProjectSlide = (currentProjectSlide - 1 + totalProjectSlides) % totalProjectSlides;
+            updateProjectSlider();
+        }
+        
+        // Event listeners for project buttons
+        projectPrevBtn.addEventListener('click', prevProjectSlide);
+        projectNextBtn.addEventListener('click', nextProjectSlide);
+        
+        // Auto-advance project slides every 10 seconds
+        setInterval(nextProjectSlide, 10000);
         
         // Fixed PDF Download Functionality
         document.getElementById('downloadResume').addEventListener('click', function(e) {
@@ -2359,7 +2482,7 @@
         }, observerOptions);
 
         // Observe elements for animation
-        document.querySelectorAll('.card, .section-title, .experience-card, .dashboard-card').forEach(el => {
+        document.querySelectorAll('.card, .section-title, .experience-card, .project-card').forEach(el => {
             el.style.opacity = 0;
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
@@ -2368,4 +2491,3 @@
     </script>
 </body>
 </html>
-
