@@ -477,28 +477,6 @@
             font-weight: 600;
         }
         
-        .upload-overlay {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            background: rgba(0,0,0,0.7);
-            color: white;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 2;
-            transition: all 0.3s ease;
-        }
-        
-        .upload-overlay:hover {
-            background: var(--primary);
-            transform: scale(1.1);
-        }
-        
         .floating-shape {
             position: absolute;
             width: 100px;
@@ -1168,77 +1146,6 @@
             transform: translateY(-3px);
         }
         
-        /* Upload Modal */
-        .upload-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .upload-modal.active {
-            display: flex;
-        }
-        
-        .upload-content {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            width: 90%;
-            max-width: 500px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-        }
-        
-        .upload-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        
-        .upload-header h3 {
-            margin: 0;
-            color: var(--primary);
-        }
-        
-        .upload-close {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--secondary);
-        }
-        
-        .upload-preview {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto 20px;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 2px dashed var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .upload-preview img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: cover;
-        }
-        
-        .upload-actions {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-        }
-        
         /* Responsive Styles */
         @media (max-width: 992px) {
             .about-content,
@@ -1350,10 +1257,6 @@
                 width: 280px;
                 right: -40px;
             }
-            
-            .upload-actions {
-                flex-direction: column;
-            }
         }
     </style>
 </head>
@@ -1460,40 +1363,13 @@
                     <div class="floating-shape shape-2"></div>
                     <div class="profile-img-container">
                         <div class="profile-img" id="profileImage">
-                            <span>Click the camera icon to upload your profile photo</span>
-                        </div>
-                        <div class="upload-overlay" id="uploadTrigger">
-                            <i class="fas fa-camera"></i>
+                            <span>Professional Profile Image</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Upload Modal -->
-    <div class="upload-modal" id="uploadModal">
-        <div class="upload-content">
-            <div class="upload-header">
-                <h3>Upload Profile Photo</h3>
-                <button class="upload-close" id="uploadClose">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="upload-preview" id="uploadPreview">
-                <span>Preview will appear here</span>
-            </div>
-            <input type="file" id="fileInput" accept="image/*" style="display: none;">
-            <div class="upload-actions">
-                <button class="btn" id="selectFileBtn">
-                    <i class="fas fa-folder-open"></i> Select Photo
-                </button>
-                <button class="btn btn-outline" id="savePhotoBtn" disabled>
-                    <i class="fas fa-save"></i> Save Photo
-                </button>
-            </div>
-        </div>
-    </div>
 
     <!-- Skills Section -->
     <section id="skills" class="skills">
@@ -2327,207 +2203,113 @@
         // Auto-advance slides every 10 seconds
         setInterval(nextSlide, 10000);
         
-        // Profile Photo Upload Functionality
-        const uploadTrigger = document.getElementById('uploadTrigger');
-        const uploadModal = document.getElementById('uploadModal');
-        const uploadClose = document.getElementById('uploadClose');
-        const fileInput = document.getElementById('fileInput');
-        const selectFileBtn = document.getElementById('selectFileBtn');
-        const savePhotoBtn = document.getElementById('savePhotoBtn');
-        const uploadPreview = document.getElementById('uploadPreview');
-        const profileImage = document.getElementById('profileImage');
-        
-        let selectedFile = null;
-        
-        // Open upload modal
-        uploadTrigger.addEventListener('click', function() {
-            uploadModal.classList.add('active');
-        });
-        
-        // Close upload modal
-        uploadClose.addEventListener('click', function() {
-            uploadModal.classList.remove('active');
-            resetUpload();
-        });
-        
-        // Click outside modal to close
-        uploadModal.addEventListener('click', function(e) {
-            if (e.target === uploadModal) {
-                uploadModal.classList.remove('active');
-                resetUpload();
-            }
-        });
-        
-        // Select file button
-        selectFileBtn.addEventListener('click', function() {
-            fileInput.click();
-        });
-        
-        // File input change
-        fileInput.addEventListener('change', function(e) {
-            if (e.target.files && e.target.files[0]) {
-                selectedFile = e.target.files[0];
-                
-                // Check if file is an image
-                if (!selectedFile.type.match('image.*')) {
-                    alert('Please select an image file (JPEG, PNG, etc.)');
-                    resetUpload();
-                    return;
-                }
-                
-                // Create preview
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    uploadPreview.innerHTML = '';
-                    const img = document.createElement('img');
-                    img.src = e.target.result;
-                    uploadPreview.appendChild(img);
-                    
-                    // Enable save button
-                    savePhotoBtn.disabled = false;
-                };
-                reader.readAsDataURL(selectedFile);
-            }
-        });
-        
-        // Save photo
-        savePhotoBtn.addEventListener('click', function() {
-            if (selectedFile) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    // Update profile image
-                    profileImage.innerHTML = '';
-                    const img = document.createElement('img');
-                    img.src = e.target.result;
-                    profileImage.appendChild(img);
-                    
-                    // Save to localStorage for persistence
-                    localStorage.setItem('profilePhoto', e.target.result);
-                    
-                    // Close modal and reset
-                    uploadModal.classList.remove('active');
-                    resetUpload();
-                    
-                    // Show success message
-                    alert('Profile photo updated successfully!');
-                };
-                reader.readAsDataURL(selectedFile);
-            }
-        });
-        
-        // Reset upload state
-        function resetUpload() {
-            fileInput.value = '';
-            selectedFile = null;
-            uploadPreview.innerHTML = '<span>Preview will appear here</span>';
-            savePhotoBtn.disabled = true;
-        }
-        
-        // Load saved profile photo on page load
-        window.addEventListener('DOMContentLoaded', function() {
-            const savedPhoto = localStorage.getItem('profilePhoto');
-            if (savedPhoto) {
-                profileImage.innerHTML = '';
-                const img = document.createElement('img');
-                img.src = savedPhoto;
-                profileImage.appendChild(img);
-            }
-        });
-        
         // Fixed PDF Download Functionality
         document.getElementById('downloadResume').addEventListener('click', function(e) {
             e.preventDefault();
             
             // Create a proper resume element for PDF generation
             const resumeElement = document.createElement('div');
-            resumeElement.style.padding = '40px';
+            resumeElement.style.padding = '20px';
             resumeElement.style.fontFamily = 'Arial, sans-serif';
             resumeElement.style.maxWidth = '800px';
             resumeElement.style.margin = '0 auto';
             resumeElement.style.backgroundColor = 'white';
             resumeElement.style.color = '#333';
+            resumeElement.style.lineHeight = '1.4';
             
             resumeElement.innerHTML = `
-                <h1 style="color: #2563eb; text-align: center; margin-bottom: 10px; border-bottom: 2px solid #2563eb; padding-bottom: 10px;">Rajesh Kumar</h1>
-                <p style="text-align: center; color: #64748b; margin-bottom: 30px; font-size: 1.1rem;">Senior IT Professional | Network Administration | Data Analysis</p>
-                
-                <div style="background: #f8fafc; padding: 20px; border-radius: 8px; margin-bottom: 30px; border-left: 4px solid #2563eb;">
-                    <p style="margin: 0; font-weight: 600;">Karachi, Pakistan | +92 332 246 3588 | rajesh_kumar1@hotmail.com</p>
-                    <p style="margin: 5px 0 0 0;">LinkedIn: linkedin.com/in/rajesh-kumar-5b732212a</p>
+                <div style="text-align: center; margin-bottom: 20px; border-bottom: 2px solid #2563eb; padding-bottom: 15px;">
+                    <h1 style="color: #2563eb; margin-bottom: 5px; font-size: 28px;">Rajesh Kumar</h1>
+                    <p style="color: #64748b; font-size: 16px; margin: 0;">Senior IT Professional | Network Administration | Data Analysis</p>
                 </div>
                 
-                <h2 style="color: #1e293b; border-bottom: 2px solid #2563eb; padding-bottom: 5px; margin-top: 30px;">Professional Summary</h2>
-                <p>Senior IT professional with 8+ years of comprehensive experience in network administration, system management, and data analysis. Proven track record of improving performance, operations, and productivity across IT teams and departments. Seeking to utilize technical skills in a challenging environment to become a valuable asset to an organization.</p>
+                <div style="background: #f8fafc; padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #2563eb;">
+                    <p style="margin: 0; font-weight: 600; font-size: 14px;">Karachi, Pakistan | +92 332 246 3588 | rajesh_kumar1@hotmail.com</p>
+                    <p style="margin: 5px 0 0 0; font-size: 14px;">LinkedIn: linkedin.com/in/rajesh-kumar-5b732212a</p>
+                </div>
                 
-                <h2 style="color: #1e293b; border-bottom: 2px solid #2563eb; padding-bottom: 5px; margin-top: 30px;">Professional Experience</h2>
+                <div style="margin-bottom: 20px;">
+                    <h2 style="color: #1e293b; border-bottom: 1px solid #2563eb; padding-bottom: 5px; font-size: 20px;">Professional Summary</h2>
+                    <p style="font-size: 14px;">Senior IT professional with 8+ years of comprehensive experience in network administration, system management, and data analysis. Proven track record of improving performance, operations, and productivity across IT teams and departments. Seeking to utilize technical skills in a challenging environment to become a valuable asset to an organization.</p>
+                </div>
                 
-                <div style="margin-bottom: 25px;">
-                    <h3 style="color: #2563eb; margin-bottom: 5px;">IT/Assistant Data Processing</h3>
-                    <p style="font-weight: bold; margin-bottom: 5px;">PPHI Sindh, Karachi | Nov 2023 - Present</p>
-                    <ul>
-                        <li>Managed organizational data systems with 99.9% uptime, ensuring accuracy and security</li>
-                        <li>Oversaw DHIS and SAS reporting processes, improving data accuracy by 25%</li>
-                        <li>Administered biometric attendance systems for 500+ employees and CCTV surveillance</li>
-                        <li>Reduced IT procurement costs by 15% through strategic vendor negotiations</li>
+                <div style="margin-bottom: 20px;">
+                    <h2 style="color: #1e293b; border-bottom: 1px solid #2563eb; padding-bottom: 5px; font-size: 20px;">Professional Experience</h2>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <h3 style="color: #2563eb; margin-bottom: 3px; font-size: 16px;">IT/Assistant Data Processing</h3>
+                        <p style="font-weight: bold; margin-bottom: 3px; font-size: 14px;">PPHI Sindh, Karachi | Nov 2023 - Present</p>
+                        <ul style="font-size: 13px; padding-left: 20px;">
+                            <li>Managed organizational data systems with 99.9% uptime, ensuring accuracy and security</li>
+                            <li>Oversaw DHIS and SAS reporting processes, improving data accuracy by 25%</li>
+                            <li>Administered biometric attendance systems for 500+ employees and CCTV surveillance</li>
+                            <li>Reduced IT procurement costs by 15% through strategic vendor negotiations</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <h3 style="color: #2563eb; margin-bottom: 3px; font-size: 16px;">Manager IT</h3>
+                        <p style="font-weight: bold; margin-bottom: 3px; font-size: 14px;">Sindh School System Welfare Foundation at KPS, Karachi | Mar 2021 - Oct 2023</p>
+                        <ul style="font-size: 13px; padding-left: 20px;">
+                            <li>Oversaw complete IT infrastructure for 50+ locations with 99.5% uptime</li>
+                            <li>Led IT training programs for 200+ staff, enhancing digital literacy by 60%</li>
+                            <li>Managed $50,000 annual IT budget with cost-effective resource deployment</li>
+                            <li>Implemented vehicle tracking system reducing fuel costs by 12%</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <h3 style="color: #2563eb; margin-bottom: 3px; font-size: 16px;">Data Processing Officer</h3>
+                        <p style="font-weight: bold; margin-bottom: 3px; font-size: 14px;">KIAS Marine Services (KPT), Karachi | Jul 2020 - Mar 2021</p>
+                        <ul style="font-size: 13px; padding-left: 20px;">
+                            <li>Identified and resolved critical information system issues, reducing system downtime by 30%</li>
+                            <li>Maintained text messaging systems handling 10,000+ messages monthly with 99% reliability</li>
+                            <li>Conducted comprehensive research and data validation, improving data accuracy by 35%</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <h3 style="color: #2563eb; margin-bottom: 3px; font-size: 16px;">IT Incharge</h3>
+                        <p style="font-weight: bold; margin-bottom: 3px; font-size: 14px;">NJV School – Akhuwat Foundation, Karachi | Sep 2017 - Jun 2020</p>
+                        <ul style="font-size: 13px; padding-left: 20px;">
+                            <li>Led a team of 10 IT professionals supporting 1,000+ students and 150+ staff</li>
+                            <li>Designed and maintained school-wide Information Management Systems</li>
+                            <li>Implemented emerging technologies enhancing academic delivery and e-learning</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <h2 style="color: #1e293b; border-bottom: 1px solid #2563eb; padding-bottom: 5px; font-size: 20px;">Technical Skills</h2>
+                    <ul style="font-size: 13px; padding-left: 20px;">
+                        <li><strong>Network Administration:</strong> LAN/WAN Configuration, Windows Server, Network Security, Biometric & CCTV Systems</li>
+                        <li><strong>Data Analysis:</strong> Business Intelligence, MySQL, Excel, Power BI, DHIS & SAS Reporting, Data Validation</li>
+                        <li><strong>Web Development:</strong> PHP, HTML, CSS, MySQL Database Management</li>
+                        <li><strong>IT Management:</strong> Infrastructure Management, Policy Development, Budget Management, Team Leadership</li>
                     </ul>
                 </div>
                 
-                <div style="margin-bottom: 25px;">
-                    <h3 style="color: #2563eb; margin-bottom: 5px;">Manager IT</h3>
-                    <p style="font-weight: bold; margin-bottom: 5px;">Sindh School System Welfare Foundation at KPS, Karachi | Mar 2021 - Oct 2023</p>
-                    <ul>
-                        <li>Oversaw complete IT infrastructure for 50+ locations with 99.5% uptime</li>
-                        <li>Led IT training programs for 200+ staff, enhancing digital literacy by 60%</li>
-                        <li>Managed $50,000 annual IT budget with cost-effective resource deployment</li>
-                        <li>Implemented vehicle tracking system reducing fuel costs by 12%</li>
+                <div style="margin-bottom: 20px;">
+                    <h2 style="color: #1e293b; border-bottom: 1px solid #2563eb; padding-bottom: 5px; font-size: 20px;">Certifications</h2>
+                    <ul style="font-size: 13px; padding-left: 20px;">
+                        <li>Microsoft Office Specialist - Career-Boosting Program</li>
+                        <li>Software Development Certification - IBA University, Karachi</li>
+                        <li>Cisco Certified Network Associate (CCNA) - CTTC</li>
+                        <li>MCSA – Windows Server 2012 - CTTC</li>
                     </ul>
                 </div>
                 
-                <div style="margin-bottom: 25px;">
-                    <h3 style="color: #2563eb; margin-bottom: 5px;">Data Processing Officer</h3>
-                    <p style="font-weight: bold; margin-bottom: 5px;">KIAS Marine Services (KPT), Karachi | Jul 2020 - Mar 2021</p>
-                    <ul>
-                        <li>Identified and resolved critical information system issues, reducing system downtime by 30%</li>
-                        <li>Maintained text messaging systems handling 10,000+ messages monthly with 99% reliability</li>
-                        <li>Conducted comprehensive research and data validation, improving data accuracy by 35%</li>
+                <div style="margin-bottom: 20px;">
+                    <h2 style="color: #1e293b; border-bottom: 1px solid #2563eb; padding-bottom: 5px; font-size: 20px;">Education</h2>
+                    <ul style="font-size: 13px; padding-left: 20px;">
+                        <li><strong>Bachelor of Science in Computer Science</strong> - Benazir Bhutto Shaheed University, Karachi (Graduated: December 2016)</li>
+                        <li><strong>Intermediate in Pre-Engineering</strong> - National School & College S.F.R, Badin (Completed: 2012)</li>
+                        <li><strong>Matriculation – Science</strong> - Government Boys High School, Kario Ghanwar, Badin (Completed: 2009)</li>
                     </ul>
                 </div>
                 
-                <div style="margin-bottom: 25px;">
-                    <h3 style="color: #2563eb; margin-bottom: 5px;">IT Incharge</h3>
-                    <p style="font-weight: bold; margin-bottom: 5px;">NJV School – Akhuwat Foundation, Karachi | Sep 2017 - Jun 2020</p>
-                    <ul>
-                        <li>Led a team of 10 IT professionals supporting 1,000+ students and 150+ staff</li>
-                        <li>Designed and maintained school-wide Information Management Systems</li>
-                        <li>Implemented emerging technologies enhancing academic delivery and e-learning</li>
-                    </ul>
-                </div>
-                
-                <h2 style="color: #1e293b; border-bottom: 2px solid #2563eb; padding-bottom: 5px; margin-top: 30px;">Technical Skills</h2>
-                <ul>
-                    <li><strong>Network Administration:</strong> LAN/WAN Configuration, Windows Server, Network Security, Biometric & CCTV Systems</li>
-                    <li><strong>Data Analysis:</strong> Business Intelligence, MySQL, Excel, Power BI, DHIS & SAS Reporting, Data Validation</li>
-                    <li><strong>Web Development:</strong> PHP, HTML, CSS, MySQL Database Management</li>
-                    <li><strong>IT Management:</strong> Infrastructure Management, Policy Development, Budget Management, Team Leadership</li>
-                </ul>
-                
-                <h2 style="color: #1e293b; border-bottom: 2px solid #2563eb; padding-bottom: 5px; margin-top: 30px;">Certifications</h2>
-                <ul>
-                    <li>Microsoft Office Specialist - Career-Boosting Program</li>
-                    <li>Software Development Certification - IBA University, Karachi</li>
-                    <li>Cisco Certified Network Associate (CCNA) - CTTC</li>
-                    <li>MCSA – Windows Server 2012 - CTTC</li>
-                </ul>
-                
-                <h2 style="color: #1e293b; border-bottom: 2px solid #2563eb; padding-bottom: 5px; margin-top: 30px;">Education</h2>
-                <ul>
-                    <li><strong>Bachelor of Science in Computer Science</strong> - Benazir Bhutto Shaheed University, Karachi (Graduated: December 2016)</li>
-                    <li><strong>Intermediate in Pre-Engineering</strong> - National School & College S.F.R, Badin (Completed: 2012)</li>
-                    <li><strong>Matriculation – Science</strong> - Government Boys High School, Kario Ghanwar, Badin (Completed: 2009)</li>
-                </ul>
-                
-                <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #e2e8f0;">
-                    <p style="color: #64748b; font-size: 0.9rem;">Generated from Rajesh Kumar's Professional Portfolio - ${new Date().toLocaleDateString()}</p>
+                <div style="text-align: center; margin-top: 30px; padding-top: 15px; border-top: 1px solid #e2e8f0;">
+                    <p style="color: #64748b; font-size: 12px;">Generated from Rajesh Kumar's Professional Portfolio - ${new Date().toLocaleDateString()}</p>
                 </div>
             `;
             
@@ -2548,8 +2330,17 @@
                 }
             };
             
+            // Show loading message
+            const originalText = this.innerHTML;
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating PDF...';
+            this.disabled = true;
+            
             // Generate and save PDF
-            html2pdf().set(opt).from(resumeElement).save();
+            html2pdf().set(opt).from(resumeElement).save().then(() => {
+                // Restore button text
+                this.innerHTML = originalText;
+                this.disabled = false;
+            });
         });
 
         // Add animation on scroll
