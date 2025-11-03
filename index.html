@@ -1952,13 +1952,25 @@
                             <i class="fab fa-linkedin-in"></i>
                         </div>
                         <div class="contact-text">
+ <div class="contact-text">
     <h3>LinkedIn</h3>
-    <p>
-        <a href="https://www.linkedin.com/in/rajesh-kumar-b24603119/" target="_blank">
-            https://www.linkedin.com/in/rajesh-kumar-b24603119/
-        </a>
+    <p id="linkedin-link">
+        https://www.linkedin.com/in/rajesh-kumar-b24603119/
+        <button onclick="copyLink()" style="margin-left: 8px; cursor: pointer;">📋</button>
     </p>
 </div>
+
+<script>
+function copyLink() {
+    const link = document.getElementById("linkedin-link").innerText.split('📋')[0].trim();
+    navigator.clipboard.writeText(link).then(() => {
+        alert("Link copied to clipboard!");
+    }).catch(err => {
+        console.error("Failed to copy: ", err);
+    });
+}
+</script>
+
 
                     </div>
                     
@@ -2497,6 +2509,7 @@
     </script>
 </body>
 </html>
+
 
 
 
