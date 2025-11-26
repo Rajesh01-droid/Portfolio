@@ -4,55 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rajesh Kumar | Senior IT Infrastructure & Data Analytics Professional</title>
-    <meta name="description" content="Senior IT Professional with 8+ years expertise in Network Administration, System Management, and Data Analytics. Based in Karachi, Pakistan.">
-    <meta name="keywords" content="IT Professional, Network Administration, Data Analytics, System Management, Karachi, Pakistan">
+    <meta name="description" content="Senior IT Professional with 8+ years expertise in Network Administration, System Management, and Data Analytics.">
+    <meta name="keywords" content="IT Professional, Network Administration, Data Analytics, System Management">
     <meta name="author" content="Rajesh Kumar">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Rajesh Kumar | Senior IT Professional">
-    <meta property="og:description" content="Experienced IT Professional specializing in Network Administration, Data Analytics, and System Management">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://rajeshkumar-portfolio.com">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     
     <style>
-        /* Enhanced Global Styles with International Professional Standards */
+        /* Modern CSS Variables */
         :root {
-            --primary: #1a365d;
-            --primary-light: #2d5aa0;
-            --secondary: #2c5282;
-            --accent: #d69e2e;
-            --success: #38a169;
-            --warning: #dd6b20;
-            --error: #e53e3e;
-            --text-primary: #2d3748;
-            --text-secondary: #4a5568;
+            --primary: #7c3aed;
+            --primary-dark: #6d28d9;
+            --primary-light: #8b5cf6;
+            --secondary: #06b6d4;
+            --accent: #f59e0b;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
             --background: #ffffff;
-            --surface: #f7fafc;
+            --surface: #f8fafc;
+            --surface-dark: #f1f5f9;
             --border: #e2e8f0;
-            --shadow: rgba(0, 0, 0, 0.1);
-            --gradient-primary: linear-gradient(135deg, #1a365d 0%, #2d5aa0 100%);
-            --gradient-secondary: linear-gradient(135deg, #d69e2e 0%, #f6ad55 100%);
+            --shadow: rgba(0, 0, 0, 0.05);
+            --shadow-lg: rgba(0, 0, 0, 0.1);
+            --gradient-primary: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
+            --gradient-secondary: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+            --gradient-surface: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
+        /* Dark Mode Variables */
+        .dark-mode {
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --background: #0f172a;
+            --surface: #1e293b;
+            --surface-dark: #334155;
+            --border: #334155;
+            --shadow: rgba(0, 0, 0, 0.2);
+            --shadow-lg: rgba(0, 0, 0, 0.3);
+        }
+
+        /* Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html {
+        html, body {
+            height: 100%;
+            overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: var(--text-primary);
             background-color: var(--background);
-            overflow-x: hidden;
+            transition: var(--transition);
+        }
+
+        /* Full Page Sections */
+        .section {
+            height: 100vh;
+            width: 100vw;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .section.active {
+            opacity: 1;
+            visibility: visible;
+            display: flex;
         }
 
         .container {
@@ -62,14 +100,10 @@
             padding: 0 15px;
         }
 
-        section {
-            padding: 80px 0;
-        }
-
         h1, h2, h3, h4, h5, h6 {
             margin-bottom: 15px;
             color: var(--text-primary);
-            font-weight: 600;
+            font-weight: 700;
             line-height: 1.2;
         }
 
@@ -82,22 +116,22 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 14px 32px;
+            padding: 12px 24px;
             background: var(--gradient-primary);
             color: white;
             text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s ease;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
             border: none;
             cursor: pointer;
-            font-weight: 500;
-            font-size: 16px;
-            box-shadow: 0 4px 12px rgba(26, 54, 93, 0.2);
+            font-weight: 600;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
         }
 
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(26, 54, 93, 0.3);
+            box-shadow: 0 8px 20px rgba(124, 58, 237, 0.3);
         }
 
         .btn-outline {
@@ -113,14 +147,15 @@
 
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
             position: relative;
         }
 
         .section-title h2 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             margin-bottom: 15px;
             position: relative;
+            display: inline-block;
         }
 
         .section-title:after {
@@ -136,49 +171,87 @@
         .section-subtitle {
             text-align: center;
             max-width: 700px;
-            margin: 0 auto 50px;
-            font-size: 1.2rem;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
             color: var(--text-secondary);
         }
 
         .card {
-            background-color: var(--background);
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 8px 25px var(--shadow);
-            transition: all 0.3s ease;
+            background-color: var(--surface);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: 0 4px 20px var(--shadow);
+            transition: var(--transition);
             height: 100%;
             border: 1px solid var(--border);
         }
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 12px 25px var(--shadow-lg);
         }
 
-        /* Enhanced Header with International Appeal */
+        /* Status Indicator */
+        .status-indicator {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--surface);
+            padding: 8px 15px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px var(--shadow);
+            border: 1px solid var(--border);
+            z-index: 1001;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--success);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        /* Enhanced Header */
         header {
-            background-color: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .dark-mode header {
+            background: rgba(15, 23, 42, 0.95);
         }
 
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 15px 0;
         }
 
         .logo {
-            font-size: 1.9rem;
-            font-weight: 700;
+            font-size: 1.5rem;
+            font-weight: 800;
             color: var(--primary);
             display: flex;
             align-items: center;
@@ -189,15 +262,15 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 35px;
+            gap: 25px;
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--text-primary);
             font-weight: 500;
-            font-size: 1rem;
-            transition: color 0.3s ease;
+            font-size: 0.9rem;
+            transition: var(--transition);
             position: relative;
             padding: 5px 0;
         }
@@ -210,7 +283,7 @@
             width: 0;
             height: 2px;
             background: var(--gradient-secondary);
-            transition: width 0.3s ease;
+            transition: var(--transition);
         }
 
         .nav-links a:hover {
@@ -221,6 +294,12 @@
             width: 100%;
         }
 
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
         .mobile-menu {
             display: none;
             font-size: 1.5rem;
@@ -228,56 +307,71 @@
             color: var(--text-primary);
         }
 
-        /* Enhanced Hero Section with International Standards */
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            color: var(--primary);
+        }
+
+        /* Enhanced Hero Section */
         .hero {
             background: var(--gradient-primary);
             color: white;
-            padding: 180px 0 120px;
             position: relative;
             overflow: hidden;
         }
 
-        .hero:before {
+        .hero::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" preserveAspectRatio="none"><polygon fill="%23d69e2e" opacity="0.1" points="0,1000 1000,0 1000,1000"/></svg>');
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.05"><polygon fill="white" points="0,1000 1000,0 1000,1000"/></svg>');
             background-size: cover;
         }
 
         .hero-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
             position: relative;
             z-index: 1;
-            max-width: 800px;
-            text-align: center;
-            margin: 0 auto;
         }
 
         .hero h1 {
-            font-size: 3.2rem;
-            margin-bottom: 25px;
+            font-size: 3rem;
+            margin-bottom: 20px;
             color: white;
             line-height: 1.1;
-            font-weight: 700;
+            font-weight: 800;
+            animation: fadeInUp 1s ease;
         }
 
         .hero p {
-            font-size: 1.4rem;
-            margin-bottom: 40px;
+            font-size: 1.3rem;
+            margin-bottom: 30px;
             color: rgba(255, 255, 255, 0.9);
-            max-width: 600px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            animation: fadeInUp 1s ease 0.2s both;
         }
 
         .hero-btns {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             justify-content: center;
             flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.4s both;
         }
 
         .hero .btn {
@@ -286,228 +380,241 @@
         }
 
         .hero .btn:hover {
-            background: linear-gradient(135deg, #b7791f 0%, #d69e2e 100%);
+            background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
         }
 
-        /* International Professional Badges */
-        .professional-badges {
+        /* Hero Profile Section */
+        .hero-profile {
             display: flex;
-            gap: 15px;
+            align-items: center;
             justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .hero-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-intro {
+            text-align: left;
+            max-width: 500px;
+        }
+
+        .hero-intro h2 {
+            color: white;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .hero-intro p {
+            font-size: 1rem;
+            margin-bottom: 0;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Skills Overview */
+        .skills-overview {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
             margin-top: 40px;
             flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.8s both;
+        }
+
+        .skill-pill {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+        }
+
+        .skill-pill:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);
+        }
+
+        /* Professional Badges */
+        .professional-badges {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 1s both;
         }
 
         .badge {
             background: rgba(255, 255, 255, 0.15);
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 0.9rem;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
             font-weight: 500;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        /* Enhanced Chatbot */
-        .chatbot {
+        /* Floating Social Media */
+        .floating-social {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 999;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 100;
         }
 
-        .chatbot-toggle {
-            width: 65px;
-            height: 65px;
-            background: var(--gradient-primary);
-            border-radius: 50%;
+        .floating-social .social-link {
+            width: 45px;
+            height: 45px;
+            box-shadow: 0 4px 15px var(--shadow);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 1.6rem;
-            cursor: pointer;
-            box-shadow: 0 6px 20px rgba(26, 54, 93, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .chatbot-toggle:hover {
-            transform: scale(1.1);
-        }
-
-        .chatbot-window {
-            position: absolute;
-            bottom: 80px;
-            right: 0;
-            width: 380px;
-            height: 520px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-            display: none;
-            flex-direction: column;
-            overflow: hidden;
-            border: 1px solid var(--border);
-        }
-
-        .chatbot-window.active {
-            display: flex;
-        }
-
-        .chatbot-header {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .chatbot-header h3 {
-            color: white;
-            margin: 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .chatbot-close {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.2rem;
-            cursor: pointer;
-        }
-
-        .chatbot-messages {
-            padding: 20px;
-            height: 380px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .chat-message {
-            padding: 12px 16px;
-            border-radius: 18px;
-            max-width: 85%;
-            font-size: 0.9rem;
-            line-height: 1.4;
-        }
-
-        .chat-message.user {
-            background: var(--primary);
-            color: white;
-            align-self: flex-end;
-            border-bottom-right-radius: 5px;
-        }
-
-        .chat-message.bot {
+            border-radius: 50%;
             background: var(--surface);
             color: var(--text-primary);
-            align-self: flex-start;
-            border-bottom-left-radius: 5px;
-        }
-
-        .chatbot-input {
-            display: flex;
-            padding: 15px;
-            border-top: 1px solid var(--border);
-        }
-
-        .chatbot-input input {
-            flex: 1;
-            padding: 12px 16px;
+            transition: var(--transition);
             border: 1px solid var(--border);
-            border-radius: 20px;
-            outline: none;
-            font-size: 0.9rem;
+            text-decoration: none;
         }
 
-        .chatbot-input button {
+        .floating-social .social-link:hover {
             background: var(--primary);
             color: white;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            margin-left: 10px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            transform: translateY(-3px);
+        }
+
+        .floating-social .social-link.whatsapp:hover {
+            background: #25D366;
+        }
+
+        .floating-social .social-link.linkedin:hover {
+            background: #0077B5;
+        }
+
+        .floating-social .social-link.github:hover {
+            background: #333;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Enhanced About Section */
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: 40px;
             align-items: center;
         }
 
         .about-text h2 {
-            margin-bottom: 25px;
-            font-size: 2.4rem;
+            margin-bottom: 20px;
+            font-size: 2rem;
         }
 
         .about-text p {
             margin-bottom: 20px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             line-height: 1.7;
         }
 
         .about-stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            margin-top: 40px;
+            gap: 15px;
+            margin-top: 25px;
         }
 
         .stat {
             text-align: center;
-            padding: 25px;
+            padding: 15px;
             background: var(--surface);
-            border-radius: 12px;
-            box-shadow: 0 5px 15px var(--shadow);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 15px var(--shadow);
             border: 1px solid var(--border);
         }
 
         .stat-number {
-            font-size: 2.8rem;
+            font-size: 1.8rem;
             font-weight: 800;
             color: var(--primary);
-            margin-bottom: 8px;
+            margin-bottom: 5px;
         }
 
         .stat-text {
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             color: var(--text-secondary);
+        }
+
+        .profile-img-container {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .profile-img-container:hover .profile-img {
+            transform: scale(1.05);
         }
 
         /* Enhanced Skills Section */
         .skills-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
         }
 
         .skill-category {
-            background: linear-gradient(135deg, white 0%, var(--surface) 100%);
             border-left: 4px solid var(--primary);
         }
 
         .skill-category h3 {
             color: var(--primary);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
             gap: 10px;
+            font-size: 1.2rem;
         }
 
         .skill-category h3 i {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
         }
 
         .skill-list {
@@ -515,11 +622,12 @@
         }
 
         .skill-list li {
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             padding-left: 0;
             display: flex;
             align-items: center;
             gap: 10px;
+            font-size: 0.9rem;
         }
 
         .skill-list li:before {
@@ -528,7 +636,7 @@
             font-weight: bold;
         }
 
-        /* Enhanced Experience Section */
+        /* Enhanced Experience Section with Slider */
         .experience-slider {
             position: relative;
             overflow: hidden;
@@ -547,71 +655,73 @@
             box-sizing: border-box;
         }
 
-        .experience-card {
+        .experience-item {
             position: relative;
-            padding: 35px;
-            border-left: 4px solid var(--primary);
-            background: linear-gradient(to right, white, var(--surface));
+            padding: 25px;
+            border-left: 3px solid var(--primary);
+            background: var(--surface);
             height: 100%;
         }
 
-        .experience-card:before {
+        .experience-item:before {
             content: '';
             position: absolute;
-            left: -12px;
-            top: 35px;
-            width: 20px;
-            height: 20px;
+            left: -10px;
+            top: 30px;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
             background: var(--primary);
-            border: 4px solid white;
-            box-shadow: 0 0 0 3px var(--primary);
+            border: 3px solid var(--background);
+            box-shadow: 0 0 0 2px var(--primary);
         }
 
         .experience-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 25px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .experience-title {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: var(--primary);
             margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .experience-company {
             font-weight: 600;
             color: var(--text-primary);
             margin-bottom: 5px;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
         .experience-date {
             background: var(--gradient-secondary);
             color: white;
-            padding: 8px 16px;
+            padding: 5px 10px;
             border-radius: 20px;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             font-weight: 600;
             white-space: nowrap;
         }
 
         .experience-highlights {
-            margin: 25px 0;
-            padding: 25px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px var(--shadow);
+            margin: 15px 0;
         }
 
         .experience-highlights h4 {
             color: var(--primary);
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
+            font-size: 1rem;
         }
 
         .experience-highlights ul {
@@ -619,37 +729,22 @@
         }
 
         .experience-highlights li {
-            margin-bottom: 10px;
+            margin-bottom: 6px;
             color: var(--text-secondary);
             line-height: 1.6;
-        }
-
-        .experience-achievements {
-            margin-top: 20px;
-            padding: 20px;
-            background: linear-gradient(135deg, #fffaf0, #fef5e7);
-            border-radius: 8px;
-            border-left: 4px solid var(--accent);
-        }
-
-        .experience-achievements h4 {
-            color: var(--accent);
-            margin-bottom: 10px;
+            font-size: 0.9rem;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 8px;
         }
 
-        .experience-achievements p {
-            margin-bottom: 0;
-            font-style: italic;
+        .experience-highlights li i {
+            color: var(--accent);
+            margin-top: 4px;
+            flex-shrink: 0;
         }
 
         /* Enhanced Projects Section */
-        .projects {
-            background-color: var(--surface);
-        }
-
         .project-slider {
             position: relative;
             overflow: hidden;
@@ -670,20 +765,21 @@
 
         .project-card {
             overflow: hidden;
-            transition: transform 0.3s ease;
+            transition: var(--transition);
             height: 100%;
             display: flex;
             flex-direction: column;
         }
 
         .project-img {
-            height: 220px;
-            border-radius: 12px 12px 0 0;
+            height: 180px;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
             position: relative;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
+            background: var(--gradient-primary);
         }
 
         .project-img img {
@@ -703,7 +799,7 @@
             align-items: center;
             justify-content: center;
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: var(--transition);
         }
 
         .project-card:hover .project-overlay {
@@ -712,7 +808,7 @@
 
         .project-overlay .btn {
             transform: translateY(20px);
-            transition: transform 0.3s ease;
+            transition: var(--transition);
         }
 
         .project-card:hover .project-overlay .btn {
@@ -720,49 +816,49 @@
         }
 
         .project-content {
-            padding: 30px;
+            padding: 20px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
 
         .project-content h3 {
-            margin-bottom: 12px;
-            font-size: 1.4rem;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .project-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .project-tag {
-            background: var(--surface);
+            background: var(--surface-dark);
             color: var(--text-primary);
-            padding: 6px 14px;
+            padding: 4px 10px;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 500;
             border: 1px solid var(--border);
         }
 
         .project-features {
-            margin: 25px 0;
-            padding: 25px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px var(--shadow);
+            margin: 15px 0;
             flex-grow: 1;
         }
 
         .project-features h4 {
             color: var(--primary);
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
+            font-size: 0.95rem;
         }
 
         .project-features ul {
@@ -770,9 +866,19 @@
         }
 
         .project-features li {
-            margin-bottom: 10px;
+            margin-bottom: 6px;
             color: var(--text-secondary);
             line-height: 1.6;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .project-features li i {
+            color: var(--accent);
+            margin-top: 2px;
+            flex-shrink: 0;
         }
 
         .project-link {
@@ -782,162 +888,85 @@
             display: inline-flex;
             align-items: center;
             gap: 5px;
-            transition: gap 0.3s ease;
+            transition: var(--transition);
             margin-top: auto;
+            font-size: 0.9rem;
         }
 
         .project-link:hover {
             gap: 10px;
         }
 
-        /* Dashboard Showcase Section */
-        .dashboard-showcase {
+        /* Slider Controls */
+        .slider-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            padding: 0 20px;
+        }
+
+        .slider-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
             background: var(--gradient-primary);
             color: white;
-        }
-
-        .dashboard-showcase .section-title h2 {
-            color: white;
-        }
-
-        .dashboard-showcase .section-subtitle {
-            color: rgba(255, 255, 255, 0.85);
-        }
-
-        .dashboard-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-            gap: 30px;
-        }
-
-        .dashboard-card {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .dashboard-header {
-            padding: 25px;
-            background: rgba(0, 0, 0, 0.2);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .dashboard-header h3 {
-            color: white;
-            margin-bottom: 5px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .dashboard-img {
-            height: 320px;
+            border: none;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(0, 0, 0, 0.3);
-            position: relative;
-            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
         }
 
-        .dashboard-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .slider-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(124, 58, 237, 0.4);
         }
 
-        .dashboard-content {
-            padding: 25px;
-        }
-
-        .dashboard-content p {
-            color: rgba(255, 255, 255, 0.85);
-            margin-bottom: 15px;
-        }
-
-        .dashboard-features {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-top: 20px;
-        }
-
-        .dashboard-feature {
+        .slider-dots {
             display: flex;
-            align-items: center;
             gap: 10px;
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.85);
         }
 
-        .dashboard-feature i {
-            color: var(--accent);
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--border);
+            cursor: pointer;
+            transition: var(--transition);
         }
 
-        /* Enhanced Certifications Section */
-        .certifications {
-            background-color: var(--surface);
-        }
-
-        .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .cert-card {
-            text-align: center;
-            padding: 35px 25px;
-            border-top: 4px solid var(--primary);
-            transition: transform 0.3s ease;
-        }
-
-        .cert-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .cert-icon {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-
-        .cert-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 12px;
-        }
-
-        .cert-card .institution {
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 12px;
-            display: block;
+        .slider-dot.active {
+            background: var(--gradient-primary);
+            transform: scale(1.2);
         }
 
         /* Enhanced Contact Section */
         .contact-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: 40px;
         }
 
         .contact-info {
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: 20px;
         }
 
         .contact-item {
             display: flex;
             align-items: flex-start;
-            gap: 25px;
+            gap: 15px;
         }
 
         .contact-icon {
-            width: 55px;
-            height: 55px;
+            width: 45px;
+            height: 45px;
             background: var(--gradient-primary);
             color: white;
             border-radius: 50%;
@@ -945,23 +974,33 @@
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
         }
 
         .contact-text h3 {
             margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .contact-text p {
+            margin-bottom: 5px;
+        }
+
+        .contact-text small {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
         }
 
         .contact-form {
-            background-color: var(--background);
-            padding: 45px;
-            border-radius: 12px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            background-color: var(--surface);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             border: 1px solid var(--border);
         }
 
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 15px;
         }
 
         .form-group label {
@@ -969,121 +1008,64 @@
             margin-bottom: 8px;
             font-weight: 500;
             color: var(--text-primary);
+            font-size: 0.9rem;
         }
 
         .form-control {
             width: 100%;
-            padding: 14px 18px;
+            padding: 10px 12px;
             border: 1px solid var(--border);
             border-radius: 8px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            transition: var(--transition);
             background: var(--background);
+            color: var(--text-primary);
         }
 
         .form-control:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(26, 54, 93, 0.1);
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
         }
 
         textarea.form-control {
-            min-height: 150px;
+            min-height: 100px;
             resize: vertical;
         }
 
-        /* Enhanced Footer */
-        footer {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 70px 0 30px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 50px;
-            margin-bottom: 50px;
-        }
-
-        .footer-about .logo {
-            color: white;
-            margin-bottom: 25px;
-        }
-
-        .footer-about .logo span {
-            color: white;
-        }
-
-        .footer-about p {
-            color: rgba(255, 255, 255, 0.85);
-            margin-bottom: 25px;
-            line-height: 1.7;
-        }
-
-        .social-links {
+        /* Section Navigation */
+        .section-nav {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
             display: flex;
-            gap: 15px;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 100;
         }
 
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            background-color: rgba(255,255,255,0.1);
-            color: white;
+        .section-nav-item {
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 1.1rem;
+            background: var(--border);
+            cursor: pointer;
+            transition: var(--transition);
         }
 
-        .social-link:hover {
-            background-color: var(--accent);
-            transform: translateY(-3px);
+        .section-nav-item.active {
+            background: var(--gradient-primary);
+            transform: scale(1.2);
         }
-
-        .footer-links h3 {
-            color: white;
-            margin-bottom: 25px;
-            font-size: 1.3rem;
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.85);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent);
-        }
-
-        .copyright {
-    text-align: center;
-    padding-top: 40px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    font-size: 0.95rem;
-    color: #fff !important;
-}
 
         /* Back to Top Button */
         .back-to-top {
             position: fixed;
-            bottom: 110px;
-            right: 30px;
-            width: 55px;
-            height: 55px;
+            bottom: 100px;
+            right: 25px;
+            width: 45px;
+            height: 45px;
             background: var(--gradient-primary);
             color: white;
             border-radius: 50%;
@@ -1091,8 +1073,8 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            box-shadow: 0 6px 20px rgba(26, 54, 93, 0.3);
-            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+            transition: var(--transition);
             opacity: 0;
             visibility: hidden;
             z-index: 999;
@@ -1108,83 +1090,177 @@
             transform: translateY(-3px);
         }
 
-        /* Enhanced Slider Controls */
-        .slider-controls {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 40px;
-            padding: 0 20px;
+        /* Enhanced Chatbot */
+        .chatbot {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 999;
         }
 
-        .slider-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+        .chatbot-toggle {
+            width: 55px;
+            height: 55px;
             background: var(--gradient-primary);
-            color: white;
-            border: none;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: white;
+            font-size: 1.4rem;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(26, 54, 93, 0.3);
+            box-shadow: 0 6px 20px rgba(124, 58, 237, 0.3);
+            transition: var(--transition);
         }
 
-        .slider-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(26, 54, 93, 0.4);
+        .chatbot-toggle:hover {
+            transform: scale(1.1);
         }
 
-        .slider-dots {
+        .chatbot-window {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            width: 320px;
+            height: 420px;
+            background: var(--surface);
+            border-radius: var(--border-radius);
+            box-shadow: 0 15px 35px var(--shadow-lg);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .chatbot-window.active {
             display: flex;
-            gap: 12px;
         }
 
-        .slider-dot {
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background-color: var(--border);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .slider-dot.active {
+        .chatbot-header {
             background: var(--gradient-primary);
-            transform: scale(1.2);
+            color: white;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chatbot-header h3 {
+            color: white;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+        }
+
+        .chatbot-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .chatbot-messages {
+            padding: 15px;
+            height: 300px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .chat-message {
+            padding: 10px 14px;
+            border-radius: 18px;
+            max-width: 85%;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        .chat-message.user {
+            background: var(--primary);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+
+        .chat-message.bot {
+            background: var(--surface-dark);
+            color: var(--text-primary);
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+
+        .chatbot-input {
+            display: flex;
+            padding: 12px;
+            border-top: 1px solid var(--border);
+        }
+
+        .chatbot-input input {
+            flex: 1;
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            outline: none;
+            font-size: 0.85rem;
+            background: var(--background);
+            color: var(--text-primary);
+        }
+
+        .chatbot-input button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            margin-left: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         /* Responsive Design */
         @media (max-width: 1200px) {
             .hero h1 {
-                font-size: 2.8rem;
+                font-size: 2.5rem;
             }
             
             .section-title h2 {
-                font-size: 2.2rem;
+                font-size: 1.8rem;
             }
         }
 
         @media (max-width: 992px) {
             .about-content,
-            .contact-container,
-            .dashboard-container {
+            .contact-container {
                 grid-template-columns: 1fr;
             }
             
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
+            }
+            
+            .hero-profile {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-intro {
+                text-align: center;
+            }
+            
+            .floating-social {
+                display: none;
             }
             
             .chatbot-window {
-                width: 350px;
+                width: 300px;
                 right: -20px;
-            }
-            
-            .dashboard-container {
-                grid-template-columns: 1fr;
             }
         }
 
@@ -1198,8 +1274,8 @@
                 flex-direction: column;
                 width: 100%;
                 display: none;
-                margin-top: 20px;
-                gap: 20px;
+                margin-top: 15px;
+                gap: 15px;
             }
             
             .nav-links.active {
@@ -1209,21 +1285,16 @@
             .mobile-menu {
                 display: block;
                 position: absolute;
-                right: 20px;
-                top: 20px;
-            }
-            
-            .hero {
-                padding: 160px 0 100px;
-                text-align: center;
+                right: 15px;
+                top: 15px;
             }
             
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 1.8rem;
             }
             
             .hero p {
-                font-size: 1.2rem;
+                font-size: 1rem;
             }
             
             .about-stats {
@@ -1231,34 +1302,49 @@
             }
             
             .section-title h2 {
-                font-size: 2rem;
+                font-size: 1.6rem;
             }
             
             .contact-form {
-                padding: 30px;
+                padding: 20px;
             }
             
             .experience-header {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 15px;
-            }
-            
-            .dashboard-features {
-                grid-template-columns: 1fr;
+                gap: 10px;
             }
             
             .chatbot-window {
-                width: 320px;
+                width: 280px;
                 right: -40px;
             }
             
-            .slider-controls {
-                padding: 0 10px;
+            .section-nav {
+                right: 10px;
             }
             
-            section {
-                padding: 60px 0;
+            .status-indicator {
+                top: 80px;
+                left: 10px;
+            }
+            
+            .project-slider, .experience-slider {
+                overflow: visible;
+            }
+            
+            .project-track, .experience-track {
+                flex-direction: column;
+                transform: none !important;
+            }
+            
+            .project-slide, .experience-slide {
+                min-width: 100%;
+                margin-bottom: 20px;
+            }
+            
+            .slider-controls {
+                display: none;
             }
         }
 
@@ -1274,16 +1360,16 @@
             }
             
             .chatbot-window {
-                width: 300px;
+                width: 260px;
                 right: -60px;
             }
             
             .hero h1 {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
             }
             
             .hero p {
-                font-size: 1.1rem;
+                font-size: 0.9rem;
             }
             
             .professional-badges {
@@ -1299,50 +1385,42 @@
             .contact-item {
                 flex-direction: column;
                 text-align: center;
-                gap: 15px;
-            }
-            
-            .social-links {
-                justify-content: center;
-            }
-            
-            .slider-controls {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .slider-btn {
-                width: 45px;
-                height: 45px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero {
-                padding: 140px 0 80px;
-            }
-            
-            .hero h1 {
-                font-size: 1.6rem;
-            }
-            
-            .section-title h2 {
-                font-size: 1.8rem;
-            }
-            
-            .chatbot-window {
-                width: 280px;
-                right: -80px;
+                gap: 10px;
             }
             
             .container {
                 width: 95%;
             }
+            
+            .section {
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.4rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.4rem;
+            }
+            
+            .chatbot-window {
+                width: 240px;
+                right: -80px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Enhanced Header -->
+    <!-- Status Indicator -->
+    <div class="status-indicator">
+        <div class="status-dot"></div>
+        <span>Available for Opportunities</span>
+    </div>
+
+    <!-- Enhanced Header with Dark Mode Toggle -->
     <header>
         <div class="container">
             <nav class="navbar">
@@ -1350,36 +1428,83 @@
                     <i class="fas fa-laptop-code"></i>
                     Rajesh<span>Kumar</span>
                 </a>
-                <div class="mobile-menu">
-                    <i class="fas fa-bars"></i>
+                <div class="nav-actions">
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <div class="mobile-menu">
+                        <i class="fas fa-bars"></i>
+                    </div>
                 </div>
                 <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#dashboards">Analytics</a></li>
-                    <li><a href="#certifications">Certifications</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#" data-section="home">Home</a></li>
+                    <li><a href="#" data-section="about">About</a></li>
+                    <li><a href="#" data-section="skills">Skills</a></li>
+                    <li><a href="#" data-section="experience">Experience</a></li>
+                    <li><a href="#" data-section="projects">Projects</a></li>
+                    <li><a href="#" data-section="contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Enhanced Hero Section -->
-    <section id="home" class="hero">
+    <!-- Floating Social Media -->
+    <div class="floating-social">
+        <a href="https://wa.me/923322463588" target="_blank" class="social-link whatsapp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/rajesh-kumar-b24603119/" target="_blank" class="social-link linkedin">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://github.com/rajesh01-droid" target="_blank" class="social-link github">
+            <i class="fab fa-github"></i>
+        </a>
+    </div>
+
+    <!-- Section Navigation -->
+    <div class="section-nav">
+        <div class="section-nav-item active" data-section="home"></div>
+        <div class="section-nav-item" data-section="about"></div>
+        <div class="section-nav-item" data-section="skills"></div>
+        <div class="section-nav-item" data-section="experience"></div>
+        <div class="section-nav-item" data-section="projects"></div>
+        <div class="section-nav-item" data-section="contact"></div>
+    </div>
+
+    <!-- Full Page Sections -->
+    <!-- Home Section -->
+    <section id="home" class="section active">
         <div class="container">
             <div class="hero-content">
                 <h1>Senior IT Infrastructure & Data Analytics Professional</h1>
                 <p>8+ Years Driving Digital Transformation Through Network Administration, System Management, and Business Intelligence Solutions</p>
                 <div class="hero-btns">
-                    <a href="#contact" class="btn">
+                    <a href="#" class="btn" data-section="contact">
                         <i class="fas fa-paper-plane"></i> Schedule Consultation
                     </a>
                     <a href="#" class="btn btn-outline" id="downloadResume">
                         <i class="fas fa-download"></i> Download CV
                     </a>
+                </div>
+                
+                <!-- Hero Profile Section -->
+                <div class="hero-profile">
+                    <div class="hero-avatar">
+                        <img src="rajesh.png" alt="Rajesh Kumar">
+                    </div>
+                    <div class="hero-intro">
+                        <h2>Rajesh Kumar</h2>
+                        <p>IT Infrastructure Specialist & Data Analytics Expert with international experience in enterprise solutions and digital transformation.</p>
+                    </div>
+                </div>
+                
+                <!-- Skills Overview -->
+                <div class="skills-overview">
+                    <div class="skill-pill">Network Administration</div>
+                    <div class="skill-pill">Data Analytics</div>
+                    <div class="skill-pill">System Management</div>
+                    <div class="skill-pill">Business Intelligence</div>
+                    <div class="skill-pill">Cloud Infrastructure</div>
                 </div>
                 
                 <!-- Professional Badges -->
@@ -1398,34 +1523,8 @@
         </div>
     </section>
 
-    <!-- Enhanced Chatbot -->
-    <div class="chatbot">
-        <div class="chatbot-toggle" id="chatbotToggle">
-            <i class="fas fa-robot"></i>
-        </div>
-        <div class="chatbot-window" id="chatbotWindow">
-            <div class="chatbot-header">
-                <h3><i class="fas fa-robot"></i> Portfolio Assistant</h3>
-                <button class="chatbot-close" id="chatbotClose">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="chatbot-messages" id="chatbotMessages">
-                <div class="chat-message bot">
-                    Hello! I'm your AI portfolio assistant. I can help you learn about Rajesh's international IT experience, technical expertise, and how he can contribute to your global projects. What would you like to know?
-                </div>
-            </div>
-            <div class="chatbot-input">
-                <input type="text" id="chatbotInput" placeholder="Ask about experience, skills, international projects...">
-                <button id="chatbotSend">
-                    <i class="fas fa-paper-plane"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Enhanced About Section -->
-    <section id="about" class="about">
+    <!-- About Section -->
+    <section id="about" class="section">
         <div class="container">
             <div class="section-title">
                 <h2>About Me</h2>
@@ -1435,7 +1534,6 @@
                     <h2>Driving Global Digital Transformation Through IT Excellence</h2>
                     <p>I am a results-driven Senior IT Professional with over 8 years of comprehensive experience in network administration, system management, and data analytics. My career has been dedicated to implementing technology solutions that enhance operational efficiency and drive business success across diverse international environments.</p>
                     <p>Throughout my career, I've successfully improved performance, operations, and productivity across IT teams and departments. I excel at collaborating with cross-functional teams to achieve objectives on time and with excellence, making me an ideal partner for global organizations seeking digital transformation.</p>
-                    <p>I'm currently seeking international opportunities to utilize my technical expertise in challenging environments where I can contribute to organizational growth and become a valuable asset to forward-thinking companies.</p>
                     
                     <div class="about-stats">
                         <div class="stat">
@@ -1455,7 +1553,7 @@
                 <div class="about-image">
                     <div class="profile-img-container">
                         <div class="profile-img" id="profileImage">
-                            <img src="rajesh.png" alt="Rajesh Kumar - Senior IT Professional" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
+                            <img src="rajesh.png" alt="Rajesh Kumar - Senior IT Professional" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                     </div>
                 </div>
@@ -1463,8 +1561,8 @@
         </div>
     </section>
 
-    <!-- Enhanced Skills Section -->
-    <section id="skills" class="skills">
+    <!-- Skills Section -->
+    <section id="skills" class="section">
         <div class="container">
             <div class="section-title">
                 <h2>Technical Expertise</h2>
@@ -1476,14 +1574,12 @@
                     <h3><i class="fas fa-network-wired"></i> Network & Infrastructure Management</h3>
                     <ul class="skill-list">
                         <li>Enterprise LAN/WAN Network Design & Implementation</li>
-                        <li>Windows Server Administration (2012-2022) & Active Directory</li>
+                        <li>Windows Server Administration & Active Directory</li>
                         <li>Network Security Architecture & Compliance (ISO 27001)</li>
                         <li>Cloud Infrastructure Management (AWS, Azure, Google Cloud)</li>
                         <li>Virtualization Technologies (VMware, Hyper-V, Docker)</li>
                         <li>Cisco Networking & Security Solutions</li>
                         <li>Enterprise Biometric & CCTV Systems Integration</li>
-                        <li>ITIL Framework Implementation</li>
-                        <li>Disaster Recovery & Business Continuity Planning</li>
                     </ul>
                 </div>
                 <div class="skill-category card">
@@ -1496,8 +1592,6 @@
                         <li>DHIS & SAS Reporting for Healthcare Analytics</li>
                         <li>Data Visualization & Interactive Dashboards</li>
                         <li>Predictive Analytics & Machine Learning Basics</li>
-                        <li>Data Governance & Quality Management</li>
-                        <li>KPI Development & Performance Metrics</li>
                     </ul>
                 </div>
                 <div class="skill-category card">
@@ -1510,16 +1604,14 @@
                         <li>Progressive Web Applications (PWAs)</li>
                         <li>Git Version Control & DevOps Practices</li>
                         <li>Agile/Scrum Project Management</li>
-                        <li>Cross-Browser Compatibility & Performance Optimization</li>
-                        <li>SEO & Digital Marketing Integration</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Enhanced Experience Section -->
-    <section id="experience" class="experience">
+    <!-- Experience Section with Slider -->
+    <section id="experience" class="section">
         <div class="container">
             <div class="section-title">
                 <h2>Professional Experience</h2>
@@ -1528,119 +1620,123 @@
             
             <div class="experience-slider">
                 <div class="experience-track" id="experienceTrack">
+                    <!-- Experience Slide 1 -->
                     <div class="experience-slide">
-                        <div class="experience-card card">
+                        <div class="experience-item card">
                             <div class="experience-header">
                                 <div>
-                                    <h3 class="experience-title">Senior IT Infrastructure Specialist</h3>
-                                    <p class="experience-company">PPHI Sindh, Karachi - International Healthcare Organization</p>
+                                    <h3 class="experience-title"><i class="fas fa-database"></i> IT/Assistant Data Processing</h3>
+                                    <p class="experience-company">PPHI Sindh, Karachi, Sindh</p>
                                 </div>
                                 <span class="experience-date">Nov 2023 - Present</span>
                             </div>
                             <div class="experience-highlights">
                                 <h4><i class="fas fa-tasks"></i> Key Responsibilities</h4>
                                 <ul>
-                                    <li>Managed enterprise data systems with 99.9% uptime across 15+ locations, ensuring HIPAA compliance and data security</li>
-                                    <li>Oversaw DHIS and SAS reporting processes for international healthcare analytics, improving data accuracy by 25%</li>
-                                    <li>Administered biometric attendance systems for 500+ employees and enterprise CCTV surveillance network</li>
-                                    <li>Led IT procurement and vendor management, reducing operational costs by 15% through strategic negotiations</li>
-                                    <li>Developed comprehensive IT policies aligned with international standards (ISO 27001, COBIT)</li>
+                                    <li><i class="fas fa-check-circle"></i> Manage organizational data systems, ensuring accuracy, data security, and efficient processing workflows</li>
+                                    <li><i class="fas fa-check-circle"></i> Maintain and update databases, conduct data analysis for actionable insights, and ensure systems function optimally</li>
+                                    <li><i class="fas fa-check-circle"></i> Oversee DHIS (District Health Information System) and SAS reporting processes</li>
+                                    <li><i class="fas fa-check-circle"></i> Perform comparative analysis to ensure consistency and accuracy between DHIS and SAS data</li>
+                                    <li><i class="fas fa-check-circle"></i> Administer and monitor biometric attendance systems to ensure reliable staff tracking</li>
+                                    <li><i class="fas fa-check-circle"></i> Handle CCTV configuration and monitoring, contributing to security infrastructure</li>
+                                    <li><i class="fas fa-check-circle"></i> Manage vendor relationships and coordinate IT-related procurement, services, and support</li>
+                                    <li><i class="fas fa-check-circle"></i> Prepare and submit weekly reports to the Regional Office, highlighting data trends and system status</li>
+                                    <li><i class="fas fa-check-circle"></i> Provide end-user support, maintenance, and troubleshooting for desktops, printers, and peripheral devices</li>
                                 </ul>
-                            </div>
-                            <div class="experience-achievements">
-                                <h4><i class="fas fa-trophy"></i> Key Achievement</h4>
-                                <p>Successfully implemented a data validation system that reduced reporting errors by 40% and improved decision-making efficiency for international stakeholders</p>
                             </div>
                         </div>
                     </div>
                     
+                    <!-- Experience Slide 2 -->
                     <div class="experience-slide">
-                        <div class="experience-card card">
+                        <div class="experience-item card">
                             <div class="experience-header">
                                 <div>
-                                    <h3 class="experience-title">IT Director & Digital Transformation Lead</h3>
-                                    <p class="experience-company">Sindh School System Welfare Foundation at KPS, Karachi</p>
+                                    <h3 class="experience-title"><i class="fas fa-user-tie"></i> Manager IT</h3>
+                                    <p class="experience-company">Sindh School System Welfare Foundation at KPS, Karachi, Sindh</p>
                                 </div>
                                 <span class="experience-date">Mar 2021 - Oct 2023</span>
                             </div>
                             <div class="experience-highlights">
                                 <h4><i class="fas fa-tasks"></i> Key Responsibilities</h4>
                                 <ul>
-                                    <li>Oversaw complete IT infrastructure for 50+ locations, ensuring 99.5% uptime and robust security protocols</li>
-                                    <li>Developed and enforced comprehensive IT policies and SOPs that standardized operations across all departments</li>
-                                    <li>Led digital transformation initiatives, automating 70% of manual processes and saving 200+ hours monthly</li>
-                                    <li>Managed IT department budget of $50,000 annually, ensuring cost-effective solutions and timely resource deployment</li>
-                                    <li>Implemented enterprise vehicle tracking system with performance analytics, reducing fuel costs by 12%</li>
+                                    <li><i class="fas fa-check-circle"></i> Oversaw the organization's complete IT infrastructure, ensuring consistent performance, security, and scalability</li>
+                                    <li><i class="fas fa-check-circle"></i> Conducted regular audits of network and data security, proactively addressing vulnerabilities</li>
+                                    <li><i class="fas fa-check-circle"></i> Identified and implemented software and system upgrades to improve operational efficiency</li>
+                                    <li><i class="fas fa-check-circle"></i> Developed and enforced comprehensive IT policies, standard operating procedures, and best practices across departments</li>
+                                    <li><i class="fas fa-check-circle"></i> Designed and led IT training programs and workshops to enhance staff digital literacy and system utilization</li>
+                                    <li><i class="fas fa-check-circle"></i> Generated and presented periodic operational system reports to senior management</li>
+                                    <li><i class="fas fa-check-circle"></i> Managed and scheduled major IT initiatives including system updates, migrations, and planned outages, ensuring minimal disruption</li>
+                                    <li><i class="fas fa-check-circle"></i> Allocated and monitored the IT department budget, ensuring cost-effective solutions and timely resource deployment</li>
+                                    <li><i class="fas fa-check-circle"></i> Provided strategic leadership and direction to the IT team, fostering professional growth and technical skill development</li>
+                                    <li><i class="fas fa-check-circle"></i> Installed and maintained a vehicle tracking system, with regular performance and usage reports</li>
+                                    <li><i class="fas fa-check-circle"></i> Conducted detailed data analysis of students and employees, supporting administrative planning and decision-making</li>
                                 </ul>
-                            </div>
-                            <div class="experience-achievements">
-                                <h4><i class="fas fa-trophy"></i> Key Achievement</h4>
-                                <p>Led organization-wide digital transformation that automated administrative processes, improving efficiency by 60% and reducing operational costs</p>
                             </div>
                         </div>
                     </div>
                     
+                    <!-- Experience Slide 3 -->
                     <div class="experience-slide">
-                        <div class="experience-card card">
+                        <div class="experience-item card">
                             <div class="experience-header">
                                 <div>
-                                    <h3 class="experience-title">Senior Data Processing Officer</h3>
-                                    <p class="experience-company">KIAS Marine Services (KPT), Karachi - Port Authority</p>
+                                    <h3 class="experience-title"><i class="fas fa-file-alt"></i> Data Processing Officer</h3>
+                                    <p class="experience-company">KIAS Marine Services (KPT), Karachi, Sindh</p>
                                 </div>
                                 <span class="experience-date">Jul 2020 - Mar 2021</span>
                             </div>
                             <div class="experience-highlights">
                                 <h4><i class="fas fa-tasks"></i> Key Responsibilities</h4>
                                 <ul>
-                                    <li>Identified and resolved critical information system issues, reducing system downtime by 30%</li>
-                                    <li>Maintained and monitored enterprise text messaging systems handling 10,000+ messages monthly with 99% reliability</li>
-                                    <li>Conducted comprehensive research and data validation for maritime operations, improving data accuracy by 35%</li>
-                                    <li>Managed inventory control and periodic audits for IT assets, maintaining 100% accurate records and compliance</li>
-                                    <li>Assisted in yearly budget planning with data analysis that optimized resource allocation by 20%</li>
+                                    <li><i class="fas fa-check-circle"></i> Identified and resolved issues within the information system infrastructure, recommending practical and timely solutions</li>
+                                    <li><i class="fas fa-check-circle"></i> Provided technical troubleshooting support for system operations and data processing outputs</li>
+                                    <li><i class="fas fa-check-circle"></i> Maintained and monitored the text messaging system to ensure effective communication workflows</li>
+                                    <li><i class="fas fa-check-circle"></i> Conducted research and data validation to ensure accuracy, completeness, and timely entry of information</li>
+                                    <li><i class="fas fa-check-circle"></i> Entered and verified data using online terminals and other data input tools with a focus on reliability and precision</li>
+                                    <li><i class="fas fa-check-circle"></i> Organized and filed documentation in appropriate physical and digital storage locations</li>
+                                    <li><i class="fas fa-check-circle"></i> Managed inventory control and periodic audits, maintaining up-to-date records and reports</li>
+                                    <li><i class="fas fa-check-circle"></i> Assisted in yearly budget planning, contributing data analysis and resource tracking to support financial decisions</li>
                                 </ul>
-                            </div>
-                            <div class="experience-achievements">
-                                <h4><i class="fas fa-trophy"></i> Key Achievement</h4>
-                                <p>Developed automated data validation scripts that reduced manual verification time by 15 hours per week, improving overall productivity</p>
                             </div>
                         </div>
                     </div>
                     
+                    <!-- Experience Slide 4 -->
                     <div class="experience-slide">
-                        <div class="experience-card card">
+                        <div class="experience-item card">
                             <div class="experience-header">
                                 <div>
-                                    <h3 class="experience-title">IT Infrastructure Manager</h3>
-                                    <p class="experience-company">NJV School – Akhuwat Foundation, Karachi</p>
+                                    <h3 class="experience-title"><i class="fas fa-desktop"></i> IT Incharge</h3>
+                                    <p class="experience-company">NJV School – Akhuwat Foundation, Karachi, Sindh</p>
                                 </div>
                                 <span class="experience-date">Sep 2017 - Jun 2020</span>
                             </div>
                             <div class="experience-highlights">
                                 <h4><i class="fas fa-tasks"></i> Key Responsibilities</h4>
                                 <ul>
-                                    <li>Led a team of 10 IT professionals supporting 1,000+ students and 150+ staff across large campus infrastructure</li>
-                                    <li>Designed and maintained school-wide Information Management Systems that streamlined academic records and attendance tracking</li>
-                                    <li>Implemented emerging technologies that enhanced academic delivery and e-learning capabilities</li>
-                                    <li>Collaborated with school leadership to align IT initiatives with educational goals and digital transformation strategies</li>
-                                    <li>Managed IT asset procurement and service contracts worth $30,000 annually with 15% cost savings</li>
+                                    <li><i class="fas fa-check-circle"></i> Led a team of 10 IT professionals in delivering technical support, systems maintenance, and infrastructure management for a large school campus serving several hundred students and staff</li>
+                                    <li><i class="fas fa-check-circle"></i> Oversaw the planning, implementation, and upgrading of all IT systems, ensuring minimal downtime and optimal performance</li>
+                                    <li><i class="fas fa-check-circle"></i> Designed, developed, and maintained school-wide Information Management Systems (IMS) to streamline data collection, academic records, attendance, and administrative workflows</li>
+                                    <li><i class="fas fa-check-circle"></i> Evaluated and implemented emerging technologies and digital tools to enhance academic delivery, e-learning capabilities, and administrative efficiency</li>
+                                    <li><i class="fas fa-check-circle"></i> Ensured network and data security protocols were maintained, performing regular backups and system audits</li>
+                                    <li><i class="fas fa-check-circle"></i> Provided ongoing support and technical training to staff on system use, software applications, and cybersecurity awareness</li>
+                                    <li><i class="fas fa-check-circle"></i> Collaborated with school leadership to align IT initiatives with educational goals and digital transformation strategies</li>
+                                    <li><i class="fas fa-check-circle"></i> Assisted in budgeting and procurement of IT assets, including hardware, software, and service contracts</li>
                                 </ul>
-                            </div>
-                            <div class="experience-achievements">
-                                <h4><i class="fas fa-trophy"></i> Key Achievement</h4>
-                                <p>Successfully migrated entire school system to cloud-based platform, improving accessibility and reducing maintenance costs by 25%</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="slider-controls">
-                    <button class="slider-btn" id="prevBtn">
+                    <button class="slider-btn" id="experiencePrevBtn">
                         <i class="fas fa-chevron-left"></i>
                     </button>
-                    <div class="slider-dots" id="sliderDots">
+                    <div class="slider-dots" id="experienceSliderDots">
                         <!-- Dots will be generated by JavaScript -->
                     </div>
-                    <button class="slider-btn" id="nextBtn">
+                    <button class="slider-btn" id="experienceNextBtn">
                         <i class="fas fa-chevron-right"></i>
                     </button>
                 </div>
@@ -1648,27 +1744,60 @@
         </div>
     </section>
 
-    <!-- Enhanced Projects Section -->
-    <section id="projects" class="projects">
+    <!-- Projects Section -->
+    <section id="projects" class="section">
         <div class="container">
             <div class="section-title">
-                <h2>Featured Projects & Solutions</h2>
+                <h2>Featured Projects</h2>
             </div>
             <p class="section-subtitle">A showcase of enterprise-level implementations, system deployments, and innovative IT solutions delivered across various organizational contexts with measurable business impact.</p>
             
             <div class="project-slider">
                 <div class="project-track" id="projectTrack">
-                    <!-- Project Slide 1 -->
+                    <!-- Project Slide 1 - Rajesh Kumar Blog -->
                     <div class="project-slide">
                         <div class="project-card card">
-                            <div class="project-img" style="background: linear-gradient(135deg, #4f46e5, #7c3aed);">
+                            <div class="project-img">
+                                <div class="project-overlay">
+                                    <a href="https://rajesh01-droid.github.io/rajesh-kumar-blog/" target="_blank" class="btn">View Live Blog</a>
+                                </div>
+                                <i class="fas fa-blog" style="color: white; font-size: 2.5rem;"></i>
+                            </div>
+                            <div class="project-content">
+                                <h3><i class="fas fa-blog"></i> Professional IT Blog & Portfolio</h3>
+                                <div class="project-tags">
+                                    <span class="project-tag">HTML5/CSS3</span>
+                                    <span class="project-tag">JavaScript</span>
+                                    <span class="project-tag">Responsive Design</span>
+                                    <span class="project-tag">GitHub Pages</span>
+                                </div>
+                                <p>A comprehensive professional blog showcasing IT expertise, technical articles, and portfolio projects with international design standards and responsive user experience.</p>
+                                <div class="project-features">
+                                    <h4><i class="fas fa-star"></i> Key Features</h4>
+                                    <ul>
+                                        <li><i class="fas fa-check"></i> Modern, responsive design optimized for all devices</li>
+                                        <li><i class="fas fa-check"></i> Professional portfolio showcasing IT projects and skills</li>
+                                        <li><i class="fas fa-check"></i> Technical blog with articles on IT infrastructure and data analytics</li>
+                                        <li><i class="fas fa-check"></i> International design standards with accessibility features</li>
+                                        <li><i class="fas fa-check"></i> Fast loading and SEO optimized structure</li>
+                                    </ul>
+                                </div>
+                                <a href="https://rajesh01-droid.github.io/rajesh-kumar-blog/" target="_blank" class="project-link">Visit Blog <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Slide 2 - WhatsApp Location -->
+                    <div class="project-slide">
+                        <div class="project-card card">
+                            <div class="project-img">
                                 <div class="project-overlay">
                                     <a href="https://rajesh01-droid.github.io/WhatsAppLocation/" target="_blank" class="btn">View Live Demo</a>
                                 </div>
-                                <i class="fas fa-map-marker-alt" style="color: white; font-size: 3rem;"></i>
+                                <i class="fas fa-map-marker-alt" style="color: white; font-size: 2.5rem;"></i>
                             </div>
                             <div class="project-content">
-                                <h3>Global Location Sharing Platform</h3>
+                                <h3><i class="fas fa-map-marker-alt"></i> Global Location Sharing Platform</h3>
                                 <div class="project-tags">
                                     <span class="project-tag">JavaScript ES6+</span>
                                     <span class="project-tag">Geolocation API</span>
@@ -1678,10 +1807,10 @@
                                 <div class="project-features">
                                     <h4><i class="fas fa-star"></i> Key Features</h4>
                                     <ul>
-                                        <li>Real-time location tracking with international mapping support</li>
-                                        <li>Responsive design optimized for global mobile usage</li>
-                                        <li>Multi-language support for international users</li>
-                                        <li>Secure location sharing with privacy controls</li>
+                                        <li><i class="fas fa-check"></i> Real-time location tracking with international mapping support</li>
+                                        <li><i class="fas fa-check"></i> Responsive design optimized for global mobile usage</li>
+                                        <li><i class="fas fa-check"></i> Multi-language support for international users</li>
+                                        <li><i class="fas fa-check"></i> Secure location sharing with privacy controls</li>
                                     </ul>
                                 </div>
                                 <a href="https://rajesh01-droid.github.io/WhatsAppLocation/" target="_blank" class="project-link">View Project <i class="fas fa-external-link-alt"></i></a>
@@ -1689,17 +1818,17 @@
                         </div>
                     </div>
                     
-                    <!-- Project Slide 2 -->
+                    <!-- Project Slide 3 - Smart Outlier Dashboard -->
                     <div class="project-slide">
                         <div class="project-card card">
-                            <div class="project-img" style="background: linear-gradient(135deg, #059669, #10b981);">
+                            <div class="project-img">
                                 <div class="project-overlay">
                                     <a href="https://rajesh01-droid.github.io/SmartOutlierDashboard/" target="_blank" class="btn">View Analytics Dashboard</a>
                                 </div>
-                                <i class="fas fa-chart-bar" style="color: white; font-size: 3rem;"></i>
+                                <i class="fas fa-chart-bar" style="color: white; font-size: 2.5rem;"></i>
                             </div>
                             <div class="project-content">
-                                <h3>Enterprise Analytics Dashboard</h3>
+                                <h3><i class="fas fa-chart-bar"></i> Enterprise Analytics Dashboard</h3>
                                 <div class="project-tags">
                                     <span class="project-tag">Data Visualization</span>
                                     <span class="project-tag">Business Intelligence</span>
@@ -1709,10 +1838,10 @@
                                 <div class="project-features">
                                     <h4><i class="fas fa-star"></i> Key Features</h4>
                                     <ul>
-                                        <li>Advanced statistical algorithms for anomaly detection</li>
-                                        <li>Interactive data visualization with drill-down capabilities</li>
-                                        <li>Real-time data processing for immediate insights</li>
-                                        <li>Export functionality for executive reporting</li>
+                                        <li><i class="fas fa-check"></i> Advanced statistical algorithms for anomaly detection</li>
+                                        <li><i class="fas fa-check"></i> Interactive data visualization with drill-down capabilities</li>
+                                        <li><i class="fas fa-check"></i> Real-time data processing for immediate insights</li>
+                                        <li><i class="fas fa-check"></i> Export functionality for executive reporting</li>
                                     </ul>
                                 </div>
                                 <a href="https://rajesh01-droid.github.io/SmartOutlierDashboard/" target="_blank" class="project-link">View Project <i class="fas fa-external-link-alt"></i></a>
@@ -1720,126 +1849,35 @@
                         </div>
                     </div>
                     
-                    <!-- Project Slide 3 -->
+                    <!-- Project Slide 4 - Additional Project -->
                     <div class="project-slide">
                         <div class="project-card card">
-                            <div class="project-img" style="background: linear-gradient(135deg, #dc2626, #ef4444);">
+                            <div class="project-img">
                                 <div class="project-overlay">
-                                    <a href="https://ssswf.org.pk/" target="_blank" class="btn">View Educational Platform</a>
+                                    <a href="https://github.com/rajesh01-droid" target="_blank" class="btn">View on GitHub</a>
                                 </div>
-                                <i class="fas fa-graduation-cap" style="color: white; font-size: 3rem;"></i>
+                                <i class="fas fa-code-branch" style="color: white; font-size: 2.5rem;"></i>
                             </div>
                             <div class="project-content">
-                                <h3>Enterprise Educational Management System</h3>
+                                <h3><i class="fas fa-code-branch"></i> IT Infrastructure Automation</h3>
                                 <div class="project-tags">
-                                    <span class="project-tag">PHP Laravel</span>
-                                    <span class="project-tag">MySQL Enterprise</span>
-                                    <span class="project-tag">Multi-tenant Architecture</span>
+                                    <span class="project-tag">Automation</span>
+                                    <span class="project-tag">PowerShell</span>
+                                    <span class="project-tag">Python</span>
+                                    <span class="project-tag">Network Management</span>
                                 </div>
-                                <p>Comprehensive educational platform for Sindh School System serving 50+ locations with student management, attendance tracking, and administrative automation for 10,000+ users.</p>
+                                <p>Comprehensive automation solution for IT infrastructure management, including network monitoring, system updates, and security compliance checks.</p>
                                 <div class="project-features">
                                     <h4><i class="fas fa-star"></i> Key Features</h4>
                                     <ul>
-                                        <li>Centralized student information management across multiple campuses</li>
-                                        <li>Automated attendance and grade tracking with analytics</li>
-                                        <li>Parent and teacher communication portal with notifications</li>
-                                        <li>Academic calendar and event management system</li>
+                                        <li><i class="fas fa-check"></i> Automated network device configuration and monitoring</li>
+                                        <li><i class="fas fa-check"></i> System health checks and performance optimization</li>
+                                        <li><i class="fas fa-check"></i> Security compliance auditing and reporting</li>
+                                        <li><i class="fas fa-check"></i> Custom alerting system for critical infrastructure issues</li>
+                                        <li><i class="fas fa-check"></i> Integration with existing IT management tools</li>
                                     </ul>
                                 </div>
-                                <a href="https://ssswf.org.pk/" target="_blank" class="project-link">View Project <i class="fas fa-external-link-alt"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Project Slide 4 -->
-                    <div class="project-slide">
-                        <div class="project-card card">
-                            <div class="project-img" style="background: linear-gradient(135deg, #7c3aed, #a855f7);">
-                                <div class="project-overlay">
-                                    <a href="https://buyfacts.com/" target="_blank" class="btn">View E-commerce Platform</a>
-                                </div>
-                                <i class="fas fa-shopping-cart" style="color: white; font-size: 3rem;"></i>
-                            </div>
-                            <div class="project-content">
-                                <h3>Global E-commerce Marketplace</h3>
-                                <div class="project-tags">
-                                    <span class="project-tag">E-commerce Enterprise</span>
-                                    <span class="project-tag">Payment Gateway Integration</span>
-                                    <span class="project-tag">Multi-currency Support</span>
-                                </div>
-                                <p>Complete e-commerce solution with international payment integration, multi-currency support, inventory management, and order processing for global market reach.</p>
-                                <div class="project-features">
-                                    <h4><i class="fas fa-star"></i> Key Features</h4>
-                                    <ul>
-                                        <li>Complete product catalog with advanced search and filtering</li>
-                                        <li>Secure international payment gateway integration</li>
-                                        <li>Comprehensive order management and tracking system</li>
-                                        <li>Multi-currency and multi-language support for global reach</li>
-                                    </ul>
-                                </div>
-                                <a href="https://buyfacts.com/" target="_blank" class="project-link">View Project <i class="fas fa-external-link-alt"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Project Slide 5 -->
-                    <div class="project-slide">
-                        <div class="project-card card">
-                            <div class="project-img" style="background: linear-gradient(135deg, #2563eb, #3b82f6);">
-                                <div class="project-overlay">
-                                    <a href="https://njv.edu.pk/" target="_blank" class="btn">View Educational Portal</a>
-                                </div>
-                                <i class="fas fa-school" style="color: white; font-size: 3rem;"></i>
-                            </div>
-                            <div class="project-content">
-                                <h3>Cloud-Based Learning Management System</h3>
-                                <div class="project-tags">
-                                    <span class="project-tag">LMS Enterprise</span>
-                                    <span class="project-tag">Cloud Architecture</span>
-                                    <span class="project-tag">Scalable Infrastructure</span>
-                                </div>
-                                <p>Enterprise-level educational portal for NJV School with complete learning management, student analytics, and communication systems supporting 1,000+ concurrent users.</p>
-                                <div class="project-features">
-                                    <h4><i class="fas fa-star"></i> Key Features</h4>
-                                    <ul>
-                                        <li>Complete learning management system with course delivery</li>
-                                        <li>Advanced student performance tracking and predictive analytics</li>
-                                        <li>Integrated communication system for all stakeholders</li>
-                                        <li>Automated grading and comprehensive reporting</li>
-                                    </ul>
-                                </div>
-                                <a href="https://njv.edu.pk/" target="_blank" class="project-link">View Project <i class="fas fa-external-link-alt"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Project Slide 6 -->
-                    <div class="project-slide">
-                        <div class="project-card card">
-                            <div class="project-img" style="background: linear-gradient(135deg, #f59e0b, #fbbf24);">
-                                <div class="project-overlay">
-                                    <a href="#" class="btn">View Enterprise Solution</a>
-                                </div>
-                                <i class="fas fa-laptop-code" style="color: white; font-size: 3rem;"></i>
-                            </div>
-                            <div class="project-content">
-                                <h3>Enterprise Resource Planning System</h3>
-                                <div class="project-tags">
-                                    <span class="project-tag">ERP Solution</span>
-                                    <span class="project-tag">Enterprise Integration</span>
-                                    <span class="project-tag">Workflow Automation</span>
-                                </div>
-                                <p>Comprehensive ERP solution with integrated modules for HR, finance, operations, and reporting, designed for multi-location organizations with complex workflows.</p>
-                                <div class="project-features">
-                                    <h4><i class="fas fa-star"></i> Key Features</h4>
-                                    <ul>
-                                        <li>Integrated HR, finance, and operations management</li>
-                                        <li>Advanced workflow automation and approval systems</li>
-                                        <li>Real-time reporting and business intelligence</li>
-                                        <li>Multi-location support with centralized control</li>
-                                    </ul>
-                                </div>
-                                <a href="#" class="project-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                                <a href="https://github.com/rajesh01-droid" target="_blank" class="project-link">View Project <i class="fas fa-external-link-alt"></i></a>
                             </div>
                         </div>
                     </div>
@@ -1860,135 +1898,8 @@
         </div>
     </section>
 
-    <!-- Enhanced Dashboard Showcase Section -->
-    <section id="dashboards" class="dashboard-showcase">
-        <div class="container">
-            <div class="section-title">
-                <h2>Business Intelligence & Analytics</h2>
-            </div>
-            <p class="section-subtitle">Interactive dashboards and data visualization solutions that transform raw data into actionable business intelligence for strategic decision-making.</p>
-            
-            <div class="dashboard-container">
-                <div class="dashboard-card">
-                    <div class="dashboard-header">
-                        <h3><i class="fas fa-chart-line"></i> Power BI Enterprise Analytics Suite</h3>
-                        <p style="color: rgba(255, 255, 255, 0.85); margin: 0;">Comprehensive business intelligence solution for global enterprises</p>
-                    </div>
-                    <div class="dashboard-img">
-                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #00b4d8, #0077b6); display: flex; align-items: center; justify-content: center; color: white; flex-direction: column; gap: 15px;">
-                            <i class="fas fa-chart-pie" style="font-size: 4rem;"></i>
-                            <h3 style="color: white; text-align: center;">Power BI Enterprise Dashboard</h3>
-                            <p style="color: white; text-align: center; max-width: 80%;">Real-time business analytics with predictive capabilities</p>
-                        </div>
-                    </div>
-                    <div class="dashboard-content">
-                        <p>Advanced Power BI dashboard providing comprehensive business analytics with interactive visualizations, KPI tracking, and predictive analytics for international business operations.</p>
-                        <div class="dashboard-features">
-                            <div class="dashboard-feature">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Real-time Global Analytics</span>
-                            </div>
-                            <div class="dashboard-feature">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Predictive Modeling</span>
-                            </div>
-                            <div class="dashboard-feature">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Multi-language Support</span>
-                            </div>
-                            <div class="dashboard-feature">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Executive Reporting</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="dashboard-card">
-                    <div class="dashboard-header">
-                        <h3><i class="fas fa-file-excel"></i> Advanced Excel Analytics Platform</h3>
-                        <p style="color: rgba(255, 255, 255, 0.85); margin: 0;">Dynamic data analysis and financial modeling solution</p>
-                    </div>
-                    <div class="dashboard-img">
-                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #2ecc71, #27ae60); display: flex; align-items: center; justify-content: center; color: white; flex-direction: column; gap: 15px;">
-                            <i class="fas fa-table" style="font-size: 4rem;"></i>
-                            <h3 style="color: white; text-align: center;">Excel Advanced Analytics</h3>
-                            <p style="color: white; text-align: center; max-width: 80%;">Financial modeling and data analysis for enterprise</p>
-                        </div>
-                    </div>
-                    <div class="dashboard-content">
-                        <p>Sophisticated Excel dashboard utilizing advanced formulas, pivot tables, Power Query, and financial modeling techniques for comprehensive business analysis and reporting.</p>
-                        <div class="dashboard-features">
-                            <div class="dashboard-feature">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Financial Modeling</span>
-                            </div>
-                            <div class="dashboard-feature">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Advanced Formulas & Macros</span>
-                            </div>
-                            <div class="dashboard-feature">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Power Query Integration</span>
-                            </div>
-                            <div class="dashboard-feature">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Automated Reporting</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Enhanced Certifications Section -->
-    <section id="certifications" class="certifications">
-        <div class="container">
-            <div class="section-title">
-                <h2>Professional Certifications</h2>
-            </div>
-            <p class="section-subtitle">Industry-recognized certifications that validate my technical expertise and commitment to continuous professional development in alignment with international standards.</p>
-            
-            <div class="cert-grid">
-                <div class="cert-card card">
-                    <div class="cert-icon">
-                        <i class="fas fa-desktop"></i>
-                    </div>
-                    <h3>Microsoft Office Specialist Expert</h3>
-                    <span class="institution">Microsoft Certified | Career-Boosting Program</span>
-                    <p>Advanced certification in MS Office Suite including Excel Expert, PowerPoint, Word, and Outlook with focus on business productivity and automation.</p>
-                </div>
-                <div class="cert-card card">
-                    <div class="cert-icon">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <h3>Full-Stack Software Development</h3>
-                    <span class="institution">IBA University, Karachi | Premier Business School</span>
-                    <p>Comprehensive training in modern software development including web technologies, database design, and enterprise application architecture.</p>
-                </div>
-                <div class="cert-card card">
-                    <div class="cert-icon">
-                        <i class="fas fa-network-wired"></i>
-                    </div>
-                    <h3>Cisco Certified Network Associate (CCNA)</h3>
-                    <span class="institution">Cisco Systems | CTTC Authorized Training</span>
-                    <p>International certification in networking fundamentals, routing, switching, network security, and infrastructure design for enterprise environments.</p>
-                </div>
-                <div class="cert-card card">
-                    <div class="cert-icon">
-                        <i class="fas fa-server"></i>
-                    </div>
-                    <h3>Microsoft Certified Solutions Associate</h3>
-                    <span class="institution">Microsoft | Windows Server 2012</span>
-                    <p>Professional certification in Windows Server administration, Active Directory, network services, and enterprise infrastructure management.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Enhanced Contact Section -->
-    <section id="contact" class="contact">
+    <!-- Contact Section -->
+    <section id="contact" class="section">
         <div class="container">
             <div class="section-title">
                 <h2>Let's Connect Globally</h2>
@@ -2037,23 +1948,15 @@
                             <small>Connect for professional networking and opportunities</small>
                         </div>
                     </div>
-                    
-                    <div class="social-links">
-                        <a href="https://linkedin.com/in/rajesh-kumar-b24603119/" target="_blank" class="social-link">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://github.com/rajesh01-droid" target="_blank" class="social-link">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://twitter.com/rajeshkumar_it" target="_blank" class="social-link">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="https://www.facebook.com/share/1Ctfo6S7Zn/" target="_blank" class="social-link">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://wa.me/message/YDN66DFMHM6LD1" target="_blank" class="social-link">
+                    <div class="contact-item">
+                        <div class="contact-icon">
                             <i class="fab fa-whatsapp"></i>
-                        </a>
+                        </div>
+                        <div class="contact-text">
+                            <h3>WhatsApp Business</h3>
+                            <p>+92 332 246 3588</p>
+                            <small>Available for quick communication and project discussions</small>
+                        </div>
                     </div>
                 </div>
                 <div class="contact-form">
@@ -2095,107 +1998,149 @@
         </div>
     </section>
 
-    <!-- Enhanced Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-about">
-                    <a href="#" class="logo">
-                        <i class="fas fa-laptop-code"></i>
-                        Rajesh<span>Kumar</span>
-                    </a>
-                    <p>Senior IT Professional with 8+ years of international experience in network administration, system management, and data analytics. Dedicated to delivering enterprise technology solutions that drive organizational success and digital transformation.</p>
-                    <div class="social-links">
-                        <a href="https://linkedin.com/in/rajesh-kumar-b24603119/" target="_blank" class="social-link">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://github.com/rajesh01-droid" target="_blank" class="social-link">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://twitter.com/rajeshkumar_it" target="_blank" class="social-link">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="https://www.facebook.com/share/1Ctfo6S7Zn/" target="_blank" class="social-link">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://wa.me/message/YDN66DFMHM6LD1" target="_blank" class="social-link">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <h3>Professional Services</h3>
-                    <ul>
-                        <li><a href="#">IT Infrastructure Management</a></li>
-                        <li><a href="#">Network Administration</a></li>
-                        <li><a href="#">Data Analytics & BI</a></li>
-                        <li><a href="#">Enterprise Web Development</a></li>
-                        <li><a href="#">Digital Transformation</a></li>
-                        <li><a href="#">Technical Consulting</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h3>Global Expertise</h3>
-                    <ul>
-                        <li><a href="#">International Project Management</a></li>
-                        <li><a href="#">Multi-location IT Operations</a></li>
-                        <li><a href="#">Enterprise System Integration</a></li>
-                        <li><a href="#">Business Intelligence Solutions</a></li>
-                        <li><a href="#">Cloud Infrastructure</a></li>
-                        <li><a href="#">Cybersecurity Implementation</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#skills">Skills</a></li>
-                        <li><a href="#experience">Experience</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p style= "color: white !important;">&copy; 2024-2025 Rajesh Kumar. All Rights Reserved. | Senior IT Infrastructure & Data Analytics Professional | Karachi, Pakistan</p>
-            </div>
-        </div>
-    </footer>
-
     <!-- Back to Top Button -->
-    <a href="#" class="back-to-top">
+    <a href="#" class="back-to-top" data-section="home">
         <i class="fas fa-arrow-up"></i>
     </a>
 
+    <!-- Enhanced Chatbot -->
+    <div class="chatbot">
+        <div class="chatbot-toggle" id="chatbotToggle">
+            <i class="fas fa-robot"></i>
+        </div>
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <h3><i class="fas fa-robot"></i> Portfolio Assistant</h3>
+                <button class="chatbot-close" id="chatbotClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="chat-message bot">
+                    Hello! I'm your AI portfolio assistant. I can help you learn about Rajesh's international IT experience, technical expertise, and how he can contribute to your global projects. What would you like to know?
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="chatbotInput" placeholder="Ask about experience, skills, international projects...">
+                <button id="chatbotSend">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Enhanced Mobile menu toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
+        // Section Navigation - FIXED CODE
+        const sections = document.querySelectorAll('.section');
+        const navItems = document.querySelectorAll('.section-nav-item');
+        const navLinks = document.querySelectorAll('.nav-links a');
+        let currentSection = 0;
+
+        // Function to show a specific section
+        function showSection(index) {
+            // Hide all sections
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show the selected section
+            sections[index].classList.add('active');
+            
+            // Update navigation items
+            navItems.forEach((item, i) => {
+                item.classList.toggle('active', i === index);
+            });
+            
+            // Update current section
+            currentSection = index;
+            
+            // Show/hide back to top button
+            const backToTop = document.querySelector('.back-to-top');
+            if (index === 0) {
+                backToTop.classList.remove('active');
+            } else {
+                backToTop.classList.add('active');
+            }
+        }
+
+        // Navigation item click event
+        navItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                showSection(index);
+            });
         });
 
-        // Enhanced Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+        // Navigation link click event - FIXED
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
                 e.preventDefault();
+                const sectionId = link.getAttribute('data-section');
+                const sectionIndex = Array.from(sections).findIndex(section => section.id === sectionId);
+                if (sectionIndex !== -1) {
+                    showSection(sectionIndex);
+                }
                 
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    document.querySelector('.nav-links').classList.remove('active');
+                // Close mobile menu if open
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+
+        // Button click events for navigation
+        document.querySelectorAll('.btn[data-section]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const sectionId = btn.getAttribute('data-section');
+                const sectionIndex = Array.from(sections).findIndex(section => section.id === sectionId);
+                if (sectionIndex !== -1) {
+                    showSection(sectionIndex);
                 }
             });
         });
 
-        // Enhanced Contact form submission
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+                e.preventDefault();
+                const nextSection = (currentSection + 1) % sections.length;
+                showSection(nextSection);
+            } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+                e.preventDefault();
+                const prevSection = (currentSection - 1 + sections.length) % sections.length;
+                showSection(prevSection);
+            }
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Dark Mode Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        
+        // Check for saved theme preference or respect OS preference
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        const currentTheme = localStorage.getItem('theme');
+        
+        if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
+            body.classList.add('dark-mode');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+        
+        themeToggle.addEventListener('click', function() {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                localStorage.setItem('theme', 'light');
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        });
+
+        // Contact form submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -2231,25 +2176,6 @@ ${name}`)}`;
             
             // Reset form
             this.reset();
-        });
-
-        // Enhanced Back to top button
-        const backToTopButton = document.querySelector('.back-to-top');
-        
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.add('active');
-            } else {
-                backToTopButton.classList.remove('active');
-            }
-        });
-        
-        backToTopButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
         });
 
         // Enhanced Chatbot functionality
@@ -2310,7 +2236,7 @@ ${name}`)}`;
             
             // Experience related queries
             if (lowerMessage.includes('experience') || lowerMessage.includes('work') || lowerMessage.includes('job') || lowerMessage.includes('career')) {
-                return "Rajesh has 8+ years of international IT experience:\n\n• Senior IT Infrastructure Specialist at PPHI Sindh (Current)\n• IT Director at Sindh School System Welfare Foundation\n• Senior Data Processing Officer at KIAS Marine Services\n• IT Infrastructure Manager at NJV School – Akhuwat Foundation\n\nHe specializes in enterprise network administration, data analytics, and digital transformation for international organizations.";
+                return "Rajesh has 8+ years of international IT experience:\n\n• IT/Assistant Data Processing at PPHI Sindh (Current)\n• Manager IT at Sindh School System Welfare Foundation\n• Data Processing Officer at KIAS Marine Services\n• IT Incharge at NJV School – Akhuwat Foundation\n\nHe specializes in enterprise network administration, data analytics, and digital transformation for international organizations.";
             }
             
             // Skills related queries
@@ -2320,7 +2246,7 @@ ${name}`)}`;
             
             // Projects related queries
             if (lowerMessage.includes('project') || lowerMessage.includes('portfolio') || lowerMessage.includes('work sample') || lowerMessage.includes('case study')) {
-                return "Rajesh has delivered enterprise projects including:\n\n• Global Location Sharing Platform (Web Application)\n• Enterprise Analytics Dashboard (Business Intelligence)\n• Educational Management System (Multi-location ERP)\n• Global E-commerce Marketplace (International Commerce)\n• Cloud-Based Learning Management System (LMS)\n• Enterprise Resource Planning System (ERP)\n\nYou can view live demos in the Projects section.";
+                return "Rajesh has delivered enterprise projects including:\n\n• Professional IT Blog & Portfolio (GitHub Pages)\n• Global Location Sharing Platform (Web Application)\n• Enterprise Analytics Dashboard (Business Intelligence)\n• IT Infrastructure Automation (PowerShell/Python)\n\nYou can view live demos in the Projects section.";
             }
             
             // International/Collaboration queries
@@ -2333,70 +2259,65 @@ ${name}`)}`;
                 return "You can contact Rajesh for international opportunities:\n\n• Phone/WhatsApp: +92 332 246 3588\n• Email: rajesh_kumar1@hotmail.com\n• LinkedIn: linkedin.com/in/rajesh-kumar-b24603119\n• Location: Karachi, Pakistan (UTC+5)\n• Available for international projects and remote work\n• Response time: Within 24 hours for business inquiries";
             }
             
-            // Certifications related queries
-            if (lowerMessage.includes('certification') || lowerMessage.includes('certificate') || lowerMessage.includes('training') || lowerMessage.includes('qualification')) {
-                return "Rajesh holds internationally recognized certifications:\n\n• Microsoft Office Specialist Expert\n• Full-Stack Software Development (IBA University)\n• Cisco Certified Network Associate (CCNA)\n• Microsoft Certified Solutions Associate (MCSA)\n• ITIL Framework Knowledge\n• Agile/Scrum Project Management\n\nThese validate his expertise for global opportunities.";
-            }
-            
             // Default response
-            return "I'm your AI portfolio assistant! I can help you learn about Rajesh's international IT experience, technical skills, enterprise projects, certifications, and how to connect for global opportunities. What specific aspect interests you most?";
+            return "I'm your AI portfolio assistant! I can help you learn about Rajesh's international IT experience, technical skills, enterprise projects, and how to connect for global opportunities. What specific aspect interests you most?";
         }
 
-        // Experience Slider Functionality (Enhanced)
+        // Experience Slider Functionality
         const experienceTrack = document.getElementById('experienceTrack');
         const experienceSlides = document.querySelectorAll('.experience-slide');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const sliderDots = document.getElementById('sliderDots');
+        const experiencePrevBtn = document.getElementById('experiencePrevBtn');
+        const experienceNextBtn = document.getElementById('experienceNextBtn');
+        const experienceSliderDots = document.getElementById('experienceSliderDots');
         
-        let currentSlide = 0;
-        const totalSlides = experienceSlides.length;
+        let currentExperienceSlide = 0;
+        const totalExperienceSlides = experienceSlides.length;
         
-        // Create dots for slider
-        for (let i = 0; i < totalSlides; i++) {
+        // Create dots for experience slider
+        for (let i = 0; i < totalExperienceSlides; i++) {
             const dot = document.createElement('div');
             dot.className = 'slider-dot';
             if (i === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => goToSlide(i));
-            sliderDots.appendChild(dot);
+            dot.addEventListener('click', () => goToExperienceSlide(i));
+            experienceSliderDots.appendChild(dot);
         }
         
-        // Update slider position
-        function updateSlider() {
-            experienceTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+        // Update experience slider position
+        function updateExperienceSlider() {
+            experienceTrack.style.transform = `translateX(-${currentExperienceSlide * 100}%)`;
             
             // Update active dot
-            document.querySelectorAll('.slider-dot').forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentSlide);
+            document.querySelectorAll('#experienceSliderDots .slider-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentExperienceSlide);
             });
         }
         
-        // Go to specific slide
-        function goToSlide(slideIndex) {
-            currentSlide = slideIndex;
-            updateSlider();
+        // Go to specific experience slide
+        function goToExperienceSlide(slideIndex) {
+            currentExperienceSlide = slideIndex;
+            updateExperienceSlider();
         }
         
-        // Next slide
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            updateSlider();
+        // Next experience slide
+        function nextExperienceSlide() {
+            currentExperienceSlide = (currentExperienceSlide + 1) % totalExperienceSlides;
+            updateExperienceSlider();
         }
         
-        // Previous slide
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-            updateSlider();
+        // Previous experience slide
+        function prevExperienceSlide() {
+            currentExperienceSlide = (currentExperienceSlide - 1 + totalExperienceSlides) % totalExperienceSlides;
+            updateExperienceSlider();
         }
         
-        // Event listeners for buttons
-        prevBtn.addEventListener('click', prevSlide);
-        nextBtn.addEventListener('click', nextSlide);
+        // Event listeners for experience buttons
+        experiencePrevBtn.addEventListener('click', prevExperienceSlide);
+        experienceNextBtn.addEventListener('click', nextExperienceSlide);
         
-        // Auto-advance slides every 12 seconds
-        setInterval(nextSlide, 12000);
+        // Auto-advance experience slides every 10 seconds
+        setInterval(nextExperienceSlide, 10000);
 
-        // Project Slider Functionality (Enhanced)
+        // Project Slider Functionality
         const projectTrack = document.getElementById('projectTrack');
         const projectSlides = document.querySelectorAll('.project-slide');
         const projectPrevBtn = document.getElementById('projectPrevBtn');
@@ -2447,16 +2368,16 @@ ${name}`)}`;
         projectPrevBtn.addEventListener('click', prevProjectSlide);
         projectNextBtn.addEventListener('click', nextProjectSlide);
         
-        // Auto-advance project slides every 12 seconds
-        setInterval(nextProjectSlide, 12000);
-        
+        // Auto-advance project slides every 8 seconds
+        setInterval(nextProjectSlide, 8000);
+
         // Enhanced PDF Download Functionality
         document.getElementById('downloadResume').addEventListener('click', function(e) {
             e.preventDefault();
             
             // Create a professional resume element for PDF generation
             const resumeElement = document.createElement('div');
-            resumeElement.style.padding = '30px';
+            resumeElement.style.padding = '25px';
             resumeElement.style.fontFamily = 'Arial, sans-serif';
             resumeElement.style.maxWidth = '800px';
             resumeElement.style.margin = '0 auto';
@@ -2465,65 +2386,54 @@ ${name}`)}`;
             resumeElement.style.lineHeight = '1.4';
             
             resumeElement.innerHTML = `
-                <div style="text-align: center; margin-bottom: 25px; border-bottom: 3px solid #1a365d; padding-bottom: 20px;">
-                    <h1 style="color: #1a365d; margin-bottom: 8px; font-size: 32px;">Rajesh Kumar</h1>
-                    <p style="color: #4a5568; font-size: 18px; margin: 0; font-weight: 500;">Senior IT Infrastructure & Data Analytics Professional</p>
-                    <p style="color: #718096; font-size: 14px; margin: 5px 0 0 0;">8+ Years International Experience | Digital Transformation Expert</p>
+                <div style="text-align: center; margin-bottom: 20px; border-bottom: 3px solid #7c3aed; padding-bottom: 15px;">
+                    <h1 style="color: #7c3aed; margin-bottom: 8px; font-size: 28px;">Rajesh Kumar</h1>
+                    <p style="color: #64748b; font-size: 16px; margin: 0; font-weight: 500;">Senior IT Infrastructure & Data Analytics Professional</p>
+                    <p style="color: #9ca3af; font-size: 13px; margin: 5px 0 0 0;">8+ Years International Experience | Digital Transformation Expert</p>
                 </div>
                 
-                <div style="background: #f7fafc; padding: 20px; border-radius: 10px; margin-bottom: 25px; border-left: 4px solid #d69e2e;">
-                    <p style="margin: 0; font-weight: 600; font-size: 15px;">📍 Karachi, Pakistan | 📞 +92 332 246 3588 | ✉️ rajesh_kumar1@hotmail.com</p>
-                    <p style="margin: 8px 0 0 0; font-size: 14px;">🔗 linkedin.com/in/rajesh-kumar-b24603119/ | 🌐 Available for International Projects</p>
+                <div style="background: #f8fafc; padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #f59e0b;">
+                    <p style="margin: 0; font-weight: 600; font-size: 14px;">📍 Karachi, Pakistan | 📞 +92 332 246 3588 | ✉️ rajesh_kumar1@hotmail.com</p>
+                    <p style="margin: 8px 0 0 0; font-size: 13px;">🔗 linkedin.com/in/rajesh-kumar-b24603119/ | 🌐 Available for International Projects</p>
                 </div>
                 
-                <div style="margin-bottom: 25px;">
-                    <h2 style="color: #1a365d; border-bottom: 2px solid #d69e2e; padding-bottom: 8px; font-size: 22px;">Professional Summary</h2>
-                    <p style="font-size: 15px; line-height: 1.6; margin-top: 15px;">Senior IT Professional with 8+ years of international experience in enterprise network administration, system management, and data analytics. Proven track record of driving digital transformation initiatives, improving operational efficiency by 60%, and managing multi-location IT infrastructure across 50+ sites. Expertise in implementing technology solutions that enhance business performance and support organizational growth in global markets.</p>
+                <div style="margin-bottom: 20px;">
+                    <h2 style="color: #7c3aed; border-bottom: 2px solid #f59e0b; padding-bottom: 8px; font-size: 20px;">Professional Summary</h2>
+                    <p style="font-size: 14px; line-height: 1.6; margin-top: 12px;">Senior IT Professional with 8+ years of international experience in enterprise network administration, system management, and data analytics. Proven track record of driving digital transformation initiatives, improving operational efficiency by 60%, and managing multi-location IT infrastructure across 50+ sites. Expertise in implementing technology solutions that enhance business performance and support organizational growth in global markets.</p>
                 </div>
                 
-                <div style="margin-bottom: 25px;">
-                    <h2 style="color: #1a365d; border-bottom: 2px solid #d69e2e; padding-bottom: 8px; font-size: 22px;">Professional Experience</h2>
+                <div style="margin-bottom: 20px;">
+                    <h2 style="color: #7c3aed; border-bottom: 2px solid #f59e0b; padding-bottom: 8px; font-size: 20px;">Professional Experience</h2>
                     
-                    <div style="margin-bottom: 20px;">
-                        <h3 style="color: #1a365d; margin-bottom: 5px; font-size: 18px;">Senior IT Infrastructure Specialist</h3>
-                        <p style="font-weight: bold; margin-bottom: 5px; font-size: 15px;">PPHI Sindh, Karachi - International Healthcare Organization | Nov 2023 - Present</p>
-                        <ul style="font-size: 14px; padding-left: 20px; margin-top: 10px;">
-                            <li>Manage enterprise data systems with 99.9% uptime across 15+ locations ensuring HIPAA compliance</li>
-                            <li>Oversee DHIS and SAS reporting for international healthcare analytics, improving data accuracy by 25%</li>
-                            <li>Administer biometric systems for 500+ employees and enterprise CCTV surveillance network</li>
-                            <li>Lead IT procurement reducing operational costs by 15% through strategic vendor negotiations</li>
+                    <div style="margin-bottom: 15px;">
+                        <h3 style="color: #7c3aed; margin-bottom: 5px; font-size: 16px;">IT/Assistant Data Processing</h3>
+                        <p style="font-weight: bold; margin-bottom: 5px; font-size: 14px;">PPHI Sindh, Karachi, Sindh | Nov 2023 - Present</p>
+                        <ul style="font-size: 13px; padding-left: 20px; margin-top: 8px;">
+                            <li>Manage organizational data systems, ensuring accuracy, data security, and efficient processing workflows</li>
+                            <li>Maintain and update databases, conduct data analysis for actionable insights, and ensure systems function optimally</li>
+                            <li>Oversee DHIS (District Health Information System) and SAS reporting processes</li>
+                            <li>Administer and monitor biometric attendance systems to ensure reliable staff tracking</li>
                         </ul>
                     </div>
                     
-                    <div style="margin-bottom: 20px;">
-                        <h3 style="color: #1a365d; margin-bottom: 5px; font-size: 18px;">IT Director & Digital Transformation Lead</h3>
-                        <p style="font-weight: bold; margin-bottom: 5px; font-size: 15px;">Sindh School System Welfare Foundation | Mar 2021 - Oct 2023</p>
-                        <ul style="font-size: 14px; padding-left: 20px; margin-top: 10px;">
-                            <li>Oversaw IT infrastructure for 50+ locations with 99.5% uptime and robust security protocols</li>
-                            <li>Led digital transformation automating 70% of manual processes, saving 200+ hours monthly</li>
-                            <li>Managed $50,000 annual IT budget with cost-effective resource deployment</li>
-                            <li>Implemented enterprise vehicle tracking reducing fuel costs by 12%</li>
-                        </ul>
-                    </div>
-                    
-                    <div style="margin-bottom: 20px;">
-                        <h3 style="color: #1a365d; margin-bottom: 5px; font-size: 18px;">Senior Data Processing Officer</h3>
-                        <p style="font-weight: bold; margin-bottom: 5px; font-size: 15px;">KIAS Marine Services (KPT), Karachi | Jul 2020 - Mar 2021</p>
-                        <ul style="font-size: 14px; padding-left: 20px; margin-top: 10px;">
-                            <li>Resolved critical system issues reducing downtime by 30% for maritime operations</li>
-                            <li>Maintained enterprise messaging systems handling 10,000+ messages monthly with 99% reliability</li>
-                            <li>Conducted data validation for port operations improving accuracy by 35%</li>
-                            <li>Managed IT asset audits maintaining 100% compliance records</li>
+                    <div style="margin-bottom: 15px;">
+                        <h3 style="color: #7c3aed; margin-bottom: 5px; font-size: 16px;">Manager IT</h3>
+                        <p style="font-weight: bold; margin-bottom: 5px; font-size: 14px;">Sindh School System Welfare Foundation at KPS, Karachi, Sindh | Mar 2021 - Oct 2023</p>
+                        <ul style="font-size: 13px; padding-left: 20px; margin-top: 8px;">
+                            <li>Oversaw the organization's complete IT infrastructure, ensuring consistent performance, security, and scalability</li>
+                            <li>Conducted regular audits of network and data security, proactively addressing vulnerabilities</li>
+                            <li>Developed and enforced comprehensive IT policies, standard operating procedures, and best practices across departments</li>
+                            <li>Managed and scheduled major IT initiatives including system updates, migrations, and planned outages</li>
                         </ul>
                     </div>
                 </div>
                 
-                <div style="margin-bottom: 25px;">
-                    <h2 style="color: #1a365d; border-bottom: 2px solid #d69e2e; padding-bottom: 8px; font-size: 22px;">Technical Expertise</h2>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px;">
+                <div style="margin-bottom: 20px;">
+                    <h2 style="color: #7c3aed; border-bottom: 2px solid #f59e0b; padding-bottom: 8px; font-size: 20px;">Technical Expertise</h2>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 12px;">
                         <div>
-                            <h4 style="color: #2d5aa0; margin-bottom: 10px;">Network & Infrastructure:</h4>
-                            <ul style="font-size: 13px; padding-left: 15px;">
+                            <h4 style="color: #7c3aed; margin-bottom: 8px;">Network & Infrastructure:</h4>
+                            <ul style="font-size: 12px; padding-left: 15px;">
                                 <li>Enterprise LAN/WAN Design & Cisco Networking</li>
                                 <li>Windows Server & Active Directory Management</li>
                                 <li>Cloud Infrastructure (AWS, Azure, Google Cloud)</li>
@@ -2531,8 +2441,8 @@ ${name}`)}`;
                             </ul>
                         </div>
                         <div>
-                            <h4 style="color: #2d5aa0; margin-bottom: 10px;">Data Analytics & BI:</h4>
-                            <ul style="font-size: 13px; padding-left: 15px;">
+                            <h4 style="color: #7c3aed; margin-bottom: 8px;">Data Analytics & BI:</h4>
+                            <ul style="font-size: 12px; padding-left: 15px;">
                                 <li>Business Intelligence (Power BI, Tableau)</li>
                                 <li>Database Management (MySQL, SQL Server, PostgreSQL)</li>
                                 <li>Statistical Analysis & Data Visualization</li>
@@ -2542,34 +2452,15 @@ ${name}`)}`;
                     </div>
                 </div>
                 
-                <div style="margin-bottom: 25px;">
-                    <h2 style="color: #1a365d; border-bottom: 2px solid #d69e2e; padding-bottom: 8px; font-size: 22px;">International Certifications</h2>
-                    <ul style="font-size: 14px; padding-left: 20px;">
-                        <li><strong>Microsoft Office Specialist Expert</strong> - Microsoft Certified</li>
-                        <li><strong>Full-Stack Software Development</strong> - IBA University, Karachi</li>
-                        <li><strong>Cisco Certified Network Associate (CCNA)</strong> - Cisco Systems</li>
-                        <li><strong>Microsoft Certified Solutions Associate</strong> - Windows Server 2012</li>
-                    </ul>
-                </div>
-                
-                <div style="margin-bottom: 25px;">
-                    <h2 style="color: #1a365d; border-bottom: 2px solid #d69e2e; padding-bottom: 8px; font-size: 22px;">Education</h2>
-                    <ul style="font-size: 14px; padding-left: 20px;">
-                        <li><strong>Bachelor of Science in Computer Science</strong> - Benazir Bhutto Shaheed University, Karachi (Dec 2016)</li>
-                        <li><strong>Intermediate in Pre-Engineering</strong> - National School & College S.F.R, Badin (2012)</li>
-                        <li><strong>Matriculation – Science</strong> - Government Boys High School, Badin (2009)</li>
-                    </ul>
-                </div>
-                
-                <div style="text-align: center; margin-top: 35px; padding-top: 20px; border-top: 2px solid #e2e8f0;">
-                    <p style="color: #718096; font-size: 13px;">Professional CV Generated from International Portfolio | ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
-                    <p style="color: #1a365d; font-size: 14px; font-weight: 600; margin-top: 10px;">Available for International Projects • Remote Work • Global Collaboration</p>
+                <div style="text-align: center; margin-top: 25px; padding-top: 15px; border-top: 2px solid #e5e7eb;">
+                    <p style="color: #9ca3af; font-size: 12px;">Professional CV Generated from International Portfolio | ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                    <p style="color: #7c3aed; font-size: 13px; font-weight: 600; margin-top: 8px;">Available for International Projects • Remote Work • Global Collaboration</p>
                 </div>
             `;
             
             // Generate PDF with enhanced options
             const opt = {
-                margin: 15,
+                margin: 10,
                 filename: 'Rajesh_Kumar_International_IT_Professional_CV.pdf',
                 image: { type: 'jpeg', quality: 0.98 },
                 html2canvas: { 
@@ -2615,19 +2506,43 @@ ${name}`)}`;
         }, observerOptions);
 
         // Observe elements for animation
-        document.querySelectorAll('.card, .section-title, .experience-card, .project-card').forEach(el => {
+        document.querySelectorAll('.card, .section-title, .experience-item, .project-card').forEach(el => {
             el.style.opacity = 0;
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
         });
+
+        // Mobile responsive fix for project slider
+        function checkMobileView() {
+            if (window.innerWidth <= 768) {
+                // For mobile, convert slider to stacked layout
+                document.querySelectorAll('.project-track, .experience-track').forEach(track => {
+                    track.style.flexDirection = 'column';
+                    track.style.transform = 'none !important';
+                });
+                
+                document.querySelectorAll('.slider-controls').forEach(controls => {
+                    controls.style.display = 'none';
+                });
+            } else {
+                // For desktop, restore slider functionality
+                document.querySelectorAll('.project-track, .experience-track').forEach(track => {
+                    track.style.flexDirection = 'row';
+                });
+                
+                document.querySelectorAll('.slider-controls').forEach(controls => {
+                    controls.style.display = 'flex';
+                });
+            }
+        }
+
+        // Check on load and resize
+        window.addEventListener('load', checkMobileView);
+        window.addEventListener('resize', checkMobileView);
+
+        // Initialize first section
+        showSection(0);
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
