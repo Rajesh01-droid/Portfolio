@@ -183,11 +183,35 @@
         @keyframes fadeUp { from { opacity: 0; transform: translateY(20px);} to { opacity: 1; transform: translateY(0);} }
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
         .skill-card { background: white; padding: 22px; border-radius: var(--radius); box-shadow: var(--shadow); display: flex; align-items: center; gap: 18px; border: 1px solid #eef2ff; }
+        .skill-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
         .skill-icon { width: 55px; height: 55px; background: linear-gradient(135deg, var(--primary-light), var(--secondary)); border-radius: 15px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.6rem; }
 
-        /* Experience Swiper */
-        .exp-swiper, .projects-swiper { width: 100%; padding: 20px 0 50px; }
-        .exp-card, .project-card {
+        /* Experience Cards */
+        .exp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 30px;
+        }
+        .exp-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+        }
+        .exp-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+        .exp-header { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); padding: 25px; color: white; }
+        .exp-header h3 { font-size: 1.4rem; margin-bottom: 8px; }
+        .exp-date { display: inline-block; background: rgba(255,255,255,0.2); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; margin-top: 10px; }
+        .exp-body { padding: 25px; max-height: 400px; overflow-y: auto; }
+        .exp-body ul { list-style: none; }
+        .exp-body li { padding: 10px 0; display: flex; gap: 12px; border-bottom: 1px solid #f0f0f0; align-items: flex-start; }
+        .exp-body li i { color: var(--secondary); margin-top: 3px; min-width: 18px; }
+
+        /* Projects Slider */
+        .projects-swiper { width: 100%; padding: 20px 0 50px; }
+        .project-card {
             background: white;
             border-radius: var(--radius-lg);
             overflow: hidden;
@@ -195,29 +219,33 @@
             height: 100%;
             transition: var(--transition);
         }
-        .exp-card:hover, .project-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
-        .exp-header { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); padding: 25px; color: white; }
-        .exp-header h3 { font-size: 1.4rem; margin-bottom: 8px; }
-        .exp-date { display: inline-block; background: rgba(255,255,255,0.2); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; margin-top: 10px; }
-        .exp-body { padding: 25px; }
-        .exp-body li { padding: 10px 0; display: flex; gap: 12px; border-bottom: 1px solid #f0f0f0; }
-        .exp-body li i { color: var(--secondary); }
-
-        /* Project Cards */
-        .project-img {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
+        .project-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+        .project-img { height: 200px; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; }
         .project-img i { font-size: 3.5rem; color: white; text-shadow: 0 0 20px rgba(0,0,0,0.3); }
         .project-content { padding: 25px; }
         .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 15px 0; }
         .project-tag { background: var(--light); padding: 4px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 600; color: var(--primary); }
         .project-link { color: var(--secondary); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; margin-top: 15px; }
+
+        /* Soft Skills Section */
+        .soft-skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .soft-skill-item {
+            background: white;
+            padding: 18px;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid #eef2ff;
+        }
+        .soft-skill-item:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+        .soft-skill-item i { font-size: 2rem; color: var(--secondary); margin-bottom: 12px; display: block; }
+        .soft-skill-item h4 { font-size: 1rem; margin-bottom: 5px; }
 
         /* Contact */
         .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
@@ -227,11 +255,6 @@
         .form-control { width: 100%; padding: 14px 18px; border: 1px solid #e2e8f0; border-radius: var(--radius); margin-bottom: 20px; font-size: 1rem; }
         .footer { background: var(--dark); color: #94a3b8; padding: 50px 0 30px; text-align: center; }
 
-        /* Swiper overrides */
-        .swiper-pagination-bullet-active { background: var(--primary) !important; }
-        .swiper-button-next, .swiper-button-prev { color: var(--primary) !important; background: white; width: 40px; height: 40px; border-radius: 50%; box-shadow: var(--shadow); }
-        .swiper-button-next:after, .swiper-button-prev:after { font-size: 1.2rem !important; }
-
         @media (max-width: 992px) {
             .hero-grid { grid-template-columns: 1fr; text-align: center; }
             .hero-stats { justify-content: center; }
@@ -240,12 +263,12 @@
             .nav-links { display: none; }
             .nav-links.active { display: flex; flex-direction: column; position: absolute; top: 70px; left: 0; right: 0; background: white; padding: 30px; box-shadow: var(--shadow-lg); border-radius: 0 0 20px 20px; text-align: center; gap: 20px; }
             .mobile-toggle { display: block; }
+            .exp-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 576px) {
             .container { padding: 0 20px; }
             section { padding: 60px 0; }
             .hero-title { font-size: 2rem; }
-            .swiper-button-next, .swiper-button-prev { display: none; }
         }
     </style>
 </head>
@@ -298,7 +321,7 @@
 <!-- Skills Section -->
 <section id="skills" style="background: #f8fafc;">
     <div class="container">
-        <div class="section-title"><h2>Technical Expertise</h2><p>Full-stack, Data Analytics & AI Integration</p></div>
+        <div class="section-title"><h2>Technical Expertise</h2><p>Full-stack Development, Data Analytics & AI Integration</p></div>
         <div class="skills-tabs">
             <button class="skill-tab active" data-tab="web">💻 Web Development</button>
             <button class="skill-tab" data-tab="analytics">📊 Data Analytics</button>
@@ -306,49 +329,112 @@
         </div>
         <div id="web" class="skills-content active">
             <div class="skills-grid">
-                <div class="skill-card"><div class="skill-icon"><i class="fab fa-laravel"></i></div><div><h4>PHP Laravel</h4><p>Custom MVC platforms</p></div></div>
-                <div class="skill-card"><div class="skill-icon"><i class="fab fa-js"></i></div><div><h4>JavaScript / jQuery</h4><p>Interactive frontend</p></div></div>
-                <div class="skill-card"><div class="skill-icon"><i class="fab fa-python"></i></div><div><h4>Python</h4><p>Automation & scripting</p></div></div>
-                <div class="skill-card"><div class="skill-icon"><i class="fas fa-database"></i></div><div><h4>MySQL / SQL</h4><p>Complex queries</p></div></div>
-                <div class="skill-card"><div class="skill-icon"><i class="fab fa-bootstrap"></i></div><div><h4>Bootstrap 5</h4><p>Responsive UI/UX</p></div></div>
-                <div class="skill-card"><div class="skill-icon"><i class="fas fa-envelope"></i></div><div><h4>PHPMailer</h4><p>Email integration</p></div></div>
+                <div class="skill-card"><div class="skill-icon"><i class="fab fa-laravel"></i></div><div><h4>PHP Laravel</h4><p>Custom MVC platforms, REST APIs</p></div></div>
+                <div class="skill-card"><div class="skill-icon"><i class="fab fa-js"></i></div><div><h4>JavaScript / jQuery</h4><p>Interactive frontend, AJAX</p></div></div>
+                <div class="skill-card"><div class="skill-icon"><i class="fab fa-python"></i></div><div><h4>Python</h4><p>Automation, scripting, data processing</p></div></div>
+                <div class="skill-card"><div class="skill-icon"><i class="fas fa-database"></i></div><div><h4>MySQL / SQL</h4><p>Complex queries, optimization</p></div></div>
+                <div class="skill-card"><div class="skill-icon"><i class="fab fa-bootstrap"></i></div><div><h4>Bootstrap 5</h4><p>Responsive UI/UX design</p></div></div>
+                <div class="skill-card"><div class="skill-icon"><i class="fas fa-envelope"></i></div><div><h4>PHPMailer</h4><p>Email integration & notifications</p></div></div>
             </div>
         </div>
         <div id="analytics" class="skills-content">
             <div class="skills-grid">
-                <div class="skill-card"><div class="skill-icon"><i class="fas fa-chart-line"></i></div><div><h4>Power BI</h4><p>Dashboards & KPIs</p></div></div>
+                <div class="skill-card"><div class="skill-icon"><i class="fas fa-chart-line"></i></div><div><h4>Power BI</h4><p>Interactive dashboards & KPIs</p></div></div>
                 <div class="skill-card"><div class="skill-icon"><i class="fas fa-file-excel"></i></div><div><h4>Advanced Excel</h4><p>Pivot, DAX, Macros</p></div></div>
-                <div class="skill-card"><div class="skill-icon"><i class="fas fa-chart-pie"></i></div><div><h4>Tableau</h4><p>Data visualization</p></div></div>
+                <div class="skill-card"><div class="skill-icon"><i class="fas fa-chart-pie"></i></div><div><h4>Tableau</h4><p>Data visualization & storytelling</p></div></div>
+                <div class="skill-card"><div class="skill-icon"><i class="fas fa-chart-bar"></i></div><div><h4>DHIS / SAS</h4><p>Healthcare data reporting & analysis</p></div></div>
             </div>
         </div>
         <div id="infra" class="skills-content">
             <div class="skills-grid">
-                <div class="skill-card"><div class="skill-icon"><i class="fas fa-microchip"></i></div><div><h4>AI/ML Integration</h4><p>Neural voice, prediction</p></div></div>
-                <div class="skill-card"><div class="skill-icon"><i class="fas fa-cloud"></i></div><div><h4>AWS / Azure</h4><p>Cloud deployment</p></div></div>
-                <div class="skill-card"><div class="skill-icon"><i class="fab fa-docker"></i></div><div><h4>Docker / Git</h4><p>Containerization</p></div></div>
+                <div class="skill-card"><div class="skill-icon"><i class="fas fa-microchip"></i></div><div><h4>AI/ML Integration</h4><p>Neural voice, predictive models</p></div></div>
+                <div class="skill-card"><div class="skill-icon"><i class="fas fa-cloud"></i></div><div><h4>AWS / Azure</h4><p>Cloud deployment & services</p></div></div>
+                <div class="skill-card"><div class="skill-icon"><i class="fas fa-network-wired"></i></div><div><h4>Networking & Security</h4><p>Firewalls, VPN, system audits</p></div></div>
+                <div class="skill-card"><div class="skill-icon"><i class="fab fa-docker"></i></div><div><h4>Docker / Git</h4><p>Containerization & version control</p></div></div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Experience Slider -->
+<!-- Experience Section - Updated with Detailed Points -->
 <section id="experience">
     <div class="container">
-        <div class="section-title"><h2>Work Experience</h2><p>8+ years of progressive leadership & development</p></div>
-        <div class="swiper exp-swiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><div class="exp-card"><div class="exp-header"><h3>IT / Assistant Data Processing</h3><div>PPHI Sindh, Karachi</div><span class="exp-date">Nov 2023 - Present</span></div><div class="exp-body"><ul><li><i class="fas fa-check-circle"></i> Power BI dashboards for healthcare analytics, 40% faster reporting</li><li><i class="fas fa-check-circle"></i> Laravel internal tools & DHIS integration</li><li><i class="fas fa-check-circle"></i> Advanced SQL & data validation</li></ul></div></div></div>
-                <div class="swiper-slide"><div class="exp-card"><div class="exp-header"><h3>Manager IT</h3><div>Sindh School System</div><span class="exp-date">Mar 2021 - Oct 2023</span></div><div class="exp-body"><ul><li><i class="fas fa-check-circle"></i> Led 10+ IT staff, 5000+ user infrastructure</li><li><i class="fas fa-check-circle"></i> School ERP with Laravel & MySQL</li><li><i class="fas fa-check-circle"></i> Data analytics for student tracking</li></ul></div></div></div>
-                <div class="swiper-slide"><div class="exp-card"><div class="exp-header"><h3>Data Processing Officer</h3><div>KIAS Marine Services</div><span class="exp-date">Jul 2020 - Mar 2021</span></div><div class="exp-body"><ul><li><i class="fas fa-check-circle"></i> Inventory management system</li><li><i class="fas fa-check-circle"></i> Automated SMS & reporting</li><li><i class="fas fa-check-circle"></i> Excel & SQL data analysis</li></ul></div></div></div>
-                <div class="swiper-slide"><div class="exp-card"><div class="exp-header"><h3>IT Incharge</h3><div>NJV School – Akhuwat</div><span class="exp-date">Sep 2017 - Jun 2020</span></div><div class="exp-body"><ul><li><i class="fas fa-check-circle"></i> Digital transformation & e-learning</li><li><i class="fas fa-check-circle"></i> Network & data security</li><li><i class="fas fa-check-circle"></i> Staff training & IT policy</li></ul></div></div></div>
+        <div class="section-title"><h2>Work Experience</h2><p>10+ years of progressive IT leadership & development</p></div>
+        <div class="exp-grid">
+            <!-- Experience 1 - PPHI Sindh -->
+            <div class="exp-card">
+                <div class="exp-header"><h3>IT / Assistant Data Processing</h3><div>PPHI Sindh, Karachi</div><span class="exp-date">Nov 2023 - Present</span></div>
+                <div class="exp-body"><ul>
+                    <li><i class="fas fa-check-circle"></i> Manages data systems, ensuring accuracy, security, and efficient processing</li>
+                    <li><i class="fas fa-check-circle"></i> Maintain databases, analyze data for insights, oversee system functionality</li>
+                    <li><i class="fas fa-check-circle"></i> DHIS (District Health Information System) Reporting & SAS Analysis</li>
+                    <li><i class="fas fa-check-circle"></i> Compare Data Accuracy between DHIS and SAS systems</li>
+                    <li><i class="fas fa-check-circle"></i> Biometrics Attendance & CCTV Configuration management</li>
+                    <li><i class="fas fa-check-circle"></i> Vendor Relationships for IT procurement & support</li>
+                    <li><i class="fas fa-check-circle"></i> Weekly Reporting to Regional Office & Desktop/Printers Support</li>
+                </ul></div>
             </div>
-            <div class="swiper-pagination"></div>
+            <!-- Experience 2 - Sindh School System -->
+            <div class="exp-card">
+                <div class="exp-header"><h3>Manager IT</h3><div>Sindh School System Welfare Foundation</div><span class="exp-date">Mar 2021 - Oct 2023</span></div>
+                <div class="exp-body"><ul>
+                    <li><i class="fas fa-check-circle"></i> Regular checks on network and data security, system audits</li>
+                    <li><i class="fas fa-check-circle"></i> Develop IT policy, best practice guides, training programs for staff</li>
+                    <li><i class="fas fa-check-circle"></i> Manage IT budget allocation & major project timelines (upgrades, migrations)</li>
+                    <li><i class="fas fa-check-circle"></i> Vehicle Tracking System installation, maintenance & reporting</li>
+                    <li><i class="fas fa-check-circle"></i> Students & Employees Data Analysis for performance tracking</li>
+                    <li><i class="fas fa-check-circle"></i> Provide direction for IT team members & identify training opportunities</li>
+                </ul></div>
+            </div>
+            <!-- Experience 3 - NJV School -->
+            <div class="exp-card">
+                <div class="exp-header"><h3>IT Incharge</h3><div>NJV School – Akhuwat Foundation</div><span class="exp-date">Sep 2017 - Jun 2020</span></div>
+                <div class="exp-body"><ul>
+                    <li><i class="fas fa-check-circle"></i> Lead team of 10 IT professionals supporting several hundred employees</li>
+                    <li><i class="fas fa-check-circle"></i> Design & update company-wide information management systems</li>
+                    <li><i class="fas fa-check-circle"></i> Manage electronic manuals, publications & medical database reports for Govt Sindh</li>
+                    <li><i class="fas fa-check-circle"></i> Employee & Students Biometric/RFID attendance system</li>
+                    <li><i class="fas fa-check-circle"></i> Process data district-wise: identification, quality control, warehouse (SSESP, SEF)</li>
+                    <li><i class="fas fa-check-circle"></i> Training & orientation of new IT hires</li>
+                </ul></div>
+            </div>
+            <!-- Experience 4 - KIAS Marine Services -->
+            <div class="exp-card">
+                <div class="exp-header"><h3>Data Processing Officer</h3><div>KIAS Marine Services (KPT)</div><span class="exp-date">Jul 2020 - Mar 2021</span></div>
+                <div class="exp-body"><ul>
+                    <li><i class="fas fa-check-circle"></i> Organize documents, prepare and code data for entry into computer systems</li>
+                    <li><i class="fas fa-check-circle"></i> Check applicants' identity with approved identification documents</li>
+                    <li><i class="fas fa-check-circle"></i> Compile and gather data for processing, insert into database</li>
+                    <li><i class="fas fa-check-circle"></i> Perform relieving duties for Executive Assistant (Data Management)</li>
+                    <li><i class="fas fa-check-circle"></i> General office duties: phones, scheduling meetings, filing paperwork</li>
+                    <li><i class="fas fa-check-circle"></i> Daily attendance analysis & reporting</li>
+                </ul></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Professional Skills Section -->
+<section style="background: #f8fafc;">
+    <div class="container">
+        <div class="section-title"><h2>Professional Competencies</h2><p>Core skills that drive success</p></div>
+        <div class="soft-skills-grid">
+            <div class="soft-skill-item"><i class="fas fa-microchip"></i><h4>Technical Knowledge</h4><p>Deep IT & systems expertise</p></div>
+            <div class="soft-skill-item"><i class="fas fa-comments"></i><h4>Communication Skills</h4><p>Clear & effective communication</p></div>
+            <div class="soft-skill-item"><i class="fas fa-network-wired"></i><h4>Networking</h4><p>Infrastructure & security</p></div>
+            <div class="soft-skill-item"><i class="fas fa-file-alt"></i><h4>Documentation & Reporting</h4><p>Detailed & accurate</p></div>
+            <div class="soft-skill-item"><i class="fas fa-laptop-code"></i><h4>Hardware/Software Programs</h4><p>Installation & maintenance</p></div>
+            <div class="soft-skill-item"><i class="fas fa-brain"></i><h4>Analytical Thinking</h4><p>Problem-solving mindset</p></div>
+            <div class="soft-skill-item"><i class="fas fa-shield-alt"></i><h4>Information Security Awareness</h4><p>Data protection & compliance</p></div>
+            <div class="soft-skill-item"><i class="fas fa-users"></i><h4>Collaboration & Teamwork</h4><p>Cross-functional leadership</p></div>
+            <div class="soft-skill-item"><i class="fas fa-database"></i><h4>PHP & Databases/MySQL</h4><p>Backend development</p></div>
+            <div class="soft-skill-item"><i class="fas fa-clock"></i><h4>Time Management & Prioritization</h4><p>Efficient delivery</p></div>
         </div>
     </div>
 </section>
 
 <!-- Projects Slider -->
-<section id="projects" style="background: #f8fafc;">
+<section id="projects" style="background: #ffffff;">
     <div class="container">
         <div class="section-title"><h2>Featured Projects</h2><p>Custom platforms, AI applications & data solutions</p></div>
         <div class="swiper projects-swiper">
@@ -367,7 +453,7 @@
 </section>
 
 <!-- Contact Section -->
-<section id="contact">
+<section id="contact" style="background: #f8fafc;">
     <div class="container">
         <div class="section-title"><h2>Get In Touch</h2><p>Let's build something exceptional together</p></div>
         <div class="contact-grid">
@@ -418,40 +504,37 @@
         });
     });
 
-    // Swipers
-    new Swiper('.exp-swiper', {
-        slidesPerView: 1, spaceBetween: 30, pagination: { el: '.swiper-pagination', clickable: true },
-        breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 2 } }
-    });
+    // Projects Swiper
     new Swiper('.projects-swiper', {
         slidesPerView: 1, spaceBetween: 30, pagination: { el: '.swiper-pagination', clickable: true },
         navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
         breakpoints: { 640: { slidesPerView: 1 }, 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
     });
 
-    // Professional CV Download - Complete Portfolio Data
+    // Professional CV Download - Complete with all data
     document.getElementById('downloadCV').addEventListener('click', function() {
-        const cvHTML = `
-        <!DOCTYPE html>
+        const cvHTML = `<!DOCTYPE html>
         <html>
         <head><meta charset="UTF-8"><title>Rajesh Kumar - Professional Resume</title>
         <style>
             body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 40px; background: white; color: #1e293b; line-height: 1.5; }
-            .resume { max-width: 1000px; margin: 0 auto; }
+            .resume { max-width: 1100px; margin: 0 auto; }
             .header { text-align: center; border-bottom: 3px solid #0f3b5c; padding-bottom: 20px; margin-bottom: 30px; }
             h1 { color: #0f3b5c; font-size: 32px; margin: 0; }
             h2 { color: #e67e22; font-size: 20px; margin: 5px 0; }
             .contact-info { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-top: 15px; font-size: 14px; }
             .section { margin-bottom: 25px; }
             .section-title { background: #0f3b5c; color: white; padding: 8px 15px; border-radius: 8px; font-size: 18px; margin-bottom: 15px; }
-            .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-            .job, .project { margin-bottom: 20px; }
+            .grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 15px; }
+            .job, .project-item { margin-bottom: 20px; }
             .job-title { font-weight: bold; font-size: 18px; color: #0f3b5c; }
             .company { color: #e67e22; font-weight: 600; }
             .date { float: right; color: #64748b; font-size: 14px; }
             ul { margin: 8px 0 0 20px; }
             .skill-badge { display: inline-block; background: #f1f5f9; padding: 5px 12px; border-radius: 20px; font-size: 12px; margin: 3px; }
+            .skills-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
             hr { margin: 20px 0; }
+            @media print { body { padding: 20px; } .section-title { background: #0f3b5c; -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
         </style>
         </head>
         <body>
@@ -473,28 +556,41 @@
             </div>
             
             <div class="section">
-                <div class="section-title">Core Competencies</div>
-                <div>
-                    <span class="skill-badge">PHP Laravel</span> <span class="skill-badge">JavaScript/jQuery</span> <span class="skill-badge">Python</span>
-                    <span class="skill-badge">MySQL/SQL</span> <span class="skill-badge">Power BI</span> <span class="skill-badge">Tableau</span>
-                    <span class="skill-badge">HTML5/CSS3</span> <span class="skill-badge">Bootstrap</span> <span class="skill-badge">PHPMailer</span>
-                    <span class="skill-badge">AI/ML Integration</span> <span class="skill-badge">AWS/Azure</span> <span class="skill-badge">Docker/Git</span>
+                <div class="section-title">Technical Skills</div>
+                <div class="skills-list">
+                    <span class="skill-badge">PHP Laravel</span> <span class="skill-badge">JavaScript/jQuery</span>
+                    <span class="skill-badge">Python</span> <span class="skill-badge">MySQL/SQL</span>
+                    <span class="skill-badge">Power BI</span> <span class="skill-badge">Tableau</span>
+                    <span class="skill-badge">HTML5/CSS3</span> <span class="skill-badge">Bootstrap</span>
+                    <span class="skill-badge">PHPMailer</span> <span class="skill-badge">AI/ML Integration</span>
+                    <span class="skill-badge">DHIS/SAS</span> <span class="skill-badge">Networking & Security</span>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">Professional Competencies</div>
+                <div class="skills-list">
+                    <span class="skill-badge">Technical Knowledge</span> <span class="skill-badge">Communication Skills</span>
+                    <span class="skill-badge">Networking</span> <span class="skill-badge">Documentation & Reporting</span>
+                    <span class="skill-badge">Hardware/Software Programs</span> <span class="skill-badge">Analytical Thinking</span>
+                    <span class="skill-badge">Information Security Awareness</span> <span class="skill-badge">Collaboration & Teamwork</span>
+                    <span class="skill-badge">PHP & Databases/MySQL</span> <span class="skill-badge">Time Management & Prioritization</span>
                 </div>
             </div>
             
             <div class="section">
                 <div class="section-title">Work Experience</div>
-                <div class="job"><div class="job-title">IT / Assistant Data Processing</div><div class="company">PPHI Sindh, Karachi</div><span class="date">Nov 2023 - Present</span><ul><li>Power BI dashboards reducing reporting time by 40%</li><li>Laravel internal tools & DHIS integration</li><li>Advanced SQL optimization & data validation</li></ul></div>
-                <div class="job"><div class="job-title">Manager IT</div><div class="company">Sindh School System Welfare Foundation</div><span class="date">Mar 2021 - Oct 2023</span><ul><li>Led 10+ IT professionals, 5000+ user infrastructure</li><li>Implemented school ERP with Laravel & MySQL</li><li>Data analytics dashboards for performance tracking</li></ul></div>
-                <div class="job"><div class="job-title">Data Processing Officer</div><div class="company">KIAS Marine Services (KPT)</div><span class="date">Jul 2020 - Mar 2021</span><ul><li>Inventory management system development</li><li>Automated SMS & reporting solutions</li><li>Excel & SQL data analysis</li></ul></div>
-                <div class="job"><div class="job-title">IT Incharge</div><div class="company">NJV School – Akhuwat Foundation</div><span class="date">Sep 2017 - Jun 2020</span><ul><li>Digital transformation & e-learning platform</li><li>Network security & IT policy implementation</li></ul></div>
+                <div class="job"><div class="job-title">IT / Assistant Data Processing</div><div class="company">PPHI Sindh, Karachi</div><span class="date">Nov 2023 - Present</span><ul><li>Manage data systems ensuring accuracy, security, and efficient processing</li><li>DHIS District Health Information System & SAS Reporting and Analysis</li><li>Compare Data Accuracy between DHIS and SAS</li><li>Biometrics Attendance, CCTV Configuration, Vendor Relationships</li><li>Weekly Reporting to Regional Office, Desktop/Printers Support</li></ul></div>
+                <div class="job"><div class="job-title">Manager IT</div><div class="company">Sindh School System Welfare Foundation</div><span class="date">Mar 2021 - Oct 2023</span><ul><li>Network and data security audits, IT policy development</li><li>IT budget allocation, major project timelines management</li><li>Vehicle Tracking System installation & reporting</li><li>Student & Employee Data Analysis, team training</li></ul></div>
+                <div class="job"><div class="job-title">IT Incharge</div><div class="company">NJV School – Akhuwat Foundation</div><span class="date">Sep 2017 - Jun 2020</span><ul><li>Lead team of 10 IT professionals, information management systems</li><li>Medical Database reports for Govt Sindh</li><li>Biometric/RFID attendance system, data processing for SSESP/SEF</li><li>Training & orientation of new IT hires</li></ul></div>
+                <div class="job"><div class="job-title">Data Processing Officer</div><div class="company">KIAS Marine Services (KPT)</div><span class="date">Jul 2020 - Mar 2021</span><ul><li>Data coding, entry, database management</li><li>Identity verification, daily attendance analysis</li><li>Office duties: phones, scheduling, filing</li></ul></div>
             </div>
             
             <div class="section">
                 <div class="section-title">Key Projects</div>
                 <div class="grid-2">
-                    <div><strong>PrepEdge – Smart MCQ Portal</strong><br>Complete exam platform with dashboard, user activity, PHPMailer, 2500+ MCQs. Tech: PHP, MySQL, JS, jQuery, Bootstrap, Python.</div>
-                    <div><strong>Neural Studio – AI Voice Synthesis</strong><br>Neural voice generation (English/Hindi/Urdu). Tech: Python, JS, Web Audio API, AI/ML.</div>
+                    <div><strong>PrepEdge – Smart MCQ Portal</strong><br>Exam platform with dashboard, user activity, PHPMailer, 2500+ MCQs. Tech: PHP, MySQL, JS, jQuery, Bootstrap, Python.</div>
+                    <div><strong>Neural Studio – AI Voice Synthesis</strong><br>Neural voice generation (English/Hindi/Urdu). Python, JS, Web Audio API, AI/ML.</div>
                     <div><strong>Smart Outlier Dashboard</strong><br>Power BI + Python anomaly detection for business intelligence.</div>
                     <div><strong>Professional IT Blog</strong><br>Custom Laravel CMS with SEO & analytics dashboard.</div>
                 </div>
@@ -505,7 +601,8 @@
                 <ul><li>BS Computer Science – Benazir Bhutto Shaheed University (2012-2016)</li>
                 <li>CCNA – Cisco Certified Network Associate (2018)</li>
                 <li>MCSA – Windows Server 2012 (2018)</li>
-                <li>Software Development Certification – IBA University (2017)</li></ul>
+                <li>Software Development Certification – IBA University (2017)</li>
+                <li>Microsoft Certified Professional (2015)</li></ul>
             </div>
             
             <hr>
