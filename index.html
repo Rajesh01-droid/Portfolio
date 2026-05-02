@@ -12,2156 +12,737 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Rajesh Kumar | Senior IT Infrastructure & Data Analytics Professional | 8+ Years Experience</title>
-    <meta name="description" content="Senior IT Professional with 8+ years in Network Infrastructure, Data Analytics, Business Intelligence, Cloud Management, and Full-Stack Development">
-    <meta name="keywords" content="Senior IT Manager, Network Administrator, Data Analyst, Business Intelligence, Cloud Engineer, IT Director, Full Stack Developer, IT Infrastructure">
+    <title>Rajesh Kumar | Senior Web Developer & Data Analyst | 10+ Years</title>
+    <meta name="description" content="Senior Web Developer (PHP Laravel) & Data Analyst with 10+ years experience in JavaScript, jQuery, MySQL, Power BI, Python, AI/ML, delivering custom platforms and data-driven solutions.">
+    <meta name="keywords" content="Senior Web Developer, PHP Laravel, Data Analyst, JavaScript, Power BI, MySQL, SQL, Excel, AI/ML, Neural Studio, PrepEdge, MCQ Portal">
     <meta name="author" content="Rajesh Kumar">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     
     <style>
-        /* ===== BASE STYLES ===== */
-        :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --primary-light: #3b82f6;
-            --secondary: #0d9488;
-            --accent: #f59e0b;
-            --dark: #1e293b;
-            --gray: #64748b;
-            --light-gray: #f1f5f9;
-            --white: #ffffff;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-            --radius: 8px;
-            --radius-lg: 12px;
-            --transition: all 0.3s ease;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 80px;
+        :root {
+            --primary: #0f3b5c;
+            --primary-dark: #0a2a42;
+            --primary-light: #1a5d8c;
+            --secondary: #e67e22;
+            --secondary-light: #f39c12;
+            --dark: #1e293b;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --shadow: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.02);
+            --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+            --radius: 12px;
+            --radius-lg: 20px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: var(--dark);
             background: var(--white);
             overflow-x: hidden;
         }
 
-        /* ===== TYPOGRAPHY ===== */
-        h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
-        h2 { font-size: clamp(1.5rem, 4vw, 2.5rem); }
-        h3 { font-size: clamp(1.25rem, 3vw, 1.75rem); }
-        h4 { font-size: clamp(1rem, 2.5vw, 1.25rem); }
-
-        /* ===== LAYOUT ===== */
         .container {
-            width: 100%;
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 30px;
         }
 
-        .section {
-            padding: 80px 0;
+        section {
+            padding: 100px 0;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
 
         .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
             margin-bottom: 15px;
-            position: relative;
-            display: inline-block;
         }
 
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            border-radius: 2px;
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        /* ===== HEADER ===== */
+        /* Header */
         .header {
             position: fixed;
             top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.95);
+            width: 100%;
+            background: rgba(255,255,255,0.96);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            border-bottom: 1px solid #e2e8f0;
-            padding: 15px 0;
             transition: var(--transition);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
         }
-
-        .header.scrolled {
-            box-shadow: var(--shadow);
-            padding: 10px 0;
-        }
-
+        .header.scrolled { padding: 10px 0; box-shadow: 0 5px 30px rgba(0,0,0,0.1); }
         .nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 16px 0;
         }
-
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             text-decoration: none;
-            color: var(--dark);
         }
-
-        .logo i {
-            color: var(--primary);
-            font-size: 24px;
-        }
-
-        .logo-text {
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 12px;
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.4rem;
         }
-
-        .logo-name {
-            font-size: 1.25rem;
-            font-weight: 700;
+        .logo-text h3 {
             color: var(--dark);
+            font-size: 1.3rem;
+            font-weight: 800;
         }
-
-        .logo-title {
-            font-size: 0.75rem;
+        .logo-text span {
+            font-size: 0.7rem;
             color: var(--secondary);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
-
         .nav-links {
             display: flex;
+            gap: 35px;
             list-style: none;
-            gap: 30px;
         }
-
         .nav-links a {
             text-decoration: none;
-            color: var(--dark);
             font-weight: 600;
-            font-size: 0.95rem;
-            padding: 5px 0;
-            position: relative;
+            color: var(--dark);
             transition: var(--transition);
         }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--primary);
-        }
-
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
         .mobile-toggle {
             display: none;
-            flex-direction: column;
-            gap: 4px;
+            font-size: 1.8rem;
             background: none;
             border: none;
             cursor: pointer;
-            padding: 5px;
         }
 
-        .mobile-toggle span {
-            width: 25px;
-            height: 2px;
-            background: var(--dark);
-            transition: var(--transition);
-            border-radius: 2px;
-        }
-
-        .mobile-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        .mobile-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .mobile-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
-        }
-
-        /* ===== HERO SECTION ===== */
+        /* Hero */
         .hero {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            padding: 140px 0 80px;
-            position: relative;
-            overflow: hidden;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 160px 0 90px;
         }
-
-        .hero-content {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
         }
-
         .hero-badge {
             display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.875rem;
+            background: rgba(15,59,92,0.1);
+            padding: 8px 20px;
+            border-radius: 40px;
+            color: var(--primary);
             font-weight: 600;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
-
         .hero-title {
-            margin-bottom: 20px;
+            font-size: 3.2rem;
+            font-weight: 800;
             line-height: 1.2;
+            margin-bottom: 20px;
         }
-
+        .hero-highlight {
+            background: linear-gradient(120deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
         .hero-subtitle {
-            font-size: 1.125rem;
+            font-size: 1.2rem;
             color: var(--gray);
-            margin-bottom: 40px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--secondary);
+            padding-left: 20px;
         }
-
         .hero-stats {
             display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 40px 0;
+            gap: 25px;
+            margin: 35px 0;
             flex-wrap: wrap;
         }
-
-        .stat-item {
-            text-align: center;
-            padding: 20px;
+        .stat-box {
             background: white;
+            padding: 15px 25px;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
-            min-width: 150px;
+            text-align: center;
         }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 5px;
+        .stat-number { font-size: 2rem; font-weight: 800; color: var(--primary); }
+        .hero-image {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            aspect-ratio: 1/1;
+            background: linear-gradient(145deg, var(--primary), var(--primary-dark));
         }
-
-        .stat-text {
-            font-size: 0.875rem;
-            color: var(--gray);
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 40px;
-        }
-
+        .hero-image img { width: 100%; height: 100%; object-fit: cover; }
+        .btn-group { display: flex; gap: 18px; flex-wrap: wrap; }
         .btn {
-            padding: 12px 24px;
-            border-radius: var(--radius);
-            font-weight: 600;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 700;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        .btn-primary {
-            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
-            color: white;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .btn-secondary {
-            background: white;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        .btn-secondary:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        /* ===== ABOUT SECTION ===== */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .about-image {
-            position: relative;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            min-height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .about-image i {
-            font-size: 8rem;
-            color: white;
-            opacity: 0.2;
-        }
-
-        .about-image::before {
-            content: "RAJESH KUMAR";
-            position: absolute;
-            bottom: 30px;
-            left: 30px;
-            color: white;
-            font-size: 1.5rem;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .about-image::after {
-            content: "IT Professional";
-            position: absolute;
-            bottom: 10px;
-            left: 30px;
-            color: white;
-            font-size: 1rem;
-            opacity: 0.9;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-        }
-
-        .about-content h3 {
-            margin-bottom: 20px;
-        }
-
-        .about-content p {
-            margin-bottom: 20px;
-            color: var(--gray);
-        }
-
-        .quick-info {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .info-item {
-            display: flex;
-            align-items: center;
             gap: 10px;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
         }
-
-        .info-item i {
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+        }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(15,59,92,0.3); }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
             color: var(--primary);
-            width: 20px;
         }
+        .btn-outline:hover { background: var(--primary); color: white; }
 
-        /* ===== SKILLS SECTION ===== */
-        .skills-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
+        /* Skills Tabs */
         .skills-tabs {
             display: flex;
-            gap: 10px;
             justify-content: center;
-            margin-bottom: 40px;
+            gap: 15px;
+            margin-bottom: 50px;
             flex-wrap: wrap;
         }
-
         .skill-tab {
-            padding: 10px 20px;
-            background: var(--light-gray);
+            padding: 12px 28px;
+            background: var(--light);
             border: none;
-            border-radius: var(--radius);
+            border-radius: 50px;
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
         }
+        .skill-tab.active { background: var(--primary); color: white; }
+        .skills-content { display: none; animation: fadeUp 0.5s ease; }
+        .skills-content.active { display: block; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px);} to { opacity: 1; transform: translateY(0);} }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .skill-card {
+            background: white;
+            padding: 22px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            transition: var(--transition);
+            border: 1px solid #eef2ff;
+        }
+        .skill-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+        .skill-icon {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, var(--primary-light), var(--secondary));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.6rem;
+        }
 
-        .skill-tab.active {
-            background: var(--primary);
+        /* Experience Slider */
+        .exp-swiper {
+            width: 100%;
+            padding: 20px 0;
+        }
+        .exp-card-slide {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 100%;
+            transition: var(--transition);
+        }
+        .exp-card-slide:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+        .exp-header-slide {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            padding: 30px;
             color: white;
         }
-
-        .skills-content {
-            display: none;
-        }
-
-        .skills-content.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .skill-category {
-            background: white;
-            padding: 30px;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow);
-            margin-bottom: 30px;
-        }
-
-        .skill-category h3 {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-
-        .skill-category h3 i {
-            color: var(--secondary);
-        }
-
-        .skill-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 15px;
-        }
-
-        .skill-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px;
-            background: var(--light-gray);
-            border-radius: var(--radius);
-        }
-
-        .skill-item i {
-            color: var(--secondary);
-        }
-
-        /* ===== EXPERIENCE SLIDER ===== */
-        .experience-slider-container {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-            overflow: hidden;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .experience-slider {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .experience-slide {
-            min-width: 100%;
-            padding: 40px;
-            background: white;
-        }
-
-        .experience-card {
-            background: var(--white);
-            border-radius: var(--radius-lg);
-        }
-
-        .experience-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .experience-title {
-            color: var(--primary);
-            font-weight: 700;
-            font-size: 1.5rem;
-        }
-
-        .experience-company {
-            color: var(--secondary);
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-
-        .experience-date {
-            background: var(--light-gray);
-            color: var(--dark);
-            padding: 8px 20px;
+        .exp-header-slide h3 { font-size: 1.6rem; margin-bottom: 8px; }
+        .exp-date-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
             border-radius: 30px;
-            font-size: 0.875rem;
-            font-weight: 600;
+            font-size: 0.8rem;
+            margin-top: 12px;
         }
-
-        .experience-details ul {
-            list-style: none;
-            margin-top: 20px;
-        }
-
-        .experience-details li {
+        .exp-body-slide { padding: 25px; }
+        .exp-body-slide ul { list-style: none; }
+        .exp-body-slide li {
             padding: 12px 0;
             display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            border-bottom: 1px solid var(--light-gray);
-        }
-
-        .experience-details li:last-child {
-            border-bottom: none;
-        }
-
-        .experience-details li i {
-            color: var(--secondary);
-            margin-top: 5px;
-            font-size: 1.1rem;
-        }
-
-        .slider-controls {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .slider-arrow {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 1.2rem;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .slider-arrow:hover {
-            background: var(--primary-dark);
-            transform: scale(1.1);
-        }
-
-        .slider-arrow:disabled {
-            background: var(--gray);
-            cursor: not-allowed;
-            opacity: 0.5;
-        }
-
-        .slider-dots {
-            display: flex;
             gap: 12px;
+            border-bottom: 1px solid #f0f0f0;
         }
+        .exp-body-slide li i { color: var(--secondary); margin-top: 3px; }
 
-        .slider-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--gray);
-            cursor: pointer;
-            transition: var(--transition);
-            border: none;
+        /* Projects Slider */
+        .projects-swiper {
+            width: 100%;
+            padding: 20px 0 40px;
         }
-
-        .slider-dot.active {
-            background: var(--primary);
-            transform: scale(1.3);
-        }
-
-        /* ===== CERTIFICATIONS SECTION ===== */
-        .certifications-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .certification-card {
-            background: white;
-            padding: 25px;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow);
-            border: 1px solid #e2e8f0;
-        }
-
-        .certification-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .certification-icon {
-            width: 50px;
-            height: 50px;
-            min-width: 50px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            border-radius: var(--radius);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.25rem;
-        }
-
-        .certification-body h4 {
-            margin-bottom: 5px;
-            color: var(--dark);
-        }
-
-        .certification-meta {
-            display: flex;
-            gap: 15px;
-            font-size: 0.875rem;
-            color: var(--gray);
-        }
-
-        /* ===== PROJECTS SECTION ===== */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .project-card {
+        .project-card-slide {
             background: white;
             border-radius: var(--radius-lg);
             overflow: hidden;
             box-shadow: var(--shadow);
+            height: 100%;
             transition: var(--transition);
         }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .project-header {
-            height: 180px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        .project-card-slide:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+        .project-img-slide {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 2.5rem;
+            position: relative;
         }
-
-        .project-content {
-            padding: 25px;
-        }
-
-        .project-content h3 {
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-
-        .project-tags {
+        .project-img-slide i { font-size: 4rem; color: white; text-shadow: 0 0 20px rgba(0,0,0,0.3); }
+        .project-content-slide { padding: 25px; }
+        .project-tags-slide {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
             margin: 15px 0;
         }
-
-        .project-tag {
-            background: var(--light-gray);
-            color: var(--dark);
-            padding: 5px 12px;
+        .project-tag-slide {
+            background: var(--light);
+            padding: 4px 12px;
             border-radius: 20px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 600;
+            color: var(--primary);
         }
-
-        .project-link {
+        .project-link-slide {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
             margin-top: 15px;
         }
 
-        .project-link:hover {
-            color: var(--secondary);
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
         }
-
-        /* ===== EDUCATION SECTION ===== */
-        .education-timeline {
-            max-width: 800px;
-            margin: 40px auto 0;
-        }
-
-        .education-item {
-            display: flex;
-            gap: 30px;
-            padding: 25px;
+        .contact-card {
             background: white;
+            padding: 25px;
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow);
-            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
         }
-
-        .education-icon {
+        .contact-icon {
             width: 60px;
             height: 60px;
-            min-width: 60px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            border-radius: var(--radius);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-size: 1.5rem;
         }
-
-        .education-content h3 {
-            margin-bottom: 10px;
-        }
-
-        .education-content p {
-            color: var(--gray);
-            margin-bottom: 5px;
-        }
-
-        .education-meta {
-            display: flex;
-            gap: 15px;
-            font-size: 0.875rem;
-            color: var(--gray);
-            margin-top: 10px;
-        }
-
-        /* ===== CONTACT SECTION ===== */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-            padding: 20px;
-            background: white;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow);
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            min-width: 50px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            border-radius: var(--radius);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.25rem;
-        }
-
-        .contact-details h3 {
-            margin-bottom: 5px;
-        }
-
-        .contact-details p {
-            margin-bottom: 5px;
-            color: var(--dark);
-        }
-
-        .contact-details small {
-            color: var(--gray);
-            font-size: 0.875rem;
-        }
-
         .contact-form {
             background: white;
-            padding: 30px;
+            padding: 35px;
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow);
         }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--dark);
-        }
-
         .form-control {
             width: 100%;
-            padding: 12px 15px;
+            padding: 14px 18px;
             border: 1px solid #e2e8f0;
             border-radius: var(--radius);
+            margin-bottom: 20px;
             font-size: 1rem;
-            transition: var(--transition);
         }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-        }
-
-        textarea.form-control {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        /* ===== FLOATING SOCIAL ===== */
-        .floating-social {
-            position: fixed;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            z-index: 100;
-        }
-
-        .social-link {
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: white;
-            color: var(--dark);
-            border-radius: 50%;
-            text-decoration: none;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .social-link:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .social-link.whatsapp:hover {
-            background: #25D366;
-            color: white;
-        }
-
-        .social-link.linkedin:hover {
-            background: #0077B5;
-            color: white;
-        }
-
-        .social-link.github:hover {
-            background: #333;
-            color: white;
-        }
-
-        /* ===== FOOTER ===== */
         .footer {
             background: var(--dark);
-            color: white;
-            padding: 60px 0 30px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-section h3 {
-            color: white;
-            margin-bottom: 20px;
-            font-size: 1.25rem;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: #cbd5e1;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover {
-            color: white;
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid #334155;
             color: #94a3b8;
-            font-size: 0.875rem;
+            padding: 50px 0 30px;
+            text-align: center;
         }
 
-        /* ===== RESPONSIVE DESIGN ===== */
         @media (max-width: 992px) {
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            
-            .hero-stats {
-                gap: 20px;
-            }
-            
-            .stat-item {
-                min-width: 130px;
-                padding: 15px;
-            }
-            
-            .experience-slide {
-                padding: 30px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .section {
-                padding: 60px 0;
-            }
-            
-            .hero {
-                padding: 120px 0 60px;
-            }
-            
-            .mobile-toggle {
+            .hero-grid { grid-template-columns: 1fr; text-align: center; }
+            .hero-stats { justify-content: center; }
+            .btn-group { justify-content: center; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .nav-links.active {
                 display: flex;
-            }
-            
-            .nav-links {
-                position: fixed;
+                flex-direction: column;
+                position: absolute;
                 top: 70px;
                 left: 0;
                 right: 0;
                 background: white;
-                flex-direction: column;
-                padding: 20px;
+                padding: 30px;
                 box-shadow: var(--shadow-lg);
-                transform: translateY(-150%);
-                opacity: 0;
-                transition: var(--transition);
-                z-index: 999;
-            }
-            
-            .nav-links.active {
-                transform: translateY(0);
-                opacity: 1;
-            }
-            
-            .floating-social {
-                display: none;
-            }
-            
-            .hero-actions {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .btn {
-                width: 100%;
-                max-width: 300px;
-                justify-content: center;
-            }
-            
-            .quick-info {
-                grid-template-columns: 1fr;
-            }
-            
-            .education-item {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .experience-slide {
-                padding: 20px;
-            }
-            
-            .experience-title {
-                font-size: 1.2rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .container {
-                padding: 0 15px;
-            }
-            
-            .hero-stats {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .stat-item {
-                width: 100%;
-                max-width: 250px;
-            }
-            
-            .skills-tabs {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .skill-tab {
-                width: 100%;
-                max-width: 250px;
+                border-radius: 0 0 20px 20px;
                 text-align: center;
+                gap: 20px;
             }
-            
-            .project-header {
-                height: 150px;
-                font-size: 2rem;
-            }
-            
-            .certifications-grid,
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .slider-controls {
-                gap: 10px;
-            }
-            
-            .slider-arrow {
-                width: 40px;
-                height: 40px;
-            }
+            .mobile-toggle { display: block; }
         }
-
-        /* ===== UTILITY CLASSES ===== */
-        .text-center { text-align: center; }
-        .mb-1 { margin-bottom: 0.5rem; }
-        .mb-2 { margin-bottom: 1rem; }
-        .mb-3 { margin-bottom: 1.5rem; }
-        .mb-4 { margin-bottom: 2rem; }
-        .mt-1 { margin-top: 0.5rem; }
-        .mt-2 { margin-top: 1rem; }
-        .mt-3 { margin-top: 1.5rem; }
-        .mt-4 { margin-top: 2rem; }
+        @media (max-width: 576px) {
+            .container { padding: 0 20px; }
+            section { padding: 60px 0; }
+            .hero-title { font-size: 2.2rem; }
+        }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header" id="header">
-        <div class="container">
-            <nav class="nav">
-                <a href="#home" class="logo">
-                    <i class="fas fa-laptop-code"></i>
-                    <div class="logo-text">
-                        <div class="logo-name">RAJESH KUMAR</div>
-                        <div class="logo-title">Senior IT Professional</div>
-                    </div>
-                </a>
-                
-                <button class="mobile-toggle" id="mobileToggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#home" class="active">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#certifications">Certifications</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <!-- Floating Social Links -->
-    <div class="floating-social">
-        <a href="https://wa.me/923322463588" target="_blank" class="social-link whatsapp">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/rajesh-kumar-b24603119/" target="_blank" class="social-link linkedin">
-            <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="https://github.com/rajesh01-droid" target="_blank" class="social-link github">
-            <i class="fab fa-github"></i>
-        </a>
+<header class="header" id="header">
+    <div class="container">
+        <nav class="nav">
+            <a href="#home" class="logo">
+                <div class="logo-icon"><i class="fas fa-code"></i></div>
+                <div class="logo-text"><h3>RAJESH KUMAR</h3><span>Web Dev & Data Analyst</span></div>
+            </a>
+            <button class="mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </div>
+</header>
 
-    <!-- Hero Section -->
-    <section id="home" class="section hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <i class="fas fa-badge-check"></i>
-                    Available for Opportunities
-                </div>
-                
-                <h1 class="hero-title">
-                    Senior IT Infrastructure & Data Analytics Professional
-                </h1>
-                
-                <p class="hero-subtitle">
-                    8+ years of experience in Network Administration, System Management, 
-                    Business Intelligence, and Full-Stack Development. Delivering scalable 
-                    IT solutions that drive business growth and operational excellence.
-                </p>
-                
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="container">
+        <div class="hero-grid">
+            <div>
+                <div class="hero-badge"><i class="fas fa-rocket"></i> Available for Opportunities</div>
+                <h1 class="hero-title">Senior Web Developer <span class="hero-highlight">(PHP Laravel)</span> & Data Analyst</h1>
+                <div class="hero-subtitle"><i class="fas fa-chart-line"></i> 10+ Years Experience | JavaScript, jQuery, Python | MySQL, Power BI | AI/ML & Custom Platforms</div>
                 <div class="hero-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">8+</div>
-                        <div class="stat-text">Years Experience</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">50+</div>
-                        <div class="stat-text">Projects Completed</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">100%</div>
-                        <div class="stat-text">Client Satisfaction</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">4+</div>
-                        <div class="stat-text">Certifications</div>
-                    </div>
+                    <div class="stat-box"><div class="stat-number">10+</div><div>Years Exp</div></div>
+                    <div class="stat-box"><div class="stat-number">60+</div><div>Projects</div></div>
+                    <div class="stat-box"><div class="stat-number">50+</div><div>Happy Clients</div></div>
                 </div>
-                
-                <div class="hero-actions">
-                    <a href="#contact" class="btn btn-primary">
-                        <i class="fas fa-paper-plane"></i> Contact Now
-                    </a>
-                    <button id="downloadCV" class="btn btn-secondary">
-                        <i class="fas fa-download"></i> Download CV
-                    </button>
+                <div class="btn-group">
+                    <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Hire Me</a>
+                    <button id="downloadCV" class="btn btn-outline"><i class="fas fa-download"></i> Download CV</button>
                 </div>
+            </div>
+            <div class="hero-image">
+                <img src="rajesh.png" alt="Rajesh Kumar" onerror="this.src='https://placehold.co/600x600/0f3b5c/white?text=RK'">
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>About Me</h2>
-                <p>Senior IT Professional with comprehensive expertise in technology infrastructure and data analytics</p>
-            </div>
-            
-            <div class="about-grid">
-                <div class="about-image">
-                    <i class="fas fa-user-circle"></i>
-                </div>
-                
-                <div class="about-content">
-                    <h3>Professional Summary</h3>
-                    <p>
-                        I am a results-driven Senior IT Professional with over 8 years of experience specializing 
-                        in network administration, system management, and data analytics. My career has been 
-                        dedicated to implementing technology solutions that enhance operational efficiency and 
-                        drive business success across diverse international environments.
-                    </p>
-                    <p>
-                        Throughout my career, I've successfully improved performance, operations, and productivity 
-                        across IT teams and departments. I excel at collaborating with cross-functional teams to 
-                        achieve objectives on time and with excellence.
-                    </p>
-                    
-                    <div class="quick-info mt-3">
-                        <div class="info-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Karachi, Pakistan</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-phone"></i>
-                            <span>+92 332 246 3588</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>rajesh_kumar1@hotmail.com</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-globe"></i>
-                            <span>Available for Remote Work</span>
-                        </div>
-                    </div>
-                </div>
+<!-- Skills Section -->
+<section id="skills" style="background: #f8fafc;">
+    <div class="container">
+        <div class="section-title"><h2>Technical Expertise</h2><p>Full-stack, Data Analytics & AI Integration</p></div>
+        <div class="skills-tabs">
+            <button class="skill-tab active" data-tab="web">💻 Web Development</button>
+            <button class="skill-tab" data-tab="analytics">📊 Data Analytics</button>
+            <button class="skill-tab" data-tab="infra">⚙️ AI/ML & Tools</button>
+        </div>
+        <div id="web" class="skills-content active">
+            <div class="skills-grid">
+                <div class="skill-card"><div class="skill-icon"><i class="fab fa-laravel"></i></div><div><h4>PHP Laravel</h4><p>Custom MVC platforms</p></div></div>
+                <div class="skill-card"><div class="skill-icon"><i class="fab fa-js"></i></div><div><h4>JavaScript / jQuery</h4><p>Interactive frontend</p></div></div>
+                <div class="skill-card"><div class="skill-icon"><i class="fab fa-python"></i></div><div><h4>Python</h4><p>Automation & scripting</p></div></div>
+                <div class="skill-card"><div class="skill-icon"><i class="fas fa-database"></i></div><div><h4>MySQL / SQL</h4><p>Complex queries & optimization</p></div></div>
+                <div class="skill-card"><div class="skill-icon"><i class="fab fa-bootstrap"></i></div><div><h4>Bootstrap 5</h4><p>Responsive UI/UX</p></div></div>
+                <div class="skill-card"><div class="skill-icon"><i class="fas fa-envelope"></i></div><div><h4>PHPMailer</h4><p>Email integration</p></div></div>
             </div>
         </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="section" style="background: #f8fafc;">
-        <div class="container">
-            <div class="section-title">
-                <h2>Technical Skills</h2>
-                <p>Comprehensive expertise across IT infrastructure, data analytics, and development</p>
-            </div>
-            
-            <div class="skills-container">
-                <div class="skills-tabs">
-                    <button class="skill-tab active" data-tab="infrastructure">Infrastructure</button>
-                    <button class="skill-tab" data-tab="analytics">Analytics</button>
-                    <button class="skill-tab" data-tab="development">Development</button>
-                    <button class="skill-tab" data-tab="tools">Tools & Platforms</button>
-                </div>
-                
-                <div id="infrastructure" class="skills-content active">
-                    <div class="skill-category">
-                        <h3><i class="fas fa-network-wired"></i> Network & Infrastructure</h3>
-                        <div class="skill-list">
-                            <div class="skill-item"><i class="fas fa-check"></i><span>Enterprise LAN/WAN Network Design</span></div>
-                            <div class="skill-item"><i class="fas fa-check"></i><span>Windows Server Administration</span></div>
-                            <div class="skill-item"><i class="fas fa-check"></i><span>Active Directory & Group Policy</span></div>
-                            <div class="skill-item"><i class="fas fa-check"></i><span>Network Security & Firewalls</span></div>
-                            <div class="skill-item"><i class="fas fa-check"></i><span>Cisco Routing & Switching</span></div>
-                            <div class="skill-item"><i class="fas fa-check"></i><span>VPN Configuration & Management</span></div>
-                            <div class="skill-item"><i class="fas fa-check"></i><span>Wireless Network Management</span></div>
-                            <div class="skill-item"><i class="fas fa-check"></i><span>Disaster Recovery Planning</span></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div id="analytics" class="skills-content">
-                    <div class="skill-category">
-                        <h3><i class="fas fa-chart-line"></i> Data Analytics & BI</h3>
-                        <div class="skill-list">
-                            <div class="skill-item"><i class="fas fa-check"></i><span>Business Intelligence (Power BI, Tableau)</span></div>
-                            <div class="skill-item"><i class="fas fa-check"></i><span>SQL Database Management</span></div>
-                            <div class="skill-item"><i class="fas fa-check"></i><span>Data Warehousing Solutions</span></div>
-                            <div class="skill-item"><i class="fas fa-check"></i><span>ETL Processes & Data Pipeline</span></div>
-                            <div class="skill-item"><i class="fas fa-check"></i><span>Statistical Analysis & Reporting</span></div>
-                            <div class="skill-item"><i class="fas fa-check"></i><span>DHIS & SAS Healthcare Analytics</span></div>
-                            <div class="skill-item"><i class="fas fa-check"></i><span>Predictive Analytics</span></div>
-                            <div class="skill-item"><i class="fas fa-check"></i><span>Data Visualization & Dashboards</span></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div id="development" class="skills-content">
-                    <div class="skill-category">
-                        <h3><i class="fas fa-code"></i> Development</h3>
-                        <div class="skill-list">
-                            <div class="skill-item"><i class="fas fa-check"></i><span>Full-Stack Web Development</span></div>
-                            <div class="skill-item"><i class="fas fa-check"></i><span>PHP (Laravel, CodeIgniter)</span></div>
-                            <div class="skill-item"><i class="fas fa-check"></i><span>JavaScript (ES6+, React, Node.js)</span></div>
-                            <div class="skill-item"><i class="fas fa-check"></i><span>HTML5, CSS3, Bootstrap</span></div>
-                            <div class="skill-item"><i class="fas fa-check"></i><span>Python for Automation</span></div>
-                            <div class="skill-item"><i class="fas fa-check"></i><span>API Development & Integration</span></div>
-                            <div class="skill-item"><i class="fas fa-check"></i><span>Mobile-First Responsive Design</span></div>
-                            <div class="skill-item"><i class="fas fa-check"></i><span>Git Version Control</span></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div id="tools" class="skills-content">
-                    <div class="skill-category">
-                        <h3><i class="fas fa-tools"></i> Tools & Platforms</h3>
-                        <div class="skill-list">
-                            <div class="skill-item"><i class="fas fa-check"></i><span>Cloud Platforms (AWS, Azure, GCP)</span></div>
-                            <div class="skill-item"><i class="fas fa-check"></i><span>Virtualization (VMware, Hyper-V)</span></div>
-                            <div class="skill-item"><i class="fas fa-check"></i><span>Docker Containerization</span></div>
-                            <div class="skill-item"><i class="fas fa-check"></i><span>Microsoft Office 365 Admin</span></div>
-                            <div class="skill-item"><i class="fas fa-check"></i><span>Project Management (Jira, Trello)</span></div>
-                            <div class="skill-item"><i class="fas fa-check"></i><span>Monitoring Tools (PRTG, Nagios)</span></div>
-                            <div class="skill-item"><i class="fas fa-check"></i><span>Backup Solutions (Veeam, Acronis)</span></div>
-                            <div class="skill-item"><i class="fas fa-check"></i><span>CMS (WordPress, Joomla)</span></div>
-                        </div>
-                    </div>
-                </div>
+        <div id="analytics" class="skills-content">
+            <div class="skills-grid">
+                <div class="skill-card"><div class="skill-icon"><i class="fas fa-chart-line"></i></div><div><h4>Power BI</h4><p>Dashboards & KPIs</p></div></div>
+                <div class="skill-card"><div class="skill-icon"><i class="fas fa-file-excel"></i></div><div><h4>Advanced Excel</h4><p>Pivot, DAX, Macros</p></div></div>
+                <div class="skill-card"><div class="skill-icon"><i class="fas fa-chart-pie"></i></div><div><h4>Tableau</h4><p>Data visualization</p></div></div>
             </div>
         </div>
-    </section>
-
-    <!-- Experience Section - Now as Slider -->
-    <section id="experience" class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Work Experience</h2>
-                <p>8+ years of progressive experience in IT management and system administration</p>
-            </div>
-            
-            <div class="experience-slider-container">
-                <div class="experience-slider" id="experienceSlider">
-                    <!-- Slide 1 -->
-                    <div class="experience-slide">
-                        <div class="experience-card">
-                            <div class="experience-header">
-                                <div>
-                                    <h3 class="experience-title">IT/Assistant Data Processing</h3>
-                                    <div class="experience-company">PPHI Sindh, Karachi</div>
-                                </div>
-                                <span class="experience-date">Nov 2023 - Present</span>
-                            </div>
-                            <div class="experience-details">
-                                <ul>
-                                    <li><i class="fas fa-check-circle"></i> Manage organizational data systems using Microsoft Power BI for interactive dashboards</li>
-                                    <li><i class="fas fa-check-circle"></i> Oversee DHIS and SAS reporting processes for healthcare data analytics</li>
-                                    <li><i class="fas fa-check-circle"></i> Administer biometric attendance systems and CCTV configuration</li>
-                                    <li><i class="fas fa-check-circle"></i> Perform comparative analysis between DHIS and SAS data for accuracy</li>
-                                    <li><i class="fas fa-check-circle"></i> Manage vendor relationships and IT procurement</li>
-                                    <li><i class="fas fa-check-circle"></i> Prepare weekly reports highlighting data trends and system status</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 2 -->
-                    <div class="experience-slide">
-                        <div class="experience-card">
-                            <div class="experience-header">
-                                <div>
-                                    <h3 class="experience-title">Manager IT</h3>
-                                    <div class="experience-company">Sindh School System Welfare Foundation</div>
-                                </div>
-                                <span class="experience-date">Mar 2021 - Oct 2023</span>
-                            </div>
-                            <div class="experience-details">
-                                <ul>
-                                    <li><i class="fas fa-check-circle"></i> Oversaw complete IT infrastructure for 5000+ user environment</li>
-                                    <li><i class="fas fa-check-circle"></i> Conducted regular security audits and vulnerability assessments</li>
-                                    <li><i class="fas fa-check-circle"></i> Developed and enforced comprehensive IT policies and procedures</li>
-                                    <li><i class="fas fa-check-circle"></i> Led IT training programs and workshops for staff development</li>
-                                    <li><i class="fas fa-check-circle"></i> Managed IT department budget and resource allocation</li>
-                                    <li><i class="fas fa-check-circle"></i> Implemented vehicle tracking systems with regular reporting</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 3 -->
-                    <div class="experience-slide">
-                        <div class="experience-card">
-                            <div class="experience-header">
-                                <div>
-                                    <h3 class="experience-title">Data Processing Officer</h3>
-                                    <div class="experience-company">KIAS Marine Services (KPT)</div>
-                                </div>
-                                <span class="experience-date">Jul 2020 - Mar 2021</span>
-                            </div>
-                            <div class="experience-details">
-                                <ul>
-                                    <li><i class="fas fa-check-circle"></i> Resolved information system issues with timely solutions</li>
-                                    <li><i class="fas fa-check-circle"></i> Maintained and monitored text messaging systems</li>
-                                    <li><i class="fas fa-check-circle"></i> Conducted data validation and accuracy checks</li>
-                                    <li><i class="fas fa-check-circle"></i> Managed inventory control and periodic audits</li>
-                                    <li><i class="fas fa-check-circle"></i> Assisted in yearly budget planning through data analysis</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 4 -->
-                    <div class="experience-slide">
-                        <div class="experience-card">
-                            <div class="experience-header">
-                                <div>
-                                    <h3 class="experience-title">IT Incharge</h3>
-                                    <div class="experience-company">NJV School – Akhuwat Foundation</div>
-                                </div>
-                                <span class="experience-date">Sep 2017 - Jun 2020</span>
-                            </div>
-                            <div class="experience-details">
-                                <ul>
-                                    <li><i class="fas fa-check-circle"></i> Led team of 10 IT professionals delivering technical support</li>
-                                    <li><i class="fas fa-check-circle"></i> Designed and maintained school-wide Information Management Systems</li>
-                                    <li><i class="fas fa-check-circle"></i> Implemented e-learning platforms and digital tools</li>
-                                    <li><i class="fas fa-check-circle"></i> Ensured network and data security protocols</li>
-                                    <li><i class="fas fa-check-circle"></i> Provided staff training on software applications</li>
-                                    <li><i class="fas fa-check-circle"></i> Managed IT asset procurement and budgeting</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="slider-controls">
-                    <button class="slider-arrow" id="prevSlide" disabled>
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <div class="slider-dots" id="sliderDots">
-                        <button class="slider-dot active" data-index="0"></button>
-                        <button class="slider-dot" data-index="1"></button>
-                        <button class="slider-dot" data-index="2"></button>
-                        <button class="slider-dot" data-index="3"></button>
-                    </div>
-                    <button class="slider-arrow" id="nextSlide">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
+        <div id="infra" class="skills-content">
+            <div class="skills-grid">
+                <div class="skill-card"><div class="skill-icon"><i class="fas fa-microchip"></i></div><div><h4>AI/ML Integration</h4><p>Neural voice, prediction</p></div></div>
+                <div class="skill-card"><div class="skill-icon"><i class="fas fa-cloud"></i></div><div><h4>AWS / Azure</h4><p>Cloud deployment</p></div></div>
+                <div class="skill-card"><div class="skill-icon"><i class="fab fa-docker"></i></div><div><h4>Docker / Git</h4><p>Containerization & version control</p></div></div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Certifications Section -->
-    <section id="certifications" class="section" style="background: #f8fafc;">
-        <div class="container">
-            <div class="section-title">
-                <h2>Certifications</h2>
-                <p>Professional certifications validating technical expertise</p>
+<!-- Experience Slider Section -->
+<section id="experience">
+    <div class="container">
+        <div class="section-title"><h2>Work Experience</h2><p>8+ years of progressive leadership & development</p></div>
+        <div class="swiper exp-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><div class="exp-card-slide"><div class="exp-header-slide"><h3>IT / Assistant Data Processing</h3><div>PPHI Sindh, Karachi</div><span class="exp-date-badge">Nov 2023 - Present</span></div><div class="exp-body-slide"><ul><li><i class="fas fa-check-circle"></i> Power BI dashboards for healthcare analytics, 40% faster reporting</li><li><i class="fas fa-check-circle"></i> Laravel internal tools & DHIS integration</li><li><i class="fas fa-check-circle"></i> Advanced SQL & data validation</li></ul></div></div></div>
+                <div class="swiper-slide"><div class="exp-card-slide"><div class="exp-header-slide"><h3>Manager IT</h3><div>Sindh School System</div><span class="exp-date-badge">Mar 2021 - Oct 2023</span></div><div class="exp-body-slide"><ul><li><i class="fas fa-check-circle"></i> Led 10+ IT staff, 5000+ user infrastructure</li><li><i class="fas fa-check-circle"></i> School ERP with Laravel & MySQL</li><li><i class="fas fa-check-circle"></i> Data analytics for student tracking</li></ul></div></div></div>
+                <div class="swiper-slide"><div class="exp-card-slide"><div class="exp-header-slide"><h3>Data Processing Officer</h3><div>KIAS Marine Services (KPT)</div><span class="exp-date-badge">Jul 2020 - Mar 2021</span></div><div class="exp-body-slide"><ul><li><i class="fas fa-check-circle"></i> Inventory management system</li><li><i class="fas fa-check-circle"></i> Automated SMS & reporting</li><li><i class="fas fa-check-circle"></i> Excel & SQL data analysis</li></ul></div></div></div>
+                <div class="swiper-slide"><div class="exp-card-slide"><div class="exp-header-slide"><h3>IT Incharge</h3><div>NJV School – Akhuwat Foundation</div><span class="exp-date-badge">Sep 2017 - Jun 2020</span></div><div class="exp-body-slide"><ul><li><i class="fas fa-check-circle"></i> Digital transformation & e-learning</li><li><i class="fas fa-check-circle"></i> Network & data security</li><li><i class="fas fa-check-circle"></i> Staff training & IT policy</li></ul></div></div></div>
             </div>
-            
-            <div class="certifications-grid">
-                <!-- Certification 1 -->
-                <div class="certification-card">
-                    <div class="certification-header">
-                        <div class="certification-icon">
-                            <i class="fab fa-microsoft"></i>
-                        </div>
-                        <div class="certification-body">
-                            <h4>Microsoft Certified Professional</h4>
-                            <div class="certification-meta">
-                                <span><i class="far fa-calendar"></i> 2015</span>
-                                <span>Microsoft</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p>Comprehensive training in MS Office suite and productivity tools.</p>
-                </div>
-                
-                <!-- Certification 2 -->
-                <div class="certification-card">
-                    <div class="certification-header">
-                        <div class="certification-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <div class="certification-body">
-                            <h4>Software Development Certification</h4>
-                            <div class="certification-meta">
-                                <span><i class="far fa-calendar"></i> 2017</span>
-                                <span>IBA University</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p>Programming fundamentals, application development, software lifecycle.</p>
-                </div>
-                
-                <!-- Certification 3 -->
-                <div class="certification-card">
-                    <div class="certification-header">
-                        <div class="certification-icon">
-                            <i class="fas fa-network-wired"></i>
-                        </div>
-                        <div class="certification-body">
-                            <h4>Cisco Certified Network Associate (CCNA)</h4>
-                            <div class="certification-meta">
-                                <span><i class="far fa-calendar"></i> 2018</span>
-                                <span>CTTC</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p>Routing, switching, network troubleshooting, infrastructure design.</p>
-                </div>
-                
-                <!-- Certification 4 -->
-                <div class="certification-card">
-                    <div class="certification-header">
-                        <div class="certification-icon">
-                            <i class="fab fa-microsoft"></i>
-                        </div>
-                        <div class="certification-body">
-                            <h4>MCSA – Windows Server 2012</h4>
-                            <div class="certification-meta">
-                                <span><i class="far fa-calendar"></i> 2018</span>
-                                <span>Microsoft</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p>Windows Server configuration, administration, and network services.</p>
-                </div>
-            </div>
+            <div class="swiper-pagination"></div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Projects</h2>
-                <p>Showcase of technical implementations and solutions</p>
+<!-- Projects Slider Section -->
+<section id="projects" style="background: #f8fafc;">
+    <div class="container">
+        <div class="section-title"><h2>Featured Projects</h2><p>Custom platforms, AI applications & data solutions</p></div>
+        <div class="swiper projects-swiper">
+            <div class="swiper-wrapper">
+                <!-- PrepEdge Project - Full Custom Dashboard System -->
+                <div class="swiper-slide">
+                    <div class="project-card-slide">
+                        <div class="project-img-slide" style="background: linear-gradient(135deg, #0f3b5c, #1a5d8c);">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="project-content-slide">
+                            <h3>PrepEdge – Smart MCQ Portal</h3>
+                            <p>Complete custom exam preparation platform with dashboard, user activity tracking, PHPMailer integration, and 2500+ MCQs. Built with HTML5, CSS3, JavaScript, jQuery, Bootstrap, PHP, MySQL, Python scripts.</p>
+                            <div class="project-tags-slide">
+                                <span class="project-tag-slide">PHP/MySQL</span>
+                                <span class="project-tag-slide">jQuery/Bootstrap</span>
+                                <span class="project-tag-slide">PHPMailer</span>
+                                <span class="project-tag-slide">Dashboard</span>
+                                <span class="project-tag-slide">Python</span>
+                            </div>
+                            <a href="https://prepedge.great-site.net/?i=1" target="_blank" class="project-link-slide">Live Demo <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Neural Studio Project -->
+                <div class="swiper-slide">
+                    <div class="project-card-slide">
+                        <div class="project-img-slide" style="background: linear-gradient(135deg, #1a1a2e, #16213e);">
+                            <i class="fas fa-microphone-alt"></i>
+                        </div>
+                        <div class="project-content-slide">
+                            <h3>Neural Studio – AI Voice Synthesis</h3>
+                            <p>Neural voice generation platform supporting English/Hindi/Urdu. Built with Python, JavaScript, HTML5, CSS3, Web Audio API, AI/ML models.</p>
+                            <div class="project-tags-slide">
+                                <span class="project-tag-slide">AI/ML</span>
+                                <span class="project-tag-slide">Python</span>
+                                <span class="project-tag-slide">JavaScript</span>
+                                <span class="project-tag-slide">Web Audio API</span>
+                            </div>
+                            <a href="https://voxer-pro-studio-zrs6.vercel.app/" target="_blank" class="project-link-slide">Launch Studio <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Smart Outlier Dashboard -->
+                <div class="swiper-slide">
+                    <div class="project-card-slide">
+                        <div class="project-img-slide" style="background: linear-gradient(135deg, var(--primary), var(--secondary));">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="project-content-slide">
+                            <h3>Smart Outlier Dashboard</h3>
+                            <p>Power BI + Python anomaly detection for real-time business intelligence.</p>
+                            <div class="project-tags-slide"><span class="project-tag-slide">Power BI</span><span class="project-tag-slide">Python</span></div>
+                            <a href="https://rajesh01-droid.github.io/SmartOutlierDashboard/" target="_blank" class="project-link-slide">Live Demo <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- IT Blog -->
+                <div class="swiper-slide">
+                    <div class="project-card-slide">
+                        <div class="project-img-slide" style="background: linear-gradient(135deg, var(--primary-dark), var(--primary));">
+                            <i class="fas fa-blog"></i>
+                        </div>
+                        <div class="project-content-slide">
+                            <h3>Professional IT Blog</h3>
+                            <p>Custom Laravel CMS with SEO, analytics dashboard, responsive design.</p>
+                            <div class="project-tags-slide"><span class="project-tag-slide">Laravel</span><span class="project-tag-slide">MySQL</span><span class="project-tag-slide">jQuery</span></div>
+                            <a href="https://rajesh01-droid.github.io/rajesh-kumar-blog/" target="_blank" class="project-link-slide">View <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Location Platform -->
+                <div class="swiper-slide">
+                    <div class="project-card-slide">
+                        <div class="project-img-slide" style="background: linear-gradient(135deg, var(--secondary), var(--secondary-light));">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <div class="project-content-slide">
+                            <h3>Location Intelligence Platform</h3>
+                            <p>Real-time geo-analytics & tracking with JavaScript Maps API.</p>
+                            <div class="project-tags-slide"><span class="project-tag-slide">JavaScript</span><span class="project-tag-slide">API</span></div>
+                            <a href="https://rajesh01-droid.github.io/WhatsAppLocation/" target="_blank" class="project-link-slide">Explore <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <i class="fas fa-blog"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Professional IT Blog</h3>
-                        <p>A comprehensive blog showcasing IT expertise with technical articles and portfolio projects.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">HTML/CSS</span>
-                            <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">Responsive</span>
-                        </div>
-                        <a href="https://rajesh01-droid.github.io/rajesh-kumar-blog/" target="_blank" class="project-link">
-                            View Project <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Location Sharing Platform</h3>
-                        <p>Web application simulating real-time location tracking features.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">Geolocation API</span>
-                            <span class="project-tag">PWA</span>
-                        </div>
-                        <a href="https://rajesh01-droid.github.io/WhatsAppLocation/" target="_blank" class="project-link">
-                            View Project <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Project 3 -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <i class="fas fa-chart-bar"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Analytics Dashboard</h3>
-                        <p>Business intelligence dashboard for data anomaly detection and interactive visualizations.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Data Visualization</span>
-                            <span class="project-tag">BI</span>
-                            <span class="project-tag">Analytics</span>
-                        </div>
-                        <a href="https://rajesh01-droid.github.io/SmartOutlierDashboard/" target="_blank" class="project-link">
-                            View Project <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next" style="color: var(--primary);"></div>
+            <div class="swiper-button-prev" style="color: var(--primary);"></div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Education Section -->
-    <section id="education" class="section" style="background: #f8fafc;">
-        <div class="container">
-            <div class="section-title">
-                <h2>Education</h2>
-                <p>Academic qualifications and professional development</p>
+<!-- Contact Section -->
+<section id="contact">
+    <div class="container">
+        <div class="section-title"><h2>Get In Touch</h2><p>Let's build something exceptional together</p></div>
+        <div class="contact-grid">
+            <div>
+                <div class="contact-card"><div class="contact-icon"><i class="fas fa-phone-alt"></i></div><div><h3>Phone / WhatsApp</h3><p>+92 332 246 3588</p><small>9AM - 6PM</small></div></div>
+                <div class="contact-card"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div><h3>Email</h3><p>rajesh_kumar1@hotmail.com</p><small>Response 24hrs</small></div></div>
+                <div class="contact-card"><div class="contact-icon"><i class="fab fa-linkedin"></i></div><div><h3>LinkedIn</h3><p>linkedin.com/in/rajesh-kumar-b24603119</p></div></div>
             </div>
-            
-            <div class="education-timeline">      
-                <!-- Education 1 -->
-                <div class="education-item">
-                    <div class="education-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <div class="education-content">
-                        <h3>Bachelor of Science (BS) — Computer Science</h3>
-                        <p>Benazir Bhutto Shaheed University, Karachi</p>
-                        <p>Focused on Software Development, Database Management, and Network Fundamentals.</p>
-                        <div class="education-meta">
-                            <span><i class="far fa-calendar"></i> 2012 - 2016</span>
-                            <span><i class="fas fa-map-marker-alt"></i> Karachi</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Education 2 -->
-                <div class="education-item">
-                    <div class="education-icon">
-                        <i class="fas fa-school"></i>
-                    </div>
-                    <div class="education-content">
-                        <h3>Intermediate (Pre-Engineering)</h3>
-                        <p>National School & College S.F.R, Badin</p>
-                        <div class="education-meta">
-                            <span><i class="far fa-calendar"></i> 2010 - 2012</span>
-                            <span><i class="fas fa-map-marker-alt"></i> Badin</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Education 3 -->
-                <div class="education-item">
-                    <div class="education-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <div class="education-content">
-                        <h3>Professional Development</h3>
-                        <p>Continuous learning through certifications in Software Development, Networking, and Data Analysis</p>
-                        <div class="education-meta">
-                            <span><i class="far fa-calendar"></i> 2016 - Present</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <form id="contactForm" class="contact-form">
+                <input type="text" id="name" class="form-control" placeholder="Full Name" required>
+                <input type="email" id="email" class="form-control" placeholder="Email Address" required>
+                <input type="text" id="subject" class="form-control" placeholder="Subject" required>
+                <textarea id="message" rows="5" class="form-control" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;"><i class="fas fa-paper-plane"></i> Send Message</button>
+            </form>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Contact</h2>
-                <p>Get in touch for opportunities and collaborations</p>
-            </div>
-            
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Phone</h3>
-                            <p>+92 332 246 3588</p>
-                            <small>Available on WhatsApp for business inquiries</small>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Email</h3>
-                            <p>rajesh_kumar1@hotmail.com</p>
-                            <small>Response within 24 hours</small>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fab fa-linkedin"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>LinkedIn</h3>
-                            <p>linkedin.com/in/rajesh-kumar-b24603119</p>
-                            <small>Professional network profile</small>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Location</h3>
-                            <p>Karachi, Pakistan</p>
-                            <small>Open to remote and relocation opportunities</small>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="contact-form">
-                    <h3 class="mb-3">Send Message</h3>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" class="form-control" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">
-                            <i class="fas fa-paper-plane"></i> Send Message
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+<footer class="footer">
+    <div class="container">
+        <p>© 2025 Rajesh Kumar | Senior Web Developer & Data Analyst | AI/ML Enthusiast</p>
+        <p style="margin-top: 10px; font-size: 0.8rem;">PHP Laravel | JavaScript | Python | Power BI | PrepEdge | Neural AI Voice</p>
+    </div>
+</footer>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Rajesh Kumar</h3>
-                    <p>Senior IT Infrastructure & Data Analytics Professional with 8+ years of experience in enterprise solutions and digital transformation.</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#skills">Skills</a></li>
-                        <li><a href="#experience">Experience</a></li>
-                        <li><a href="#certifications">Certifications</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#education">Education</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Contact Info</h3>
-                    <ul class="footer-links">
-                        <li><i class="fas fa-phone"></i> +92 332 246 3588</li>
-                        <li><i class="fas fa-envelope"></i> rajesh_kumar1@hotmail.com</li>
-                        <li><i class="fab fa-linkedin"></i> LinkedIn Profile</li>
-                        <li><i class="fab fa-github"></i> GitHub Portfolio</li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Services</h3>
-                    <ul class="footer-links">
-                        <li>IT Infrastructure Management</li>
-                        <li>Data Analytics & Business Intelligence</li>
-                        <li>Network Administration</li>
-                        <li>Full-Stack Development</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                <p>&copy; 2024 Rajesh Kumar. All rights reserved.</p>
-                <p>Senior IT Professional Portfolio</p>
-            </div>
-        </div>
-    </footer>
+<script>
+    // Mobile Toggle
+    const toggle = document.getElementById('mobileToggle');
+    const nav = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => nav.classList.toggle('active'));
+    document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', () => nav.classList.remove('active')));
 
-    <script>
-        // ===== DOM Elements =====
-        const header = document.getElementById('header');
-        const mobileToggle = document.getElementById('mobileToggle');
-        const navLinks = document.getElementById('navLinks');
-        const navItems = document.querySelectorAll('.nav-links a');
-        const skillTabs = document.querySelectorAll('.skill-tab');
-        const skillsContents = document.querySelectorAll('.skills-content');
-        const downloadCV = document.getElementById('downloadCV');
-        const contactForm = document.getElementById('contactForm');
-        
-        // Experience Slider
-        const slider = document.getElementById('experienceSlider');
-        const slides = document.querySelectorAll('.experience-slide');
-        const prevBtn = document.getElementById('prevSlide');
-        const nextBtn = document.getElementById('nextSlide');
-        const dots = document.querySelectorAll('.slider-dot');
-        let currentSlide = 0;
-        const totalSlides = slides.length;
+    // Header Scroll
+    window.addEventListener('scroll', () => {
+        document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50);
+    });
 
-        // ===== Header Scroll Effect =====
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-            updateActiveNavLink();
+    // Skills Tabs
+    const tabs = document.querySelectorAll('.skill-tab');
+    const contents = document.querySelectorAll('.skills-content');
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            contents.forEach(c => c.classList.remove('active'));
+            document.getElementById(tab.dataset.tab).classList.add('active');
         });
+    });
 
-        // ===== Mobile Navigation =====
-        mobileToggle.addEventListener('click', () => {
-            mobileToggle.classList.toggle('active');
-            navLinks.classList.toggle('active');
+    // Experience Swiper
+    const expSwiper = new Swiper('.exp-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        pagination: { el: '.swiper-pagination', clickable: true },
+        breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 2 } }
+    });
+
+    // Projects Swiper
+    const projSwiper = new Swiper('.projects-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        pagination: { el: '.swiper-pagination', clickable: true },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+    });
+
+    // CV Download
+    document.getElementById('downloadCV')?.addEventListener('click', () => {
+        const element = document.createElement('div');
+        element.innerHTML = `<div style="padding:40px"><h1>Rajesh Kumar</h1><h2>Senior Web Developer (PHP Laravel) & Data Analyst</h2><p>10+ Years | JavaScript, Python, PHP, MySQL, Power BI | AI/ML Integration</p><hr/><p>Expert in custom platforms: PrepEdge (MCQ Portal with dashboard, PHPMailer, user activity), Neural Studio AI Voice, Data Analytics dashboards.</p><p>Contact: +92 332 246 3588 | rajesh_kumar1@hotmail.com</p></div>`;
+        html2pdf().set({ filename: 'Rajesh_Kumar_CV.pdf', margin: 10 }).from(element).save();
+    });
+
+    // Contact Form
+    document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subj = document.getElementById('subject').value;
+        const msg = document.getElementById('message').value;
+        window.location.href = `mailto:rajesh_kumar1@hotmail.com?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${msg}`)}`;
+        alert("Thank you! Your email client will open.");
+    });
+
+    // Active link highlight
+    const sections = document.querySelectorAll('section');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const top = section.offsetTop - 150;
+            if (scrollY >= top) current = section.getAttribute('id');
         });
-
-        navItems.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileToggle.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
         });
-
-        // ===== Active Navigation Link =====
-        function updateActiveNavLink() {
-            let current = '';
-            const sections = document.querySelectorAll('section');
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                const sectionHeight = section.clientHeight;
-                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navItems.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        }
-
-        // ===== Skills Tabs =====
-        skillTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                skillTabs.forEach(t => t.classList.remove('active'));
-                skillsContents.forEach(c => c.classList.remove('active'));
-                
-                tab.classList.add('active');
-                const tabId = tab.getAttribute('data-tab');
-                document.getElementById(tabId).classList.add('active');
-            });
-        });
-
-        // ===== Smooth Scrolling =====
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    const offsetTop = targetElement.offsetTop - 80;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // ===== Experience Slider Functions =====
-        function updateSlider() {
-            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-            
-            // Update dots
-            dots.forEach((dot, index) => {
-                if (index === currentSlide) {
-                    dot.classList.add('active');
-                } else {
-                    dot.classList.remove('active');
-                }
-            });
-            
-            // Update buttons
-            prevBtn.disabled = currentSlide === 0;
-            nextBtn.disabled = currentSlide === totalSlides - 1;
-        }
-
-        // Next slide
-        nextBtn.addEventListener('click', () => {
-            if (currentSlide < totalSlides - 1) {
-                currentSlide++;
-                updateSlider();
-            }
-        });
-
-        // Previous slide
-        prevBtn.addEventListener('click', () => {
-            if (currentSlide > 0) {
-                currentSlide--;
-                updateSlider();
-            }
-        });
-
-        // Dot navigation
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                currentSlide = index;
-                updateSlider();
-            });
-        });
-
-        // Touch/swipe support for mobile
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        slider.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        });
-
-        slider.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        });
-
-        function handleSwipe() {
-            const swipeThreshold = 50;
-            if (touchEndX < touchStartX - swipeThreshold) {
-                // Swipe left - next slide
-                if (currentSlide < totalSlides - 1) {
-                    currentSlide++;
-                    updateSlider();
-                }
-            }
-            if (touchEndX > touchStartX + swipeThreshold) {
-                // Swipe right - previous slide
-                if (currentSlide > 0) {
-                    currentSlide--;
-                    updateSlider();
-                }
-            }
-        }
-
-        // Auto-play every 5 seconds (optional - uncomment to enable)
-        // setInterval(() => {
-        //     if (currentSlide < totalSlides - 1) {
-        //         currentSlide++;
-        //     } else {
-        //         currentSlide = 0;
-        //     }
-        //     updateSlider();
-        // }, 5000);
-
-        // ===== CV Download =====
-        downloadCV.addEventListener('click', () => {
-            createProfessionalCV();
-        });
-
-        function createProfessionalCV() {
-            const cvContent = `
-                <div style="padding: 40px; max-width: 800px; margin: 0 auto; font-family: Arial, sans-serif;">
-                    <div style="text-align: center; margin-bottom: 40px; border-bottom: 3px solid #2563eb; padding-bottom: 20px;">
-                        <h1 style="color: #2563eb; margin-bottom: 10px; font-size: 32px;">RAJESH KUMAR</h1>
-                        <h2 style="color: #64748b; margin-bottom: 20px; font-size: 20px;">Senior IT Infrastructure & Data Analytics Professional</h2>
-                        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 15px;">
-                            <div style="display: flex; align-items: center; gap: 8px;">
-                                <i class="fas fa-phone" style="color: #2563eb;"></i>
-                                <span>+92 332 246 3588</span>
-                            </div>
-                            <div style="display: flex; align-items: center; gap: 8px;">
-                                <i class="fas fa-envelope" style="color: #2563eb;"></i>
-                                <span>rajesh_kumar1@hotmail.com</span>
-                            </div>
-                            <div style="display: flex; align-items: center; gap: 8px;">
-                                <i class="fab fa-linkedin" style="color: #2563eb;"></i>
-                                <span>linkedin.com/in/rajesh-kumar-b24603119</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div style="margin-bottom: 30px;">
-                        <h3 style="color: #2563eb; border-bottom: 2px solid #0d9488; padding-bottom: 5px; font-size: 20px;">PROFESSIONAL SUMMARY</h3>
-                        <p style="line-height: 1.6; margin-top: 10px;">
-                            Senior IT Professional with 8+ years of comprehensive experience in network administration, 
-                            system management, and data analytics. Proven track record of implementing technology solutions 
-                            that enhance operational efficiency and drive business success.
-                        </p>
-                    </div>
-
-                    <div style="margin-bottom: 30px;">
-                        <h3 style="color: #2563eb; border-bottom: 2px solid #0d9488; padding-bottom: 5px; font-size: 20px;">TECHNICAL SKILLS</h3>
-                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 15px;">
-                            <div>
-                                <h4 style="color: #374151; margin-bottom: 10px;">Infrastructure & Networking</h4>
-                                <ul style="padding-left: 20px; line-height: 1.6;">
-                                    <li>Enterprise LAN/WAN Network Design</li>
-                                    <li>Windows Server Administration</li>
-                                    <li>Network Security & Firewalls</li>
-                                    <li>Cisco Routing & Switching</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 style="color: #374151; margin-bottom: 10px;">Data Analytics & Development</h4>
-                                <ul style="padding-left: 20px; line-height: 1.6;">
-                                    <li>Business Intelligence (Power BI, Tableau)</li>
-                                    <li>SQL Database Management</li>
-                                    <li>Full-Stack Web Development</li>
-                                    <li>Data Warehousing & ETL</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div style="margin-bottom: 30px;">
-                        <h3 style="color: #2563eb; border-bottom: 2px solid #0d9488; padding-bottom: 5px; font-size: 20px;">PROFESSIONAL EXPERIENCE</h3>
-                        
-                        <div style="margin-top: 20px;">
-                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
-                                <div>
-                                    <div style="font-weight: 700; font-size: 18px;">IT/Assistant Data Processing</div>
-                                    <div style="color: #4b5563; font-weight: 600;">PPHI Sindh, Karachi</div>
-                                </div>
-                                <div style="background: #10b981; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.875rem; font-weight: 600;">
-                                    Nov 2023 - Present
-                                </div>
-                            </div>
-                            <ul style="padding-left: 20px; line-height: 1.6;">
-                                <li>Manage organizational data systems ensuring 99.9% uptime</li>
-                                <li>Oversee DHIS and SAS reporting for healthcare analytics</li>
-                                <li>Administer biometric attendance and CCTV systems</li>
-                            </ul>
-                        </div>
-
-                        <div style="margin-top: 25px;">
-                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
-                                <div>
-                                    <div style="font-weight: 700; font-size: 18px;">Manager IT</div>
-                                    <div style="color: #4b5563; font-weight: 600;">Sindh School System Welfare Foundation</div>
-                                </div>
-                                <div style="background: #f59e0b; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.875rem; font-weight: 600;">
-                                    Mar 2021 - Oct 2023
-                                </div>
-                            </div>
-                            <ul style="padding-left: 20px; line-height: 1.6;">
-                                <li>Oversaw complete IT infrastructure for 5000+ user organization</li>
-                                <li>Reduced IT operational costs by 25% through optimization</li>
-                                <li>Managed 10-member IT team with 100% retention</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div style="margin-bottom: 30px;">
-                        <h3 style="color: #2563eb; border-bottom: 2px solid #0d9488; padding-bottom: 5px; font-size: 20px;">CERTIFICATIONS</h3>
-                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 15px;">
-                            <div>• Software Development (2017)</div>
-                            <div>• CCNA (2018)</div>
-                            <div>• MCSA 2012 (2018)</div>
-                            <div>• Microsoft Office Specialist (2015)</div>
-                        </div>
-                    </div>
-
-                    <div style="margin-bottom: 30px;">
-                        <h3 style="color: #2563eb; border-bottom: 2px solid #0d9488; padding-bottom: 5px; font-size: 20px;">EDUCATION</h3>
-                        <div style="margin-top: 15px;">
-                            <div style="font-weight: 700; font-size: 16px;">BS Computer Science</div>
-                            <div style="color: #4b5563;">Benazir Bhutto Shaheed University | 2012 - 2016</div>
-                        </div>
-                    </div>
-
-                    <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #e5e7eb;">
-                        <div style="color: #2563eb; font-weight: 600; margin-top: 10px; font-size: 14px;">
-                            Available for Opportunities • Remote/Hybrid/On-site
-                        </div>
-                    </div>
-                </div>
-            `;
-
-            const element = document.createElement('div');
-            element.innerHTML = cvContent;
-
-            const options = {
-                margin: 10,
-                filename: `Rajesh_Kumar_CV_${new Date().toISOString().split('T')[0]}.pdf`,
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2, useCORS: true },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-            };
-
-            const originalHTML = downloadCV.innerHTML;
-            downloadCV.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating CV...';
-            downloadCV.disabled = true;
-
-            html2pdf().set(options).from(element).save().then(() => {
-                downloadCV.innerHTML = originalHTML;
-                downloadCV.disabled = false;
-            });
-        }
-
-        // ===== Contact Form =====
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                subject: document.getElementById('subject').value,
-                message: document.getElementById('message').value
-            };
-
-            const subject = encodeURIComponent(`Contact from Portfolio: ${formData.subject}`);
-            const body = encodeURIComponent(`
-Name: ${formData.name}
-Email: ${formData.email}
-Subject: ${formData.subject}
-
-Message:
-${formData.message}
-            `);
-
-            window.location.href = `mailto:rajesh_kumar1@hotmail.com?subject=${subject}&body=${body}`;
-            alert('Thank you for your message! Your email client will open with a pre-filled message.');
-            contactForm.reset();
-        });
-
-        // ===== Initialize =====
-        document.addEventListener('DOMContentLoaded', () => {
-            updateActiveNavLink();
-        });
-    </script>
+    });
+</script>
 </body>
 </html>
