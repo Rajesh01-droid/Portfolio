@@ -1,706 +1,646 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5M7XBEF594"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-5M7XBEF594');
+    </script>
+    
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Attendance System - AM CheckIn / PM CheckOut</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Rajesh Kumar | Senior Web Developer & Data Analyst | 10+ Years</title>
+    <meta name="description" content="Senior Web Developer (PHP Laravel) & Data Analyst with 10+ years experience in JavaScript, jQuery, MySQL, Power BI, Python, AI/ML, delivering custom platforms.">
+    <meta name="keywords" content="Senior Web Developer, PHP Laravel, Data Analyst, JavaScript, Power BI, MySQL, Python, PrepEdge, Neural Studio">
+    <meta name="author" content="Rajesh Kumar">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
     <style>
-        *{box-sizing:border-box;margin:0;padding:0}
-        body{font-family:'Segoe UI',sans-serif;background:#f0f2f5;padding:16px}
-        .container{max-width:1400px;margin:0 auto;background:white;border-radius:24px;box-shadow:0 8px 20px rgba(0,0,0,0.08);overflow:hidden}
-        .header{background:#075E54;color:white;padding:18px 24px;display:flex;justify-content:space-between;flex-wrap:wrap;align-items:center}
-        h1{font-size:1.5rem;display:flex;align-items:center;gap:10px}
-        .controls{padding:20px 24px;background:#f8f9fa;display:flex;flex-wrap:wrap;gap:12px;border-bottom:1px solid #e9ecef}
-        .ctrl-group{display:flex;flex-direction:column;gap:5px;min-width:130px}
-        .ctrl-group label{font-size:11px;font-weight:600;color:#6c757d}
-        input,select,button{padding:8px 14px;border-radius:10px;border:1px solid #dee2e6;font-size:13px}
-        button{background:#075E54;color:white;border:none;cursor:pointer;font-weight:500;transition:0.2s}
-        button:hover{background:#054a42}
-        .btn-outline{background:white;color:#075E54;border:1px solid #075E54}
-        .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px;padding:20px 24px}
-        .stat-card{background:#f8f9fa;border-radius:16px;padding:16px;text-align:center}
-        .stat-number{font-size:32px;font-weight:700;color:#075E54}
-        .stat-label{font-size:12px;color:#6c757d}
-        .charts{display:flex;flex-wrap:wrap;gap:20px;padding:0 24px 20px}
-        .chart-box{flex:1;min-width:280px;background:#fff;border-radius:20px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,0.05)}
-        .tabs{display:flex;gap:4px;padding:0 24px;border-bottom:2px solid #e9ecef;flex-wrap:wrap}
-        .tab{background:none;border:none;padding:12px 20px;font-weight:600;color:#6c757d;cursor:pointer}
-        .tab.active{color:#075E54;border-bottom:3px solid #075E54}
-        .tab-pane{display:none;padding:24px;background:white}
-        .table-wrapper{overflow-x:auto;border-radius:16px;border:1px solid #e9ecef;max-height:550px;overflow-y:auto}
-        table{width:100%;border-collapse:collapse;font-size:13px}
-        th{background:#f8f9fa;padding:12px;text-align:left;font-weight:600;position:sticky;top:0;z-index:10}
-        td{padding:10px 12px;border-bottom:1px solid #e9ecef}
-        .badge{padding:4px 10px;border-radius:30px;font-size:11px;font-weight:600;display:inline-block}
-        .ontime{background:#d4edda;color:#155724}
-        .late{background:#fff3cd;color:#856404}
-        .absent{background:#e2e3e5;color:#383d41}
-        .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);align-items:center;justify-content:center;z-index:1000}
-        .modal-content{background:white;max-width:500px;width:90%;border-radius:24px;padding:24px}
-        .flex-btns{display:flex;justify-content:flex-end;gap:12px;margin-top:20px}
-        .footer{background:#f8f9fa;text-align:center;padding:16px;font-size:12px;color:#6c757d}
-        .info-bar{background:#e8f5e9;padding:12px 24px;margin:0 24px 16px 24px;border-radius:12px;font-size:13px}
-        @media (max-width:700px){.controls{flex-direction:column}}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0f3b5c;
+            --primary-dark: #0a2a42;
+            --primary-light: #1a5d8c;
+            --secondary: #e67e22;
+            --secondary-light: #f39c12;
+            --dark: #1e293b;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1);
+            --radius: 12px;
+            --radius-lg: 20px;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: var(--transition);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+        .header.scrolled { padding: 10px 0; }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.4rem;
+        }
+        .logo-text h3 { color: var(--dark); font-size: 1.3rem; font-weight: 800; }
+        .logo-text span { font-size: 0.7rem; color: var(--secondary); }
+        .nav-links { display: flex; gap: 35px; list-style: none; }
+        .nav-links a { text-decoration: none; font-weight: 600; color: var(--dark); transition: var(--transition); }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+        .mobile-toggle { display: none; font-size: 1.8rem; background: none; border: none; cursor: pointer; }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 160px 0 90px;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .hero-badge {
+            display: inline-flex;
+            background: rgba(15,59,92,0.1);
+            padding: 8px 20px;
+            border-radius: 40px;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+        .hero-title { font-size: 3.2rem; font-weight: 800; line-height: 1.2; margin-bottom: 20px; }
+        .hero-highlight { background: linear-gradient(120deg, var(--primary), var(--secondary)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .hero-subtitle { font-size: 1.2rem; color: var(--gray); margin-bottom: 30px; border-left: 4px solid var(--secondary); padding-left: 20px; }
+        .hero-stats { display: flex; gap: 25px; margin: 35px 0; flex-wrap: wrap; }
+        .stat-box { background: white; padding: 15px 25px; border-radius: var(--radius); box-shadow: var(--shadow); text-align: center; }
+        .stat-number { font-size: 2rem; font-weight: 800; color: var(--primary); }
+        .hero-image { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); aspect-ratio: 1/1; background: linear-gradient(145deg, var(--primary), var(--primary-dark)); }
+        .hero-image img { width: 100%; height: 100%; object-fit: cover; }
+        .btn-group { display: flex; gap: 18px; flex-wrap: wrap; }
+        .btn {
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+        }
+        .btn-primary { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(15,59,92,0.3); }
+        .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
+        .btn-outline:hover { background: var(--primary); color: white; }
+
+        /* Skills */
+        .skills-tabs { display: flex; justify-content: center; gap: 15px; margin-bottom: 50px; flex-wrap: wrap; }
+        .skill-tab { padding: 12px 28px; background: var(--light); border: none; border-radius: 50px; font-weight: 600; cursor: pointer; transition: var(--transition); }
+        .skill-tab.active { background: var(--primary); color: white; }
+        .skills-content { display: none; animation: fadeUp 0.5s ease; }
+        .skills-content.active { display: block; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px);} to { opacity: 1; transform: translateY(0);} }
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
+        .skill-card { background: white; padding: 22px; border-radius: var(--radius); box-shadow: var(--shadow); display: flex; align-items: center; gap: 18px; border: 1px solid #eef2ff; }
+        .skill-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+        .skill-icon { width: 55px; height: 55px; background: linear-gradient(135deg, var(--primary-light), var(--secondary)); border-radius: 15px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.6rem; }
+
+        /* Experience Cards */
+        .exp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 30px;
+        }
+        .exp-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+        }
+        .exp-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+        .exp-header { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); padding: 25px; color: white; }
+        .exp-header h3 { font-size: 1.4rem; margin-bottom: 8px; }
+        .exp-date { display: inline-block; background: rgba(255,255,255,0.2); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; margin-top: 10px; }
+        .exp-body { padding: 25px; max-height: 400px; overflow-y: auto; }
+        .exp-body ul { list-style: none; }
+        .exp-body li { padding: 10px 0; display: flex; gap: 12px; border-bottom: 1px solid #f0f0f0; align-items: flex-start; }
+        .exp-body li i { color: var(--secondary); margin-top: 3px; min-width: 18px; }
+
+        /* Projects Slider */
+        .projects-swiper { width: 100%; padding: 20px 0 50px; }
+        .project-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 100%;
+            transition: var(--transition);
+        }
+        .project-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+        .project-img { height: 200px; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; }
+        .project-img i { font-size: 3.5rem; color: white; text-shadow: 0 0 20px rgba(0,0,0,0.3); }
+        .project-content { padding: 25px; }
+        .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 15px 0; }
+        .project-tag { background: var(--light); padding: 4px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 600; color: var(--primary); }
+        .project-link { color: var(--secondary); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; margin-top: 15px; }
+
+        /* Soft Skills Section */
+        .soft-skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .soft-skill-item {
+            background: white;
+            padding: 18px;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid #eef2ff;
+        }
+        .soft-skill-item:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+        .soft-skill-item i { font-size: 2rem; color: var(--secondary); margin-bottom: 12px; display: block; }
+        .soft-skill-item h4 { font-size: 1rem; margin-bottom: 5px; }
+
+        /* Contact */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+        .contact-card { background: white; padding: 25px; border-radius: var(--radius-lg); box-shadow: var(--shadow); display: flex; align-items: center; gap: 20px; margin-bottom: 20px; }
+        .contact-icon { width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; }
+        .contact-form { background: white; padding: 35px; border-radius: var(--radius-lg); box-shadow: var(--shadow); }
+        .form-control { width: 100%; padding: 14px 18px; border: 1px solid #e2e8f0; border-radius: var(--radius); margin-bottom: 20px; font-size: 1rem; }
+        .footer { background: var(--dark); color: #94a3b8; padding: 50px 0 30px; text-align: center; }
+
+        @media (max-width: 992px) {
+            .hero-grid { grid-template-columns: 1fr; text-align: center; }
+            .hero-stats { justify-content: center; }
+            .btn-group { justify-content: center; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .nav-links.active { display: flex; flex-direction: column; position: absolute; top: 70px; left: 0; right: 0; background: white; padding: 30px; box-shadow: var(--shadow-lg); border-radius: 0 0 20px 20px; text-align: center; gap: 20px; }
+            .mobile-toggle { display: block; }
+            .exp-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 576px) {
+            .container { padding: 0 20px; }
+            section { padding: 60px 0; }
+            .hero-title { font-size: 2rem; }
+        }
     </style>
 </head>
 <body>
-<div class="container">
-    <div class="header">
-        <h1><i class="fab fa-whatsapp"></i> Attendance System</h1>
-        <div>📅 AM = Check In | PM = Check Out</div>
-    </div>
-    
-    <div class="controls">
-        <div class="ctrl-group"><label>WhatsApp .txt File</label><input type="file" id="chatFile" accept=".txt"></div>
-        <div class="ctrl-group"><label>From Date</label><input type="date" id="startDate"></div>
-        <div class="ctrl-group"><label>To Date</label><input type="date" id="endDate"></div>
-        <div class="ctrl-group"><label>Search</label><input id="searchBox" placeholder="Name or Phone"></div>
-        <button id="processBtn"><i class="fas fa-play"></i> Process File</button>
-        <button id="applyBtn" class="btn-outline"><i class="fas fa-filter"></i> Apply Filter</button>
-        <button id="exportBtn" class="btn-outline"><i class="fas fa-file-excel"></i> Export Excel</button>
-    </div>
 
-    <div id="infoBar" class="info-bar" style="display:none"></div>
-
-    <div class="stats">
-        <div class="stat-card"><div class="stat-number" id="totalPeople">0</div><div class="stat-label">Total Employees</div></div>
-        <div class="stat-card"><div class="stat-number" id="totalRecords">0</div><div class="stat-label">Total Records</div></div>
-        <div class="stat-card"><div class="stat-number" id="totalOnTime">0</div><div class="stat-label">On Time</div></div>
-        <div class="stat-card"><div class="stat-number" id="totalLate">0</div><div class="stat-label">Late Arrival</div></div>
+<header class="header" id="header">
+    <div class="container">
+        <nav class="nav">
+            <a href="#home" class="logo">
+                <div class="logo-icon"><i class="fas fa-code"></i></div>
+                <div class="logo-text"><h3>RAJESH KUMAR</h3><span>Web Dev & Data Analyst</span></div>
+            </a>
+            <button class="mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </div>
+</header>
 
-    <div class="charts">
-        <div class="chart-box"><canvas id="attendanceChart" height="220"></canvas></div>
-        <div class="chart-box"><canvas id="trendChart" height="220"></canvas></div>
-    </div>
-
-    <div class="tabs">
-        <button class="tab active" data-tab="daily">📅 Daily Attendance (Date Wise)</button>
-        <button class="tab" data-tab="summary">📊 Employee Summary</button>
-        <button class="tab" data-tab="employees">👥 Employee Directory</button>
-    </div>
-
-    <!-- DAILY ATTENDANCE TABLE - Date Wise -->
-    <div id="daily" class="tab-pane" style="display:block">
-        <div class="table-wrapper">
-            <table id="dailyTable">
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Employee Name</th>
-                        <th>Phone Number</th>
-                        <th>Check In (AM)</th>
-                        <th>Check Out (PM)</th>
-                        <th>Status</th>
-                        <th>Location Link</th>
-                    </tr>
-                </thead>
-                <tbody id="dailyTbody"></tbody>
-            </table>
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="container">
+        <div class="hero-grid">
+            <div>
+                <div class="hero-badge"><i class="fas fa-rocket"></i> Available for Opportunities</div>
+                <h1 class="hero-title">Senior Web Developer <span class="hero-highlight">(PHP Laravel)</span> & Data Analyst</h1>
+                <div class="hero-subtitle"><i class="fas fa-chart-line"></i> 10+ Years Experience | JavaScript, jQuery, Python | MySQL, Power BI | AI/ML & Custom Platforms</div>
+                <div class="hero-stats">
+                    <div class="stat-box"><div class="stat-number">10+</div><div>Years Exp</div></div>
+                    <div class="stat-box"><div class="stat-number">60+</div><div>Projects</div></div>
+                    <div class="stat-box"><div class="stat-number">50+</div><div>Happy Clients</div></div>
+                </div>
+                <div class="btn-group">
+                    <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Hire Me</a>
+                    <button id="downloadCV" class="btn btn-outline"><i class="fas fa-download"></i> Download CV</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="rajesh.png" alt="Rajesh Kumar" onerror="this.src='https://placehold.co/600x600/0f3b5c/white?text=RK'">
+            </div>
         </div>
     </div>
+</section>
 
-    <!-- SUMMARY TABLE -->
-    <div id="summary" class="tab-pane">
-        <div class="table-wrapper">
-            <table id="summaryTable">
-                <thead>
-                    <tr><th>S.No</th><th>Employee Name</th><th>Phone</th><th>Total Days</th><th>Present</th><th>On Time</th><th>Late</th><th>Absent</th><th>Attendance %</th></tr>
-                </thead>
-                <tbody id="summaryTbody"></tbody>
-            </table>
+<!-- Skills Section -->
+<section id="skills" style="background: #f8fafc;">
+    <div class="container">
+        <div class="section-title"><h2>Technical Expertise</h2><p>Full-stack Development, Data Analytics & AI Integration</p></div>
+        <div class="skills-tabs">
+            <button class="skill-tab active" data-tab="web">💻 Web Development</button>
+            <button class="skill-tab" data-tab="analytics">📊 Data Analytics</button>
+            <button class="skill-tab" data-tab="infra">⚙️ AI/ML & Tools</button>
+        </div>
+        <div id="web" class="skills-content active">
+            <div class="skills-grid">
+                <div class="skill-card"><div class="skill-icon"><i class="fab fa-laravel"></i></div><div><h4>PHP Laravel</h4><p>Custom MVC platforms, REST APIs</p></div></div>
+                <div class="skill-card"><div class="skill-icon"><i class="fab fa-js"></i></div><div><h4>JavaScript / jQuery</h4><p>Interactive frontend, AJAX</p></div></div>
+                <div class="skill-card"><div class="skill-icon"><i class="fab fa-python"></i></div><div><h4>Python</h4><p>Automation, scripting, data processing</p></div></div>
+                <div class="skill-card"><div class="skill-icon"><i class="fas fa-database"></i></div><div><h4>MySQL / SQL</h4><p>Complex queries, optimization</p></div></div>
+                <div class="skill-card"><div class="skill-icon"><i class="fab fa-bootstrap"></i></div><div><h4>Bootstrap 5</h4><p>Responsive UI/UX design</p></div></div>
+                <div class="skill-card"><div class="skill-icon"><i class="fas fa-envelope"></i></div><div><h4>PHPMailer</h4><p>Email integration & notifications</p></div></div>
+            </div>
+        </div>
+        <div id="analytics" class="skills-content">
+            <div class="skills-grid">
+                <div class="skill-card"><div class="skill-icon"><i class="fas fa-chart-line"></i></div><div><h4>Power BI</h4><p>Interactive dashboards & KPIs</p></div></div>
+                <div class="skill-card"><div class="skill-icon"><i class="fas fa-file-excel"></i></div><div><h4>Advanced Excel</h4><p>Pivot, DAX, Macros</p></div></div>
+                <div class="skill-card"><div class="skill-icon"><i class="fas fa-chart-pie"></i></div><div><h4>Tableau</h4><p>Data visualization & storytelling</p></div></div>
+                <div class="skill-card"><div class="skill-icon"><i class="fas fa-chart-bar"></i></div><div><h4>DHIS / SAS</h4><p>Healthcare data reporting & analysis</p></div></div>
+            </div>
+        </div>
+        <div id="infra" class="skills-content">
+            <div class="skills-grid">
+                <div class="skill-card"><div class="skill-icon"><i class="fas fa-microchip"></i></div><div><h4>AI/ML Integration</h4><p>Neural voice, predictive models</p></div></div>
+                <div class="skill-card"><div class="skill-icon"><i class="fas fa-cloud"></i></div><div><h4>AWS / Azure</h4><p>Cloud deployment & services</p></div></div>
+                <div class="skill-card"><div class="skill-icon"><i class="fas fa-network-wired"></i></div><div><h4>Networking & Security</h4><p>Firewalls, VPN, system audits</p></div></div>
+                <div class="skill-card"><div class="skill-icon"><i class="fab fa-docker"></i></div><div><h4>Docker / Git</h4><p>Containerization & version control</p></div></div>
+            </div>
         </div>
     </div>
+</section>
 
-    <!-- EMPLOYEES TAB -->
-    <div id="employees" class="tab-pane">
-        <div style="margin-bottom:16px;display:flex;gap:10px">
-            <button id="addEmployeeBtn"><i class="fas fa-plus"></i> Add Employee</button>
-            <button id="syncFromChatBtn" class="btn-outline"><i class="fas fa-sync"></i> Sync from Chat</button>
-        </div>
-        <div class="table-wrapper">
-            <table id="employeeTable">
-                <thead><tr><th>Name</th><th>Designation</th><th>Posting Office</th><th>Phone Number</th><th>Actions</th></tr></thead>
-                <tbody id="employeeTbody"></tbody>
-            </table>
+<!-- Experience Section - Updated with Detailed Points -->
+<section id="experience">
+    <div class="container">
+        <div class="section-title"><h2>Work Experience</h2><p>10+ years of progressive IT leadership & development</p></div>
+        <div class="exp-grid">
+            <!-- Experience 1 - PPHI Sindh -->
+            <div class="exp-card">
+                <div class="exp-header"><h3>IT / Assistant Data Processing</h3><div>PPHI Sindh, Karachi</div><span class="exp-date">Nov 2023 - Present</span></div>
+                <div class="exp-body"><ul>
+                    <li><i class="fas fa-check-circle"></i> Manages data systems, ensuring accuracy, security, and efficient processing</li>
+                    <li><i class="fas fa-check-circle"></i> Maintain databases, analyze data for insights, oversee system functionality</li>
+                    <li><i class="fas fa-check-circle"></i> DHIS (District Health Information System) Reporting & SAS Analysis</li>
+                    <li><i class="fas fa-check-circle"></i> Compare Data Accuracy between DHIS and SAS systems</li>
+                    <li><i class="fas fa-check-circle"></i> Biometrics Attendance & CCTV Configuration management</li>
+                    <li><i class="fas fa-check-circle"></i> Vendor Relationships for IT procurement & support</li>
+                    <li><i class="fas fa-check-circle"></i> Weekly Reporting to Regional Office & Desktop/Printers Support</li>
+                </ul></div>
+            </div>
+            <!-- Experience 2 - Sindh School System -->
+            <div class="exp-card">
+                <div class="exp-header"><h3>Manager IT</h3><div>Sindh School System Welfare Foundation</div><span class="exp-date">Mar 2021 - Oct 2023</span></div>
+                <div class="exp-body"><ul>
+                    <li><i class="fas fa-check-circle"></i> Regular checks on network and data security, system audits</li>
+                    <li><i class="fas fa-check-circle"></i> Develop IT policy, best practice guides, training programs for staff</li>
+                    <li><i class="fas fa-check-circle"></i> Manage IT budget allocation & major project timelines (upgrades, migrations)</li>
+                    <li><i class="fas fa-check-circle"></i> Vehicle Tracking System installation, maintenance & reporting</li>
+                    <li><i class="fas fa-check-circle"></i> Students & Employees Data Analysis for performance tracking</li>
+                    <li><i class="fas fa-check-circle"></i> Provide direction for IT team members & identify training opportunities</li>
+                </ul></div>
+            </div>
+            <!-- Experience 3 - NJV School -->
+            <div class="exp-card">
+                <div class="exp-header"><h3>IT Incharge</h3><div>NJV School – Akhuwat Foundation</div><span class="exp-date">Sep 2017 - Jun 2020</span></div>
+                <div class="exp-body"><ul>
+                    <li><i class="fas fa-check-circle"></i> Lead team of 10 IT professionals supporting several hundred employees</li>
+                    <li><i class="fas fa-check-circle"></i> Design & update company-wide information management systems</li>
+                    <li><i class="fas fa-check-circle"></i> Manage electronic manuals, publications & medical database reports for Govt Sindh</li>
+                    <li><i class="fas fa-check-circle"></i> Employee & Students Biometric/RFID attendance system</li>
+                    <li><i class="fas fa-check-circle"></i> Process data district-wise: identification, quality control, warehouse (SSESP, SEF)</li>
+                    <li><i class="fas fa-check-circle"></i> Training & orientation of new IT hires</li>
+                </ul></div>
+            </div>
+            <!-- Experience 4 - KIAS Marine Services -->
+            <div class="exp-card">
+                <div class="exp-header"><h3>Data Processing Officer</h3><div>KIAS Marine Services (KPT)</div><span class="exp-date">Jul 2020 - Mar 2021</span></div>
+                <div class="exp-body"><ul>
+                    <li><i class="fas fa-check-circle"></i> Organize documents, prepare and code data for entry into computer systems</li>
+                    <li><i class="fas fa-check-circle"></i> Check applicants' identity with approved identification documents</li>
+                    <li><i class="fas fa-check-circle"></i> Compile and gather data for processing, insert into database</li>
+                    <li><i class="fas fa-check-circle"></i> Perform relieving duties for Executive Assistant (Data Management)</li>
+                    <li><i class="fas fa-check-circle"></i> General office duties: phones, scheduling meetings, filing paperwork</li>
+                    <li><i class="fas fa-check-circle"></i> Daily attendance analysis & reporting</li>
+                </ul></div>
+            </div>
         </div>
     </div>
-</div>
-<div class="footer">✅ Attendance Rules: AM messages (before 12:00) = Check In | PM messages (after 12:00) = Check Out | Late if after 8:46 AM | Sunday Holiday</div>
+</section>
+
+<!-- Professional Skills Section -->
+<section style="background: #f8fafc;">
+    <div class="container">
+        <div class="section-title"><h2>Professional Competencies</h2><p>Core skills that drive success</p></div>
+        <div class="soft-skills-grid">
+            <div class="soft-skill-item"><i class="fas fa-microchip"></i><h4>Technical Knowledge</h4><p>Deep IT & systems expertise</p></div>
+            <div class="soft-skill-item"><i class="fas fa-comments"></i><h4>Communication Skills</h4><p>Clear & effective communication</p></div>
+            <div class="soft-skill-item"><i class="fas fa-network-wired"></i><h4>Networking</h4><p>Infrastructure & security</p></div>
+            <div class="soft-skill-item"><i class="fas fa-file-alt"></i><h4>Documentation & Reporting</h4><p>Detailed & accurate</p></div>
+            <div class="soft-skill-item"><i class="fas fa-laptop-code"></i><h4>Hardware/Software Programs</h4><p>Installation & maintenance</p></div>
+            <div class="soft-skill-item"><i class="fas fa-brain"></i><h4>Analytical Thinking</h4><p>Problem-solving mindset</p></div>
+            <div class="soft-skill-item"><i class="fas fa-shield-alt"></i><h4>Information Security Awareness</h4><p>Data protection & compliance</p></div>
+            <div class="soft-skill-item"><i class="fas fa-users"></i><h4>Collaboration & Teamwork</h4><p>Cross-functional leadership</p></div>
+            <div class="soft-skill-item"><i class="fas fa-database"></i><h4>PHP & Databases/MySQL</h4><p>Backend development</p></div>
+            <div class="soft-skill-item"><i class="fas fa-clock"></i><h4>Time Management & Prioritization</h4><p>Efficient delivery</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Slider -->
+<section id="projects" style="background: #ffffff;">
+    <div class="container">
+        <div class="section-title"><h2>Featured Projects</h2><p>Custom platforms, AI applications & data solutions</p></div>
+        <div class="swiper projects-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><div class="project-card"><div class="project-img" style="background: linear-gradient(135deg, #0f3b5c, #1a5d8c);"><i class="fas fa-graduation-cap"></i></div><div class="project-content"><h3>PrepEdge – Smart MCQ Portal</h3><p>Complete exam platform with dashboard, user activity, PHPMailer, 2500+ MCQs. HTML5, CSS3, JS, jQuery, Bootstrap, PHP, MySQL, Python.</p><div class="project-tags"><span class="project-tag">PHP/MySQL</span><span class="project-tag">jQuery</span><span class="project-tag">PHPMailer</span><span class="project-tag">Dashboard</span></div><a href="https://prepedge.great-site.net/?i=1" target="_blank" class="project-link">Live Demo <i class="fas fa-external-link-alt"></i></a></div></div></div>
+                <div class="swiper-slide"><div class="project-card"><div class="project-img" style="background: linear-gradient(135deg, #1a1a2e, #16213e);"><i class="fas fa-microphone-alt"></i></div><div class="project-content"><h3>Neural Studio – AI Voice Synthesis</h3><p>Neural voice generation (English/Hindi/Urdu). Python, JS, HTML5, CSS3, Web Audio API, AI/ML models.</p><div class="project-tags"><span class="project-tag">AI/ML</span><span class="project-tag">Python</span><span class="project-tag">JavaScript</span><span class="project-tag">Web Audio</span></div><a href="https://voxer-pro-studio-zrs6.vercel.app/" target="_blank" class="project-link">Launch Studio <i class="fas fa-external-link-alt"></i></a></div></div></div>
+                <div class="swiper-slide"><div class="project-card"><div class="project-img" style="background: linear-gradient(135deg, var(--primary), var(--secondary));"><i class="fas fa-chart-line"></i></div><div class="project-content"><h3>Smart Outlier Dashboard</h3><p>Power BI + Python anomaly detection for real-time business intelligence.</p><div class="project-tags"><span class="project-tag">Power BI</span><span class="project-tag">Python</span></div><a href="https://rajesh01-droid.github.io/SmartOutlierDashboard/" target="_blank" class="project-link">Live Demo <i class="fas fa-arrow-right"></i></a></div></div></div>
+                <div class="swiper-slide"><div class="project-card"><div class="project-img" style="background: linear-gradient(135deg, var(--primary-dark), var(--primary));"><i class="fas fa-blog"></i></div><div class="project-content"><h3>Professional IT Blog</h3><p>Custom Laravel CMS with SEO, analytics dashboard, responsive design.</p><div class="project-tags"><span class="project-tag">Laravel</span><span class="project-tag">MySQL</span><span class="project-tag">jQuery</span></div><a href="https://rajesh01-droid.github.io/rajesh-kumar-blog/" target="_blank" class="project-link">View <i class="fas fa-arrow-right"></i></a></div></div></div>
+                <div class="swiper-slide"><div class="project-card"><div class="project-img" style="background: linear-gradient(135deg, var(--secondary), var(--secondary-light));"><i class="fas fa-map-marked-alt"></i></div><div class="project-content"><h3>Location Intelligence Platform</h3><p>Real-time geo-analytics & tracking with JavaScript Maps API.</p><div class="project-tags"><span class="project-tag">JavaScript</span><span class="project-tag">API</span></div><a href="https://rajesh01-droid.github.io/WhatsAppLocation/" target="_blank" class="project-link">Explore <i class="fas fa-arrow-right"></i></a></div></div></div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" style="background: #f8fafc;">
+    <div class="container">
+        <div class="section-title"><h2>Get In Touch</h2><p>Let's build something exceptional together</p></div>
+        <div class="contact-grid">
+            <div>
+                <div class="contact-card"><div class="contact-icon"><i class="fas fa-phone-alt"></i></div><div><h3>Phone / WhatsApp</h3><p>+92 332 246 3588</p><small>9AM - 6PM</small></div></div>
+                <div class="contact-card"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div><h3>Email</h3><p>rajesh_kumar1@hotmail.com</p><small>Response 24hrs</small></div></div>
+                <div class="contact-card"><div class="contact-icon"><i class="fab fa-linkedin"></i></div><div><h3>LinkedIn</h3><p>linkedin.com/in/rajesh-kumar-b24603119</p></div></div>
+            </div>
+            <form id="contactForm" class="contact-form">
+                <input type="text" id="name" class="form-control" placeholder="Full Name" required>
+                <input type="email" id="email" class="form-control" placeholder="Email Address" required>
+                <input type="text" id="subject" class="form-control" placeholder="Subject" required>
+                <textarea id="message" rows="5" class="form-control" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;"><i class="fas fa-paper-plane"></i> Send Message</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <p>© 2025 Rajesh Kumar | Senior Web Developer & Data Analyst | AI/ML Enthusiast</p>
+        <p style="margin-top: 10px; font-size: 0.8rem;">PHP Laravel | JavaScript | Python | Power BI | PrepEdge | Neural AI Voice</p>
+    </div>
+</footer>
 
 <script>
-// ============ DATA STORAGE ============
-let employees = [];  // { id, name, designation, posting, phone }
-let attendanceRecords = [];  // Array of { date, employeeName, phone, checkIn, checkOut, location, status }
-let allMessages = [];
+    // Mobile Toggle
+    const toggle = document.getElementById('mobileToggle');
+    const nav = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => nav.classList.toggle('active'));
+    document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', () => nav.classList.remove('active')));
 
-// Load/Save employees
-function saveEmployees() { localStorage.setItem('employees_db', JSON.stringify(employees)); }
-function loadEmployees() { let e = localStorage.getItem('employees_db'); if(e) employees = JSON.parse(e); else employees = []; }
+    // Header Scroll
+    window.addEventListener('scroll', () => {
+        document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50);
+    });
 
-function escapeHtml(s) { if(!s) return ''; return String(s).replace(/[&<>]/g, function(m) { return m==='&'?'&amp;':m==='<'?'&lt;':'&gt;'; }); }
-function formatTime12(t) { if(!t) return '-'; let [h,m] = t.split(':'); let hour = parseInt(h); let ap = hour>=12 ? 'PM' : 'AM'; let hr12 = hour%12 || 12; return `${hr12}:${m} ${ap}`; }
-function timeToMinutes(t) { if(!t) return 0; let parts = t.split(':'); return parseInt(parts[0])*60 + parseInt(parts[1]); }
-function getDayOfWeek(dateStr) { let [dd,mm,yy] = dateStr.split('/'); return new Date(parseInt(yy), parseInt(mm)-1, parseInt(dd)).getDay(); }
-
-// Get employee by phone number
-function getEmployeeByPhone(phone) {
-    let cleanPhone = phone.replace(/\D/g, '').replace(/^92/, '0');
-    let found = employees.find(e => e.phone && e.phone.replace(/\D/g, '').replace(/^92/, '0') === cleanPhone);
-    if(found) return found;
-    // Try partial match
-    let last7 = cleanPhone.slice(-7);
-    return employees.find(e => e.phone && e.phone.replace(/\D/g, '').slice(-7) === last7);
-}
-
-// Extract phone from sender string
-function extractPhone(sender) {
-    let match = sender.match(/[\+0-9]{10,15}/);
-    if(match) return match[0];
-    return sender;
-}
-
-// ============ WHATSAPP PARSER ============
-function parseWhatsAppFile(text) {
-    const lines = text.split(/\r?\n/);
-    const messages = [];
-    
-    // Pattern for: "26/03/2025, 8:12 am - +92 336 8456017: message"
-    const pattern = /^(\d{1,2}\/\d{1,2}\/\d{2,4}),\s+(\d{1,2}:\d{2})\s+(am|pm)\s*-\s*([^:]+):\s*(.*)$/i;
-    
-    for (let line of lines) {
-        line = line.trim();
-        if (!line) continue;
-        
-        const match = line.match(pattern);
-        if (match) {
-            let dateStr = match[1];
-            let timeHour = match[2];
-            let ampm = match[3].toLowerCase();
-            let sender = match[4].trim();
-            let message = match[5] || '';
-            
-            // Convert to 24-hour format
-            let hours = parseInt(timeHour.split(':')[0]);
-            let minutes = timeHour.split(':')[1];
-            
-            if (ampm === 'pm' && hours !== 12) hours += 12;
-            else if (ampm === 'am' && hours === 12) hours = 0;
-            
-            let time24 = `${hours.toString().padStart(2,'0')}:${minutes}`;
-            
-            // Normalize date
-            let parts = dateStr.split('/');
-            let day = parts[0].padStart(2,'0');
-            let month = parts[1].padStart(2,'0');
-            let year = parts[2];
-            if (year.length === 2) year = '20' + year;
-            let normalizedDate = `${day}/${month}/${year}`;
-            
-            // Extract phone and name
-            let phone = extractPhone(sender);
-            let name = sender.replace(phone, '').replace(/^[\+\-\s]+/, '').trim();
-            if(!name) name = phone;
-            
-            messages.push({
-                date: normalizedDate,
-                time: time24,
-                timeRaw: timeHour + ' ' + ampm,
-                ampm: ampm,
-                sender: sender,
-                name: name,
-                phone: phone,
-                message: message
-            });
-        }
-    }
-    return messages;
-}
-
-// ============ BUILD ATTENDANCE RECORDS ============
-function buildAttendanceRecords(messages) {
-    // Group messages by date and person (using phone as key)
-    let grouped = {};
-    
-    for (let msg of messages) {
-        let key = `${msg.date}_${msg.phone}`;
-        if (!grouped[key]) {
-            grouped[key] = {
-                date: msg.date,
-                phone: msg.phone,
-                name: msg.name,
-                checkIn: null,
-                checkOut: null,
-                location: null,
-                amMessages: [],
-                pmMessages: []
-            };
-        }
-        
-        // Separate AM and PM messages
-        if (msg.ampm === 'am') {
-            grouped[key].amMessages.push(msg);
-        } else {
-            grouped[key].pmMessages.push(msg);
-        }
-        
-        // Check for location
-        if (msg.message.toLowerCase().includes('live location') || msg.message.includes('http')) {
-            let urlMatch = msg.message.match(/https?:\/\/[^\s]+/i);
-            if (urlMatch) grouped[key].location = urlMatch[0];
-        }
-    }
-    
-    // Process each group to determine check-in and check-out
-    let records = [];
-    let lateCount = 0, onTimeCount = 0;
-    
-    for (let key in grouped) {
-        let g = grouped[key];
-        
-        // Check In: Earliest AM message (between 6 AM and 12 PM)
-        if (g.amMessages.length > 0) {
-            g.amMessages.sort((a,b) => timeToMinutes(a.time) - timeToMinutes(b.time));
-            g.checkIn = g.amMessages[0].time;
-        }
-        
-        // Check Out: Latest PM message (after 12 PM)
-        if (g.pmMessages.length > 0) {
-            g.pmMessages.sort((a,b) => timeToMinutes(b.time) - timeToMinutes(a.time));
-            g.checkOut = g.pmMessages[0].time;
-        }
-        
-        // Get employee details from database
-        let emp = getEmployeeByPhone(g.phone);
-        let displayName = emp ? emp.name : (g.name || g.phone);
-        let designation = emp ? emp.designation : '-';
-        let posting = emp ? emp.posting : '-';
-        
-        // Calculate status
-        let dayOfWeek = getDayOfWeek(g.date);
-        let status = 'Present';
-        
-        if (dayOfWeek === 0) {
-            status = 'Holiday (Sunday)';
-        } else if (!g.checkIn) {
-            status = 'Absent';
-        } else {
-            // Check if late (after 8:46 AM)
-            let checkInMins = timeToMinutes(g.checkIn);
-            let lateThreshold = 8*60 + 46; // 8:46 AM
-            if (checkInMins > lateThreshold) {
-                status = 'Late';
-                lateCount++;
-            } else {
-                status = 'On Time';
-                onTimeCount++;
-            }
-        }
-        
-        records.push({
-            id: key,
-            date: g.date,
-            employeeName: displayName,
-            phone: g.phone,
-            designation: designation,
-            posting: posting,
-            checkIn: g.checkIn,
-            checkOut: g.checkOut,
-            location: g.location,
-            status: status,
-            amCount: g.amMessages.length,
-            pmCount: g.pmMessages.length
+    // Skills Tabs
+    const tabs = document.querySelectorAll('.skill-tab');
+    const contents = document.querySelectorAll('.skills-content');
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            contents.forEach(c => c.classList.remove('active'));
+            document.getElementById(tab.dataset.tab).classList.add('active');
         });
-    }
-    
-    // Sort by date (newest first)
-    records.sort((a, b) => {
-        let [da, ma, ya] = a.date.split('/');
-        let [db, mb, yb] = b.date.split('/');
-        return new Date(yb, mb-1, db) - new Date(ya, ma-1, da);
     });
-    
-    return { records, lateCount, onTimeCount };
-}
 
-// ============ FILTER & RENDER ============
-let currentRecords = [];
-
-function applyFilters() {
-    let startDate = document.getElementById('startDate').value;
-    let endDate = document.getElementById('endDate').value;
-    let searchTerm = document.getElementById('searchBox').value.toLowerCase().trim();
-    
-    let filtered = attendanceRecords.filter(record => {
-        // Date filter
-        let [dd, mm, yy] = record.date.split('/');
-        let curDate = new Date(parseInt(yy), parseInt(mm)-1, parseInt(dd));
-        
-        if (startDate && !endDate) {
-            let s = new Date(startDate);
-            if (curDate.toDateString() !== s.toDateString()) return false;
-        } else if (startDate && endDate) {
-            let s = new Date(startDate);
-            let e = new Date(endDate);
-            if (curDate < s || curDate > e) return false;
-        }
-        
-        // Search filter
-        if (searchTerm) {
-            if (!record.employeeName.toLowerCase().includes(searchTerm) && 
-                !record.phone.includes(searchTerm)) return false;
-        }
-        
-        return true;
+    // Projects Swiper
+    new Swiper('.projects-swiper', {
+        slidesPerView: 1, spaceBetween: 30, pagination: { el: '.swiper-pagination', clickable: true },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        breakpoints: { 640: { slidesPerView: 1 }, 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
     });
-    
-    currentRecords = filtered;
-    renderDailyTable();
-    renderSummaryTable();
-    updateStats();
-    drawCharts();
-}
 
-function renderDailyTable() {
-    let tbody = document.getElementById('dailyTbody');
-    tbody.innerHTML = '';
-    
-    if (currentRecords.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:40px">📁 No data. Click "Process File" first.</td></tr>';
-        return;
-    }
-    
-    for (let rec of currentRecords) {
-        let statusClass = rec.status === 'On Time' ? 'ontime' : (rec.status === 'Late' ? 'late' : 'absent');
-        let checkInDisplay = rec.checkIn ? formatTime12(rec.checkIn) : '-';
-        let checkOutDisplay = rec.checkOut ? formatTime12(rec.checkOut) : '-';
-        let locDisplay = rec.location ? `<a href="${rec.location}" target="_blank" style="color:#075E54">📍 View</a>` : '-';
-        
-        tbody.innerHTML += `<tr>
-            <td><strong>${rec.date}</strong></td>
-            <td>${escapeHtml(rec.employeeName)}</td>
-            <td>${rec.phone}</td>
-            <td>${checkInDisplay}</td>
-            <td>${checkOutDisplay}</td>
-            <td><span class="badge ${statusClass}">${rec.status}</span></td>
-            <td>${locDisplay}</td>
-        </table>`;
-    }
-}
-
-function renderSummaryTable() {
-    let tbody = document.getElementById('summaryTbody');
-    tbody.innerHTML = '';
-    
-    // Group by employee
-    let empSummary = {};
-    for (let rec of currentRecords) {
-        if (!empSummary[rec.phone]) {
-            empSummary[rec.phone] = {
-                name: rec.employeeName,
-                phone: rec.phone,
-                designation: rec.designation,
-                total: 0,
-                onTime: 0,
-                late: 0,
-                absent: 0,
-                holiday: 0
-            };
-        }
-        empSummary[rec.phone].total++;
-        if (rec.status === 'On Time') empSummary[rec.phone].onTime++;
-        else if (rec.status === 'Late') empSummary[rec.phone].late++;
-        else if (rec.status === 'Absent') empSummary[rec.phone].absent++;
-        else if (rec.status === 'Holiday (Sunday)') empSummary[rec.phone].holiday++;
-    }
-    
-    let sno = 1;
-    for (let phone in empSummary) {
-        let e = empSummary[phone];
-        let workingDays = e.total - e.holiday;
-        let attendancePercent = workingDays > 0 ? Math.round(((e.onTime + e.late) / workingDays) * 100) : 0;
-        let onTimePercent = workingDays > 0 ? Math.round((e.onTime / workingDays) * 100) : 0;
-        
-        tbody.innerHTML += `<tr>
-            <td>${sno++}</td>
-            <td><strong>${escapeHtml(e.name)}</strong></td>
-            <td>${e.phone}</td>
-            <td>${e.total}</td>
-            <td>${e.onTime + e.late}</td>
-            <td><span class="badge ontime">${e.onTime}</span></td>
-            <td><span class="badge late">${e.late}</span></td>
-            <td>${e.absent}</td>
-            <td><strong>${attendancePercent}%</strong></td>
-        </tr>`;
-    }
-}
-
-function renderEmployees() {
-    let tbody = document.getElementById('employeeTbody');
-    tbody.innerHTML = '';
-    employees.forEach((emp, idx) => {
-        tbody.innerHTML += `<tr>
-            <td>${escapeHtml(emp.name)}</td>
-            <td>${escapeHtml(emp.designation)}</td>
-            <td>${escapeHtml(emp.posting)}</td>
-            <td>${emp.phone}</td>
-            <td>
-                <button class="btn-outline" onclick="editEmployee('${emp.id}')" style="margin-right:5px">Edit</button>
-                <button onclick="deleteEmployee('${emp.id}')" style="background:#dc3545;color:white;border:none;padding:4px 10px;border-radius:6px">Del</button>
-            </td>
-        </tr>`;
-    });
-    if(employees.length === 0) tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;padding:40px">No employees added. Click "Sync from Chat" to import.</td></tr>';
-}
-
-function updateStats() {
-    let uniquePhones = new Set(currentRecords.map(r => r.phone));
-    document.getElementById('totalPeople').innerText = uniquePhones.size;
-    document.getElementById('totalRecords').innerText = currentRecords.length;
-    
-    let onTime = currentRecords.filter(r => r.status === 'On Time').length;
-    let late = currentRecords.filter(r => r.status === 'Late').length;
-    document.getElementById('totalOnTime').innerText = onTime;
-    document.getElementById('totalLate').innerText = late;
-}
-
-function drawCharts() {
-    // Get dates in order
-    let dateGroups = {};
-    for (let rec of currentRecords) {
-        if (!dateGroups[rec.date]) dateGroups[rec.date] = { onTime: 0, late: 0 };
-        if (rec.status === 'On Time') dateGroups[rec.date].onTime++;
-        else if (rec.status === 'Late') dateGroups[rec.date].late++;
-    }
-    
-    let sortedDates = Object.keys(dateGroups).sort((a,b) => {
-        let [da,ma,ya]=a.split('/'),[db,mb,yb]=b.split('/');
-        return new Date(ya,ma-1,da) - new Date(yb,mb-1,db);
-    });
-    
-    let onTimeData = sortedDates.map(d => dateGroups[d].onTime);
-    let lateData = sortedDates.map(d => dateGroups[d].late);
-    
-    if (window.barChart) window.barChart.destroy();
-    if (window.lineChart) window.lineChart.destroy();
-    
-    if (sortedDates.length > 0) {
-        window.barChart = new Chart(document.getElementById('attendanceChart'), {
-            type: 'bar',
-            data: { labels: sortedDates, datasets: [
-                { label: 'On Time', data: onTimeData, backgroundColor: '#28a745' },
-                { label: 'Late', data: lateData, backgroundColor: '#ffc107' }
-            ]},
-            options: { responsive: true, maintainAspectRatio: true, scales: { x: { stacked: true }, y: { stacked: true, beginAtZero: true } } }
-        });
-        
-        window.lineChart = new Chart(document.getElementById('trendChart'), {
-            type: 'line',
-            data: { labels: sortedDates, datasets: [
-                { label: 'On Time Trend', data: onTimeData, borderColor: '#28a745', fill: false, tension: 0.3 }
-            ]},
-            options: { responsive: true }
-        });
-    }
-}
-
-// ============ EMPLOYEE MANAGEMENT ============
-window.editEmployee = (id) => {
-    let emp = employees.find(e => e.id === id);
-    if (emp) {
-        document.getElementById('empId').value = emp.id;
-        document.getElementById('empName').value = emp.name;
-        document.getElementById('empDesignation').value = emp.designation;
-        document.getElementById('empPosting').value = emp.posting;
-        document.getElementById('empPhone').value = emp.phone;
-        document.getElementById('empModalTitle').innerText = 'Edit Employee';
-        document.getElementById('empModal').style.display = 'flex';
-    }
-};
-
-window.deleteEmployee = (id) => {
-    if (confirm('Delete this employee?')) {
-        employees = employees.filter(e => e.id !== id);
-        saveEmployees();
-        renderEmployees();
-    }
-};
-
-function syncFromChat() {
-    // Extract unique phones from messages
-    let uniquePhones = new Map();
-    for (let msg of allMessages) {
-        if (!uniquePhones.has(msg.phone)) {
-            uniquePhones.set(msg.phone, { name: msg.name, phone: msg.phone });
-        }
-    }
-    
-    // Add to employees if not exists
-    let added = 0;
-    for (let [phone, data] of uniquePhones) {
-        let exists = employees.some(e => e.phone === phone);
-        if (!exists && phone && phone.length > 5) {
-            employees.push({
-                id: Date.now() + '_' + Math.random().toString(36).substr(2, 4),
-                name: data.name,
-                designation: 'Staff',
-                posting: '-',
-                phone: phone
-            });
-            added++;
-        }
-    }
-    saveEmployees();
-    renderEmployees();
-    alert(`Synced ${added} new employees from chat data. Total employees: ${employees.length}`);
-}
-
-// ============ EXPORT EXCEL ============
-function exportExcel() {
-    if (currentRecords.length === 0) {
-        alert('No data to export');
-        return;
-    }
-    
-    let wb = XLSX.utils.book_new();
-    
-    // Daily sheet
-    let dailyData = [['Date', 'Employee Name', 'Phone', 'Check In (AM)', 'Check Out (PM)', 'Status', 'Location']];
-    for (let rec of currentRecords) {
-        dailyData.push([
-            rec.date, rec.employeeName, rec.phone,
-            rec.checkIn ? formatTime12(rec.checkIn) : '-',
-            rec.checkOut ? formatTime12(rec.checkOut) : '-',
-            rec.status, rec.location || ''
-        ]);
-    }
-    let ws1 = XLSX.utils.aoa_to_sheet(dailyData);
-    XLSX.utils.book_append_sheet(wb, ws1, 'Daily_Attendance');
-    
-    XLSX.writeFile(wb, `Attendance_Report_${new Date().toISOString().slice(0,10)}.xlsx`);
-    alert('Excel exported successfully!');
-}
-
-// ============ INITIALIZATION ============
-document.getElementById('processBtn').onclick = () => {
-    let file = document.getElementById('chatFile').files[0];
-    if (!file) { alert('Please select WhatsApp .txt file'); return; }
-    
-    let reader = new FileReader();
-    reader.onload = (e) => {
-        allMessages = parseWhatsAppFile(e.target.result);
-        
-        if (allMessages.length === 0) {
-            alert('No valid messages found. Check file format.');
-            return;
-        }
-        
-        let result = buildAttendanceRecords(allMessages);
-        attendanceRecords = result.records;
-        
-        // Apply date filters (default to last 7 days)
-        let today = new Date();
-        let lastWeek = new Date();
-        lastWeek.setDate(today.getDate() - 7);
-        document.getElementById('startDate').value = lastWeek.toISOString().slice(0,10);
-        document.getElementById('endDate').value = today.toISOString().slice(0,10);
-        
-        applyFilters();
-        
-        let infoBar = document.getElementById('infoBar');
-        infoBar.style.display = 'block';
-        infoBar.innerHTML = `✅ <strong>Success!</strong> Parsed ${allMessages.length} messages | ${attendanceRecords.length} attendance records | ${new Set(allMessages.map(m => m.phone)).size} unique people | Last date: ${attendanceRecords[0]?.date || 'N/A'}`;
-        
-        alert(`✅ Process Complete!\n📊 ${allMessages.length} messages parsed\n👥 ${new Set(allMessages.map(m => m.phone)).size} people found\n📅 ${attendanceRecords.length} attendance records created`);
-    };
-    reader.readAsText(file, 'UTF-8');
-};
-
-document.getElementById('applyBtn').onclick = applyFilters;
-document.getElementById('exportBtn').onclick = exportExcel;
-document.getElementById('syncFromChatBtn').onclick = syncFromChat;
-
-// Tab switching
-document.querySelectorAll('.tab').forEach(btn => {
-    btn.onclick = () => {
-        document.querySelectorAll('.tab-pane').forEach(p => p.style.display = 'none');
-        document.getElementById(btn.dataset.tab).style.display = 'block';
-        document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-    };
-});
-
-// Add Employee Modal
-document.getElementById('addEmployeeBtn').onclick = () => {
-    document.getElementById('empId').value = '';
-    document.getElementById('empName').value = '';
-    document.getElementById('empDesignation').value = '';
-    document.getElementById('empPosting').value = '';
-    document.getElementById('empPhone').value = '';
-    document.getElementById('empModalTitle').innerText = 'Add Employee';
-    document.getElementById('empModal').style.display = 'flex';
-};
-
-document.getElementById('saveEmpBtn').onclick = () => {
-    let id = document.getElementById('empId').value || Date.now().toString();
-    let name = document.getElementById('empName').value.trim();
-    if (!name) { alert('Name required'); return; }
-    let phone = document.getElementById('empPhone').value.trim();
-    if (!phone) { alert('Phone required'); return; }
-    
-    let existing = employees.findIndex(e => e.id === id);
-    let empObj = {
-        id, name,
-        designation: document.getElementById('empDesignation').value.trim() || '-',
-        posting: document.getElementById('empPosting').value.trim() || '-',
-        phone: phone
-    };
-    if (existing >= 0) employees[existing] = empObj;
-    else employees.push(empObj);
-    saveEmployees();
-    renderEmployees();
-    document.getElementById('empModal').style.display = 'none';
-    // Rebuild attendance with updated names
-    if (allMessages.length > 0) {
-        let result = buildAttendanceRecords(allMessages);
-        attendanceRecords = result.records;
-        applyFilters();
-    }
-};
-
-document.getElementById('closeEmpModal').onclick = () => document.getElementById('empModal').style.display = 'none';
-document.getElementById('closeEmpModalBtn').onclick = () => document.getElementById('empModal').style.display = 'none';
-
-// Set default dates (last 7 days)
-let todayDt = new Date();
-let last7 = new Date();
-last7.setDate(todayDt.getDate() - 7);
-document.getElementById('startDate').value = last7.toISOString().slice(0,10);
-document.getElementById('endDate').value = todayDt.toISOString().slice(0,10);
-
-loadEmployees();
-renderEmployees();
-
-window.onclick = (e) => { if(e.target.classList.contains('modal')) e.target.style.display = 'none'; };
-</script>
-
-<!-- Employee Modal -->
-<div id="empModal" class="modal">
-    <div class="modal-content">
-        <h3 id="empModalTitle">Add Employee</h3>
-        <input type="hidden" id="empId">
-        <div class="ctrl-group" style="margin-bottom:12px"><label>Full Name</label><input id="empName" style="width:100%"></div>
-        <div class="ctrl-group" style="margin-bottom:12px"><label>Designation</label><input id="empDesignation" style="width:100%"></div>
-        <div class="ctrl-group" style="margin-bottom:12px"><label>Posting Office</label><input id="empPosting" style="width:100%"></div>
-        <div class="ctrl-group" style="margin-bottom:12px"><label>Phone Number</label><input id="empPhone" placeholder="03001234567" style="width:100%"></div>
-        <div class="flex-btns">
-            <button id="closeEmpModalBtn" class="btn-outline">Cancel</button>
-            <button id="saveEmpBtn">Save</button>
+    // Professional CV Download - Complete with all data
+    document.getElementById('downloadCV').addEventListener('click', function() {
+        const cvHTML = `<!DOCTYPE html>
+        <html>
+        <head><meta charset="UTF-8"><title>Rajesh Kumar - Professional Resume</title>
+        <style>
+            body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 40px; background: white; color: #1e293b; line-height: 1.5; }
+            .resume { max-width: 1100px; margin: 0 auto; }
+            .header { text-align: center; border-bottom: 3px solid #0f3b5c; padding-bottom: 20px; margin-bottom: 30px; }
+            h1 { color: #0f3b5c; font-size: 32px; margin: 0; }
+            h2 { color: #e67e22; font-size: 20px; margin: 5px 0; }
+            .contact-info { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-top: 15px; font-size: 14px; }
+            .section { margin-bottom: 25px; }
+            .section-title { background: #0f3b5c; color: white; padding: 8px 15px; border-radius: 8px; font-size: 18px; margin-bottom: 15px; }
+            .grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 15px; }
+            .job, .project-item { margin-bottom: 20px; }
+            .job-title { font-weight: bold; font-size: 18px; color: #0f3b5c; }
+            .company { color: #e67e22; font-weight: 600; }
+            .date { float: right; color: #64748b; font-size: 14px; }
+            ul { margin: 8px 0 0 20px; }
+            .skill-badge { display: inline-block; background: #f1f5f9; padding: 5px 12px; border-radius: 20px; font-size: 12px; margin: 3px; }
+            .skills-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+            hr { margin: 20px 0; }
+            @media print { body { padding: 20px; } .section-title { background: #0f3b5c; -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+        </style>
+        </head>
+        <body>
+        <div class="resume">
+            <div class="header">
+                <h1>RAJESH KUMAR</h1>
+                <h2>Senior Web Developer (PHP Laravel) & Data Analyst</h2>
+                <div class="contact-info">
+                    <span>📞 +92 332 246 3588</span>
+                    <span>✉ rajesh_kumar1@hotmail.com</span>
+                    <span>📍 Karachi, Pakistan</span>
+                    <span>🔗 linkedin.com/in/rajesh-kumar-b24603119</span>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">Professional Summary</div>
+                <p>Senior IT Professional with 10+ years of comprehensive experience in web development (PHP Laravel), data analytics, and IT infrastructure. Expert in building custom platforms, AI/ML integrations, and data-driven solutions. Proven track record of delivering 60+ successful projects with 100% client satisfaction.</p>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">Technical Skills</div>
+                <div class="skills-list">
+                    <span class="skill-badge">PHP Laravel</span> <span class="skill-badge">JavaScript/jQuery</span>
+                    <span class="skill-badge">Python</span> <span class="skill-badge">MySQL/SQL</span>
+                    <span class="skill-badge">Power BI</span> <span class="skill-badge">Tableau</span>
+                    <span class="skill-badge">HTML5/CSS3</span> <span class="skill-badge">Bootstrap</span>
+                    <span class="skill-badge">PHPMailer</span> <span class="skill-badge">AI/ML Integration</span>
+                    <span class="skill-badge">DHIS/SAS</span> <span class="skill-badge">Networking & Security</span>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">Professional Competencies</div>
+                <div class="skills-list">
+                    <span class="skill-badge">Technical Knowledge</span> <span class="skill-badge">Communication Skills</span>
+                    <span class="skill-badge">Networking</span> <span class="skill-badge">Documentation & Reporting</span>
+                    <span class="skill-badge">Hardware/Software Programs</span> <span class="skill-badge">Analytical Thinking</span>
+                    <span class="skill-badge">Information Security Awareness</span> <span class="skill-badge">Collaboration & Teamwork</span>
+                    <span class="skill-badge">PHP & Databases/MySQL</span> <span class="skill-badge">Time Management & Prioritization</span>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">Work Experience</div>
+                <div class="job"><div class="job-title">IT / Assistant Data Processing</div><div class="company">PPHI Sindh, Karachi</div><span class="date">Nov 2023 - Present</span><ul><li>Manage data systems ensuring accuracy, security, and efficient processing</li><li>DHIS District Health Information System & SAS Reporting and Analysis</li><li>Compare Data Accuracy between DHIS and SAS</li><li>Biometrics Attendance, CCTV Configuration, Vendor Relationships</li><li>Weekly Reporting to Regional Office, Desktop/Printers Support</li></ul></div>
+                <div class="job"><div class="job-title">Manager IT</div><div class="company">Sindh School System Welfare Foundation</div><span class="date">Mar 2021 - Oct 2023</span><ul><li>Network and data security audits, IT policy development</li><li>IT budget allocation, major project timelines management</li><li>Vehicle Tracking System installation & reporting</li><li>Student & Employee Data Analysis, team training</li></ul></div>
+                <div class="job"><div class="job-title">IT Incharge</div><div class="company">NJV School – Akhuwat Foundation</div><span class="date">Sep 2017 - Jun 2020</span><ul><li>Lead team of 10 IT professionals, information management systems</li><li>Medical Database reports for Govt Sindh</li><li>Biometric/RFID attendance system, data processing for SSESP/SEF</li><li>Training & orientation of new IT hires</li></ul></div>
+                <div class="job"><div class="job-title">Data Processing Officer</div><div class="company">KIAS Marine Services (KPT)</div><span class="date">Jul 2020 - Mar 2021</span><ul><li>Data coding, entry, database management</li><li>Identity verification, daily attendance analysis</li><li>Office duties: phones, scheduling, filing</li></ul></div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">Key Projects</div>
+                <div class="grid-2">
+                    <div><strong>PrepEdge – Smart MCQ Portal</strong><br>Exam platform with dashboard, user activity, PHPMailer, 2500+ MCQs. Tech: PHP, MySQL, JS, jQuery, Bootstrap, Python.</div>
+                    <div><strong>Neural Studio – AI Voice Synthesis</strong><br>Neural voice generation (English/Hindi/Urdu). Python, JS, Web Audio API, AI/ML.</div>
+                    <div><strong>Smart Outlier Dashboard</strong><br>Power BI + Python anomaly detection for business intelligence.</div>
+                    <div><strong>Professional IT Blog</strong><br>Custom Laravel CMS with SEO & analytics dashboard.</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">Education & Certifications</div>
+                <ul><li>BS Computer Science – Benazir Bhutto Shaheed University (2012-2016)</li>
+                <li>CCNA – Cisco Certified Network Associate (2018)</li>
+                <li>MCSA – Windows Server 2012 (2018)</li>
+                <li>Software Development Certification – IBA University (2017)</li>
+                <li>Microsoft Certified Professional (2015)</li></ul>
+            </div>
+            
+            <hr>
+            <div style="text-align: center; font-size: 12px; color: #64748b;">References available upon request | Open to remote & relocation opportunities</div>
         </div>
-    </div>
-</div>
+        </body>
+        </html>`;
+        
+        const win = window.open();
+        win.document.write(cvHTML);
+        win.document.close();
+        win.print();
+    });
+
+    // Contact Form
+    document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subj = document.getElementById('subject').value;
+        const msg = document.getElementById('message').value;
+        window.location.href = `mailto:rajesh_kumar1@hotmail.com?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${msg}`)}`;
+        alert("Thank you! Your email client will open.");
+    });
+
+    // Active link highlight
+    const sections = document.querySelectorAll('section');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const top = section.offsetTop - 150;
+            if (scrollY >= top) current = section.getAttribute('id');
+        });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
+        });
+    });
+</script>
 </body>
 </html>
